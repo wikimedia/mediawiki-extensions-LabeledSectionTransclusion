@@ -8,7 +8,7 @@ if ( ! defined( 'MEDIAWIKI' ) )
  * @package MediaWiki
  * @subpackage Extensions
  *
- * @link http://www.mediawiki.org/wiki/Labeled_Section_Transclusion Documentation
+ * @link http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion Documentation
  *
  * @bug 5881
  *
@@ -28,7 +28,7 @@ $wgExtensionCredits['parserhook'][] = array(
         'name' => 'LabeledSectionTransclusion',
         'author' => 'Steve Sanbeg',
         'description' => 'adds #lst and #lstx functions and &lt;section&gt; tag, enables marked sections of text to be transcluded',
-        'url' => 'http://www.mediawiki.org/wiki/Labeled_Section_Transclusion'
+        'url' => 'http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion'
         );
 $wgParserTestFiles[] = dirname( __FILE__ ) . "/lstParserTests.txt";
 
@@ -45,11 +45,12 @@ function wfLabeledSectionTransclusionMagic( &$magicWords, $langCode ) {
   // Add the magic words
   $magicWords['lst'] = array( 0, 'lst' );
   $magicWords['lstx'] = array( 0, 'lstx' );
+  return true;
 }
 
 ##############################################################
 # To do transclusion from an extension, we need to interact with the parser
-# at a low level.  This is the general transclusiton functionality
+# at a low level.  This is the general transclusion functionality
 ##############################################################
 
 ///Register what we're working on in the parser, so we don't fall into a trap.
@@ -141,9 +142,9 @@ function wfLst_pat_($sec, $to)
   $sec = preg_quote($sec, '/');
   $to_sec = preg_quote($to_sec, '/');
   
-  return '/<section\s+begin=('.
+  return '/<section\s+begin='.
     "(?:$sec|\"$sec\"|'$sec')".
-    ')\s*\/?>(.*?)\n?<section\s+end='.
+    '\s*\/?>(.*?)\n?<section\s+end='.
     "(?:$to_sec|\"$to_sec\"|'$to_sec')".
     '\s*\/?>/s';
 }
@@ -167,7 +168,7 @@ function wfLstInclude(&$parser, $page='', $sec='', $to='')
   
   preg_match_all( $pat, $text, $m);
   $text = '';
-  foreach ($m[2] as $piece)  {
+  foreach ($m[1] as $piece)  {
     $text .= $piece;
   }
 
