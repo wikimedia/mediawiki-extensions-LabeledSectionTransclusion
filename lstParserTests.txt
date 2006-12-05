@@ -281,3 +281,33 @@ regexp special chars in section name
 <p>slash
 </p>
 !!end
+
+# We can't use the simplest case where the article transcludes itself
+# from a regression test (bug 8158).  This test will segv if the cycle
+# detection code in the extension fails.
+!!article
+cycle
+!!text
+<section begin=cycle/>{{#lst:cycle|cycle}}<section end=cycle/>
+!!endarticle
+!!test
+cycle detection
+!!options
+!!input
+{{#lst:cycle|cycle}}
+!!result
+<p><a href="/wiki/Cycle" title="Cycle">Cycle</a>
+</p>
+!!end
+
+#make sure we can still multiply-transclude (that is, path is cleared)
+!!test
+multiple transclude
+!!input
+{{#lst:sections|1}}
+{{#lst:sections|1}}
+!!result
+<p>sec 1
+sec 1
+</p>
+!!end
