@@ -41,8 +41,8 @@ function wfLabeledSectionTransclusion()
   $wgParser->setFunctionHook( 'lstx', 'wfLstExclude' );
 }
 
+/// Add the magic words
 function wfLabeledSectionTransclusionMagic( &$magicWords, $langCode ) {
-  // Add the magic words
   $magicWords['lst'] = array( 0, 'lst' );
   $magicWords['lstx'] = array( 0, 'lstx' );
   return true;
@@ -152,8 +152,6 @@ function wfLst_pat_($sec, $to)
 ///section inclusion - include all matching sections
 function wfLstInclude(&$parser, $page='', $sec='', $to='')
 {
-  global $wgHooks;
-  
   $pat = wfLst_pat_($sec,$to);
   $title = Title::newFromText($page);
 
