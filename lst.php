@@ -111,14 +111,19 @@ function wfLst_fetch_(&$parser, $page, $ns = NS_MAIN)
  * Handle recursive substitution here, so we can break cycles, and set up
  * return values so that edit sections will resolve correctly.
  **/
-function wfLst_parse_(&$parser, $title, $text, $part1) 
+function wfLst_parse_(&$parser, $title, $text, $part1, $skiphead=0) 
 {
+  // if someone tries something like<section begin=blah>lst only</section> text,
+  // may as well do the right thing.
+  $text = str_replace('</section>', '', $text);
+
   if (wfLst_open_($parser, $part1)) {
     //handle recursion here, so we can break cycles.
     $text = $parser->replaceVariables($text);
     wfLst_close_($parser, $part1);
     //Try to get edit sections correct by munging around the parser's guts.
-    return array($text, 'title'=>$title, 'replaceHeadings'=>true);
+    return array($text, 'title'=>$title, 'replaceHeadings'=>true, 
+		 'headingOffset'=>$skiphead);
   }  else {
     return "[[" . $title->getPrefixedText() . "]]". 
       "<!-- WARNING: LST loop detected -->";
@@ -164,13 +169,22 @@ function wfLstInclude(&$parser, $page='', $sec='', $to='')
   if ($text == false)
     return "[[" . $title->getPrefixedText() . "]]";
   
-  preg_match_all( $pat, $text, $m);
+  //preg_match_all( $pat, $text, $m);
+  preg_match_all( $pat, $text, $m, PREG_OFFSET_CAPTURE);
+
+  //count skipped headings, so parser (as of r18218) can skip them, to prevent wrong
+  //heading links (see bug 6563)
+  $begin_text = $parser->doHeadings(substr($text, 0, $m[0][0][1]));
+  $numHeadings =
+    preg_match_all( '/<H([1-6])(.*?'.'>)(.*?)<\/H[1-6] *>/i', $begin_text, $matches );
+  
   $text = '';
   foreach ($m[1] as $piece)  {
-    $text .= $piece;
+    $text .= $piece[0];
   }
 
-  return wfLst_parse_($parser,$title,$text, "#lst:${page}|${sec}");
+  //echo "**skip $numHeadings head\n";
+  return wfLst_parse_($parser,$title,$text, "#lst:${page}|${sec}", $numHeadings);
 }
   
 ///section exclusion, with optional replacement

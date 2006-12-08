@@ -232,7 +232,12 @@ headings
 ==section==
 blah
 <section end=head/>
+<section begin=head2/>
+==section2==
+blah
+<section end=head2/>
 !!endarticle
+
 !!test
 Transcluded section headings create edit link to template
 !!input
@@ -242,6 +247,17 @@ Transcluded section headings create edit link to template
 <p>blah
 </p>
 !!end
+
+!!test
+Transcluded section headings create edit link to right section (mw 1.9r18218)
+!!input
+{{#lst:headings|head2}}
+!!result
+<a name="section2"></a><h2><span class="editsection">[<a href="/index.php?title=Headings&amp;action=edit&amp;section=2" title="Headings">edit</a>]</span> <span class="mw-headline">section2</span></h2>
+<p>blah
+</p>
+!!end
+
 
 !!test
 Nick's bogus input
