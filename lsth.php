@@ -85,13 +85,20 @@ function wfLstIncludeHeading2(&$parser, $page='', $sec='', $to='')
 
 
   if (! isset($end_off)) {
-    $pat = '^(={1,'.$head_len.'})\s*.*?\1\s*$';
+    $pat = '^(={1,'.$head_len.'})(?!=)\s*.*?\1\s*$';
     if (preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off))
       $end_off = $m[0][1]-1;
     //else print "**fail end match: '$pat'\n";
+    //print "**head len is $head_len, pat is $pat, head is ".$m[1][0]."\n";
+    
     
   } 
   //print "**len is $head_len, end is $end_off\n";
+  $begin_text = $parser->doHeadings(substr($text, 0, $begin_off));
+  $numHeadings = 
+    preg_match_all( '/<H([1-6])(.*?'.'>)(.*?)<\/H[1-6] *>/i', $begin_text, $matches );
+
+  //echo "**head offset = $numHeadings\n";
 
   if (isset($end_off))
     $result = substr($text, $begin_off, $end_off - $begin_off);
@@ -100,7 +107,7 @@ function wfLstIncludeHeading2(&$parser, $page='', $sec='', $to='')
   
   //echo "**text: $begin_off + $end_off\n";
 
-  return wfLst_parse_($parser,$title,$result, "#lsth:${page}|${sec}");
+  return wfLst_parse_($parser,$title,$result, "#lsth:${page}|${sec}", $numHeadings);
 }
 
 

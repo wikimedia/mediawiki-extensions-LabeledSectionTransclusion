@@ -4,7 +4,7 @@ lsth
 
 # This is the standard article assumed to exist.
 !! article
-Sections
+LsthSections
 !! text
 this is the intro
 ==1==
@@ -32,7 +32,7 @@ this is ==not== a section
 !!test
 transclude a heading
 !!input
-{{#lsth:sections|1}}
+{{#lsth:LsthSections|1}}
 !!result
 <p>sec 1
 </p>
@@ -41,7 +41,7 @@ transclude a heading
 !!test
 transclude a heading (case insensitive)
 !!input
-{{#lsth:sections|A}}
+{{#lsth:LsthSections|A}}
 !!result
 <p>sec a
 </p>
@@ -50,7 +50,7 @@ transclude a heading (case insensitive)
 !!test
 transclude the intro
 !!input
-{{#lsth:sections}}
+{{#lsth:LsthSections}}
 !!result
 <p>this is the intro
 </p>
@@ -60,7 +60,7 @@ transclude the intro
 !!test
 transclude a heading
 !!input
-{{#lsth:sections|b}}
+{{#lsth:LsthSections|b}}
 !!result
 <p>this is ==not== a section
 </p>
@@ -69,6 +69,18 @@ transclude a heading
 !!test
 transclude a heading
 !!input
-{{#lsth:sections|not}}
+{{#lsth:LsthSections|not}}
 !!result
+!!end
+
+!!test
+transclude offset section -w- subs.
+!!input
+{{#lsth:LsthSections|2}}
+!!result
+<p>sec 2
+</p>
+<a name="3"></a><h3><span class="editsection">[<a href="/index.php?title=LsthSections&amp;action=edit&amp;section=3" title="LsthSections">edit</a>]</span> <span class="mw-headline">3</span></h3>
+<p>sec 3
+</p>
 !!end
