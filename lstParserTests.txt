@@ -327,3 +327,10 @@ multiple transclude
 sec 1
 </p>
 !!end
+
+!!test
+transclude nonexistant section
+!!input
+{{#lst:sections|9999}}
+!!result
+!!end
