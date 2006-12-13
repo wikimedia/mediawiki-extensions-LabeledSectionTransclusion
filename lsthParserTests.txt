@@ -84,3 +84,10 @@ transclude offset section -w- subs.
 <p>sec 3
 </p>
 !!end
+
+!!test
+transclude nonesistent section
+!!input
+{{#lsth:LsthSections|9999}}
+!!result
+!!end

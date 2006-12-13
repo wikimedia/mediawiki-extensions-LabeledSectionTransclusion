@@ -169,17 +169,15 @@ function wfLstInclude(&$parser, $page='', $sec='', $to='')
   if ($text == false)
     return "[[" . $title->getPrefixedText() . "]]";
   
-  //preg_match_all( $pat, $text, $m);
-  preg_match_all( $pat, $text, $m, PREG_OFFSET_CAPTURE);
-
-  //count skipped headings, so parser (as of r18218) can skip them, to prevent wrong
-  //heading links (see bug 6563)
-  if(!empty($m[0])) {
-  	$begin_text = $parser->doHeadings(substr($text, 0, $m[0][0][1]));
-  	$numHeadings =
-    preg_match_all( '/<H([1-6])(.*?'.'>)(.*?)<\/H[1-6] *>/i', $begin_text, $matches );
-  } else
-  	$numHeadings = 0;
+  if(preg_match_all( $pat, $text, $m, PREG_OFFSET_CAPTURE)) {
+    //count skipped headings, so parser (as of r18218) can skip them, to prevent wrong
+    //heading links (see bug 6563)
+    $begin_text = $parser->doHeadings(substr($text, 0, $m[0][0][1]));
+    $numHeadings =
+      preg_match_all( '/<H([1-6])(.*?'.'>)(.*?)<\/H[1-6] *>/i', $begin_text, $matches );
+  } else {
+    $numHeadings = 0;
+  }
   
   $text = '';
   foreach ($m[1] as $piece)  {
