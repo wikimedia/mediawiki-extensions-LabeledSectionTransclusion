@@ -93,11 +93,8 @@ function wfLstIncludeHeading2(&$parser, $page='', $sec='', $to='')
     
     
   } 
-  //print "**len is $head_len, end is $end_off\n";
-  $begin_text = $parser->doHeadings(substr($text, 0, $begin_off));
-  $numHeadings = 
-    preg_match_all( '/<H([1-6])(.*?'.'>)(.*?)<\/H[1-6] *>/i', $begin_text, $matches );
 
+  $numHeadings = wfLst_count_headings_(substr($text, 0, $begin_off),$parser);
   //echo "**head offset = $numHeadings\n";
 
   if (isset($end_off))

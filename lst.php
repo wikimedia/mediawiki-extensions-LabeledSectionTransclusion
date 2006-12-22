@@ -41,10 +41,10 @@ function wfLabeledSectionTransclusion()
   $wgParser->setFunctionHook( 'lstx', 'wfLstExclude' );
 }
 
-/// Add the magic words
+/// Add the magic words - possibly with more readable aliases
 function wfLabeledSectionTransclusionMagic( &$magicWords, $langCode ) {
-  $magicWords['lst'] = array( 0, 'lst' );
-  $magicWords['lstx'] = array( 0, 'lstx' );
+  $magicWords['lst'] = array( 0, 'lst', 'section' );
+  $magicWords['lstx'] = array( 0, 'lstx', 'section-x' );
   return true;
 }
 
@@ -119,8 +119,17 @@ function wfLst_parse_(&$parser, $title, $text, $part1, $skiphead=0)
 
   if (wfLst_open_($parser, $part1)) {
     //handle recursion here, so we can break cycles.
-    $text = $parser->replaceVariables($text);
-    wfLst_close_($parser, $part1);
+    global $wgVersion;
+    
+    //if ($wgVersion === "1.9alpha") $wgVersion = "1.9";
+    //if (SpecialVersion::getSVNRevision($IP) < 18473) {
+
+    if( version_compare( $wgVersion, "1.9" ) < 0 ) {
+      echo( "Using old handling for $IP" );
+      $text = $parser->replaceVariables($text);
+      wfLst_close_($parser, $part1);
+    }
+    
     //Try to get edit sections correct by munging around the parser's guts.
     return array($text, 'title'=>$title, 'replaceHeadings'=>true, 
 		 'headingOffset'=>$skiphead);
@@ -154,6 +163,37 @@ function wfLst_pat_($sec, $to)
     '\s*\/?>/s';
 }
 
+$wgLstCountHtml = false;
+
+///Count headings in skipped text; the $parser arg could go away in the future.
+function wfLst_count_headings_($text,$parser) 
+{
+  global $wgLstCountHtml;
+
+  //count skipped headings, so parser (as of r18218) can skip them, to
+  //prevent wrong heading links (see bug 6563). There are two ways we could
+  //do this:
+  
+  if ($wgLstCountHtml) {
+    //most consistent results come from working like the parser, even if it
+    //means making many passes over the text, and changing text that we plan
+    //to discard.  This will account for HTML headings, even though the
+    //parser would point them to the wrong article if transcluded.
+    $begin_text = $parser->doHeadings($text);
+    return
+      preg_match_all( '/<H([1-6])(.*?'.'>)(.*?)<\/H[1-6] *>/i', 
+		      $begin_text, $matches );
+  } else {
+    //Or we could get a good approximation with a single pass, without
+    //mutating the string.
+    $pat = '^(={1,6}).+\s*.*?\1\s*$';
+    return preg_match_all( "/$pat/im", $text, $m);
+    
+  }
+  
+
+}
+
 ///section inclusion - include all matching sections
 function wfLstInclude(&$parser, $page='', $sec='', $to='')
 {
@@ -170,11 +210,8 @@ function wfLstInclude(&$parser, $page='', $sec='', $to='')
     return "[[" . $title->getPrefixedText() . "]]";
   
   if(preg_match_all( $pat, $text, $m, PREG_OFFSET_CAPTURE)) {
-    //count skipped headings, so parser (as of r18218) can skip them, to prevent wrong
-    //heading links (see bug 6563)
-    $begin_text = $parser->doHeadings(substr($text, 0, $m[0][0][1]));
-    $numHeadings =
-      preg_match_all( '/<H([1-6])(.*?'.'>)(.*?)<\/H[1-6] *>/i', $begin_text, $matches );
+    $numHeadings = wfLst_count_headings_(substr($text, 0, $m[0][0][1]),
+					 $parser);
   } else {
     $numHeadings = 0;
   }
