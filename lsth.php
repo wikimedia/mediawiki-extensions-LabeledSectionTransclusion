@@ -14,7 +14,7 @@ if ( ! defined( 'MEDIAWIKI' ) )
  * @package MediaWiki
  * @subpackage Extensions
  *
- * @link http://www.mediawiki.org/wiki/Labeled_Section_Transclusion Documentation
+ * @link http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion Documentation
  *
  * @author Steve Sanbeg
  * @copyright Copyright © 2006, Steve Sanbeg
@@ -42,7 +42,7 @@ function wfLabeledSectionTransclusionHeadingMagic( &$magicWords, $langCode ) {
 }
 
 ///section inclusion - include all matching sections
-function wfLstIncludeHeading2(&$parser, $page='', $sec='', $to='')
+function wfLstIncludeHeading2($parser, $page='', $sec='', $to='')
 {
   global $wgHooks;
   

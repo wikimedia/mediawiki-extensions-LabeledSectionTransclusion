@@ -54,7 +54,7 @@ function wfLabeledSectionTransclusionMagic( &$magicWords, $langCode ) {
 ##############################################################
 
 ///Register what we're working on in the parser, so we don't fall into a trap.
-function wfLst_open_(&$parser, $part1) 
+function wfLst_open_($parser, $part1) 
 {
   // Infinite loop test
   if ( isset( $parser->mTemplatePath[$part1] ) ) {
@@ -68,7 +68,7 @@ function wfLst_open_(&$parser, $part1)
 }
 
 ///Finish processing the function.
-function wfLst_close_(&$parser, $part1) 
+function wfLst_close_($parser, $part1) 
 {
   // Infinite loop test
   if ( isset( $parser->mTemplatePath[$part1] ) ) {
@@ -79,7 +79,7 @@ function wfLst_close_(&$parser, $part1)
 }
 
 ///Fetch the page to be transcluded from the database.
-function wfLst_fetch_(&$parser, $page, $ns = NS_MAIN) 
+function wfLst_fetch_($parser, $page, $ns = NS_MAIN) 
 {
   global $wgContLang;
   $subpage = '';
@@ -111,7 +111,7 @@ function wfLst_fetch_(&$parser, $page, $ns = NS_MAIN)
  * Handle recursive substitution here, so we can break cycles, and set up
  * return values so that edit sections will resolve correctly.
  **/
-function wfLst_parse_(&$parser, $title, $text, $part1, $skiphead=0) 
+function wfLst_parse_($parser, $title, $text, $part1, $skiphead=0) 
 {
   // if someone tries something like<section begin=blah>lst only</section> text,
   // may as well do the right thing.
@@ -125,7 +125,6 @@ function wfLst_parse_(&$parser, $title, $text, $part1, $skiphead=0)
     //if (SpecialVersion::getSVNRevision($IP) < 18473) {
 
     if( version_compare( $wgVersion, "1.9" ) < 0 ) {
-      //echo( "Using old handling for $IP" );
       $text = $parser->replaceVariables($text);
       wfLst_close_($parser, $part1);
     }
@@ -195,7 +194,7 @@ function wfLst_count_headings_($text,$parser)
 }
 
 ///section inclusion - include all matching sections
-function wfLstInclude(&$parser, $page='', $sec='', $to='')
+function wfLstInclude($parser, $page='', $sec='', $to='')
 {
   $pat = wfLst_pat_($sec,$to);
   $title = Title::newFromText($page);
@@ -226,7 +225,7 @@ function wfLstInclude(&$parser, $page='', $sec='', $to='')
 }
   
 ///section exclusion, with optional replacement
-function wfLstExclude(&$parser, $page='', $sec='', $repl='',$to='')
+function wfLstExclude($parser, $page='', $sec='', $repl='',$to='')
 {
   $pat = wfLst_pat_($sec,$to);
   $title = Title::newFromText($page);
