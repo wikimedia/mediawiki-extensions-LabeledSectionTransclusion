@@ -125,7 +125,7 @@ function wfLst_parse_(&$parser, $title, $text, $part1, $skiphead=0)
     //if (SpecialVersion::getSVNRevision($IP) < 18473) {
 
     if( version_compare( $wgVersion, "1.9" ) < 0 ) {
-      echo( "Using old handling for $IP" );
+      //echo( "Using old handling for $IP" );
       $text = $parser->replaceVariables($text);
       wfLst_close_($parser, $part1);
     }
