@@ -334,3 +334,26 @@ transclude nonexistant section
 {{#lst:sections|9999}}
 !!result
 !!end
+
+!!article
+LST-alt
+!!text
+<section Begin=1/>caps<section END=1/>
+<section com=test begin=2 ent=test />junk<section x=y end=2 boo=hoo/>
+!!endarticle
+!!test
+alternate caps
+!!input
+{{#section:LST-alt|1}}
+!!result
+<p>caps
+</p>
+!!end
+!!test
+useless options
+!!input
+{{#section:LST-alt|2}}
+!!result
+<p>junk
+</p>
+!!end

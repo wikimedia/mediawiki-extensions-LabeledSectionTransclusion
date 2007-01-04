@@ -78,43 +78,14 @@ function wfLst_close_($parser, $part1)
   }
 }
 
-///Fetch the page to be transcluded from the database.
-function wfLst_fetch_($parser, $page, $ns = NS_MAIN) 
-{
-  global $wgContLang;
-  $subpage = '';
-  $text = false;
-  
-  $page = $parser->maybeDoSubpageLink($page,$subpage);
-  if ($subpage !== '') {
-    $ns = $parser->mTitle->getNamespace();
-  }
-  $title = Title::newFromText($page,$ns);
-  if ( !is_null( $title ) ) {
-    //Check for language variants if the template is not found
-    $checkVariantLink = sizeof($wgContLang->getVariants())>1;
-    if($checkVariantLink && $title->getArticleID() == 0){
-      $wgContLang->findVariantLink($page, $title);
-    }
-    if ( $title->isTrans() ) {
-      // Interwiki transclusion - has to be raw, since section markers
-      // aren't rendered.
-      $text = $parser->interwikiTransclude( $title, 'raw' );
-    }
-    $text = $parser->fetchTemplate($title);
-  }
-  
-  return $text;
-}
-
 /**
  * Handle recursive substitution here, so we can break cycles, and set up
  * return values so that edit sections will resolve correctly.
  **/
 function wfLst_parse_($parser, $title, $text, $part1, $skiphead=0) 
 {
-  // if someone tries something like<section begin=blah>lst only</section> text,
-  // may as well do the right thing.
+  // if someone tries something like<section begin=blah>lst only</section>
+  // text, may as well do the right thing.
   $text = str_replace('</section>', '', $text);
 
   if (wfLst_open_($parser, $part1)) {
@@ -154,65 +125,54 @@ function wfLst_pat_($sec, $to)
   $to_sec = ($to == '')?$sec : $to;
   $sec = preg_quote($sec, '/');
   $to_sec = preg_quote($to_sec, '/');
-  
-  return '/<section\s+begin='.
+  $ws="(?:\s+[^>]+)?"; //was like $ws="\s*"
+  return "/<section$ws\s+(?i:begin)=".
     "(?:$sec|\"$sec\"|'$sec')".
-    '\s*\/?>(.*?)\n?<section\s+end='.
+    "$ws\/?>(.*?)\n?<section$ws\s+(?:[^>]+\s+)?(?i:end)=".
     "(?:$to_sec|\"$to_sec\"|'$to_sec')".
-    '\s*\/?>/s';
+    "$ws\/?>/s";
 }
 
-$wgLstCountHtml = false;
-
 ///Count headings in skipped text; the $parser arg could go away in the future.
-function wfLst_count_headings_($text,$parser) 
+function wfLst_count_headings_($text) 
 {
-  global $wgLstCountHtml;
-
   //count skipped headings, so parser (as of r18218) can skip them, to
-  //prevent wrong heading links (see bug 6563). There are two ways we could
-  //do this:
+  //prevent wrong heading links (see bug 6563).
+  $pat = '^(={1,6}).+\s*.*?\1\s*$';
+  return preg_match_all( "/$pat/im", $text, $m);
+}
+
+function wfLst_text_($parser, $page, &$title, &$text) 
+{
+  $title = Title::newFromText($page);
   
-  if ($wgLstCountHtml) {
-    //most consistent results come from working like the parser, even if it
-    //means making many passes over the text, and changing text that we plan
-    //to discard.  This will account for HTML headings, even though the
-    //parser would point them to the wrong article if transcluded.
-    $begin_text = $parser->doHeadings($text);
-    return
-      preg_match_all( '/<H([1-6])(.*?'.'>)(.*?)<\/H[1-6] *>/i', 
-		      $begin_text, $matches );
+  if (is_null($title) ) {
+    $text = '';
+    return true;
   } else {
-    //Or we could get a good approximation with a single pass, without
-    //mutating the string.
-    $pat = '^(={1,6}).+\s*.*?\1\s*$';
-    return preg_match_all( "/$pat/im", $text, $m);
-    
+    $text = $parser->fetchTemplate($title);
   }
   
-
+  //if article doesn't exist, return a red link.
+  if ($text == false) {
+    $text = "[[" . $title->getPrefixedText() . "]]";
+    return false;
+  } else {
+    return true;
+  }
 }
 
 ///section inclusion - include all matching sections
 function wfLstInclude($parser, $page='', $sec='', $to='')
 {
+  if (wfLst_text_($parser, $page, $title, $text) == false)
+    return $text;
   $pat = wfLst_pat_($sec,$to);
-  $title = Title::newFromText($page);
 
-  if (is_null($title) )
-    return '';
-  
-  $text = wfLst_fetch_($parser,$page);
-  
-  //if article doesn't exist, return a red link.
-  if ($text == false)
-    return "[[" . $title->getPrefixedText() . "]]";
-  
   if(preg_match_all( $pat, $text, $m, PREG_OFFSET_CAPTURE)) {
-    $numHeadings = wfLst_count_headings_(substr($text, 0, $m[0][0][1]),
-					 $parser);
+    $headings = wfLst_count_headings_(substr($text, 0, $m[0][0][1]));
   } else {
-    $numHeadings = 0;
+    $headings = 0;
   }
   
   $text = '';
@@ -220,27 +180,17 @@ function wfLstInclude($parser, $page='', $sec='', $to='')
     $text .= $piece[0];
   }
 
-  //echo "**skip $numHeadings head\n";
-  return wfLst_parse_($parser,$title,$text, "#lst:${page}|${sec}", $numHeadings);
+  //wfDebug("wfLstInclude: skip $headings headings");
+  return wfLst_parse_($parser,$title,$text, "#lst:${page}|${sec}", $headings);
 }
   
 ///section exclusion, with optional replacement
 function wfLstExclude($parser, $page='', $sec='', $repl='',$to='')
 {
+  if (wfLst_text_($parser, $page, $title, $text) == false)
+    return $text;
   $pat = wfLst_pat_($sec,$to);
-  $title = Title::newFromText($page);
-
-  if (is_null($title))
-    return '';
-  
-  $text = wfLst_fetch_($parser,$page);
-  
-  //if article doesn't exist, return red link.
-  if ($text == false)
-    return "[[" . $title->getPrefixedText() . "]]";
-  
   $text = preg_replace( $pat, $repl, $text);
-
   return wfLst_parse_($parser,$title,$text, "#lstx:$page|$sec");
 }
 

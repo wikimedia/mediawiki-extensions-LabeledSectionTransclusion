@@ -32,30 +32,20 @@ $wgParserTestFiles[] = dirname( __FILE__ ) . "/lsthParserTests.txt";
 function wfLabeledSectionTransclusionHeading() 
 {
   global $wgParser;
-  $wgParser->setFunctionHook( 'lsth', 'wfLstIncludeHeading2' );
+  $wgParser->setFunctionHook( 'lsth', 'wfLstIncludeHeading' );
 }
 
 function wfLabeledSectionTransclusionHeadingMagic( &$magicWords, $langCode ) {
   // Add the magic words
-  $magicWords['lsth'] = array( 0, 'lsth' );
+  $magicWords['lsth'] = array( 0, 'lsth', 'section-h' );
   return true;
 }
 
 ///section inclusion - include all matching sections
-function wfLstIncludeHeading2($parser, $page='', $sec='', $to='')
+function wfLstIncludeHeading($parser, $page='', $sec='', $to='')
 {
-  global $wgHooks;
-  
-  $title = Title::newFromText($page);
-
-  if (is_null($title) )
-    return '';
-  
-  $text = wfLst_fetch_($parser,$page);
-  
-  //if article doesn't exist, return a red link.
-  if ($text == false)
-    return "[[" . $title->getPrefixedText() . "]]";
+  if (wfLst_text_($parser, $page, $title, $text) == false)
+    return $text;
 
   //Generate a regex to match the === classical heading section(s) === we're
   //interested in.
@@ -67,9 +57,9 @@ function wfLstIncludeHeading2($parser, $page='', $sec='', $to='')
     if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE) ) {
       $begin_off = $m[2][1];
       $head_len = strlen($m[1][0]);
-      //echo "**offset is $begin_off\n";
+      //wfDebug( "LSTH: offset is $begin_off" );
     } else {
-      //echo "**match failed: '$pat'\n";
+      //wfDebug( "LSTH: match failed: '$pat'" );
       return '';
     }
     
@@ -88,25 +78,21 @@ function wfLstIncludeHeading2($parser, $page='', $sec='', $to='')
     $pat = '^(={1,'.$head_len.'})(?!=)\s*.*?\1\s*$';
     if (preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off))
       $end_off = $m[0][1]-1;
-    //else print "**fail end match: '$pat'\n";
-    //print "**head len is $head_len, pat is $pat, head is ".$m[1][0]."\n";
-    
-    
+    else 
+      wfDebug("LSTH: fail end match: '$pat'");
+
+    //wfDebug("LSTH:head len is $head_len, pat is $pat, head is '.$m[1][0]'";
   } 
 
-  $numHeadings = wfLst_count_headings_(substr($text, 0, $begin_off),$parser);
-  //echo "**head offset = $numHeadings\n";
+  $nhead = wfLst_count_headings_(substr($text, 0, $begin_off));
+  wfDebug( "LSTH: head offset = $nhead" );
 
   if (isset($end_off))
     $result = substr($text, $begin_off, $end_off - $begin_off);
   else
     $result = substr($text, $begin_off);
   
-  //echo "**text: $begin_off + $end_off\n";
-
-  return wfLst_parse_($parser,$title,$result, "#lsth:${page}|${sec}", $numHeadings);
+  return wfLst_parse_($parser,$title,$result, "#lsth:${page}|${sec}", $nhead);
 }
-
-
 
 ?>
