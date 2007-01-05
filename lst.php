@@ -134,12 +134,12 @@ function wfLst_pat_($sec, $to)
 }
 
 ///Count headings in skipped text; the $parser arg could go away in the future.
-function wfLst_count_headings_($text) 
+function wfLst_count_headings_($text,$limit) 
 {
   //count skipped headings, so parser (as of r18218) can skip them, to
   //prevent wrong heading links (see bug 6563).
   $pat = '^(={1,6}).+\s*.*?\1\s*$';
-  return preg_match_all( "/$pat/im", $text, $m);
+  return preg_match_all( "/$pat/im", substr($text,0,$limit), $m);
 }
 
 function wfLst_text_($parser, $page, &$title, &$text) 
@@ -170,7 +170,7 @@ function wfLstInclude($parser, $page='', $sec='', $to='')
   $pat = wfLst_pat_($sec,$to);
 
   if(preg_match_all( $pat, $text, $m, PREG_OFFSET_CAPTURE)) {
-    $headings = wfLst_count_headings_(substr($text, 0, $m[0][0][1]));
+    $headings = wfLst_count_headings_($text, $m[0][0][1]);
   } else {
     $headings = 0;
   }

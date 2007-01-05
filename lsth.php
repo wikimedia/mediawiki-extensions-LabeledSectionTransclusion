@@ -84,7 +84,7 @@ function wfLstIncludeHeading($parser, $page='', $sec='', $to='')
     //wfDebug("LSTH:head len is $head_len, pat is $pat, head is '.$m[1][0]'";
   } 
 
-  $nhead = wfLst_count_headings_(substr($text, 0, $begin_off));
+  $nhead = wfLst_count_headings_($text, $begin_off);
   wfDebug( "LSTH: head offset = $nhead" );
 
   if (isset($end_off))
