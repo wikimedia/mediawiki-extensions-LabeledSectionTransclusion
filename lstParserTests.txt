@@ -47,9 +47,18 @@ Normal (non-labelled) transclusion
 !!end
 
 !!test
-Transclude a section
+Transclude a section (#lst)
 !!input
 {{#lst:sections|1}}
+!!result
+<p>sec 1
+</p>
+!!end
+
+!!test
+Transclude a section (#section)
+!!input
+{{#section:sections|1}}
 !!result
 <p>sec 1
 </p>
