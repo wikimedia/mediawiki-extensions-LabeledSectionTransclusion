@@ -89,12 +89,8 @@ function wfLst_parse_($parser, $title, $text, $part1, $skiphead=0)
   $text = str_replace('</section>', '', $text);
 
   if (wfLst_open_($parser, $part1)) {
-    //handle recursion here, so we can break cycles.
+    //Handle recursion here, so we can break cycles.
     global $wgVersion;
-    
-    //if ($wgVersion === "1.9alpha") $wgVersion = "1.9";
-    //if (SpecialVersion::getSVNRevision($IP) < 18473) {
-
     if( version_compare( $wgVersion, "1.9" ) < 0 ) {
       $text = $parser->replaceVariables($text);
       wfLst_close_($parser, $part1);
