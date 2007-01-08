@@ -34,7 +34,7 @@ $wgParserTestFiles[] = dirname( __FILE__ ) . "/lstParserTests.txt";
 
 function wfLabeledSectionTransclusion() 
 {
-  global $wgParser, $wgVersion, $wgHooks;
+  global $wgParser;
   
   $wgParser->setHook( 'section', 'wfLstNoop' );
   $wgParser->setFunctionHook( 'lst', 'wfLstInclude' );
