@@ -11,8 +11,7 @@ if ( ! defined( 'MEDIAWIKI' ) )
  * extension is not enabled, and may not work if the two files are not in
  * sync.
  *
- * @package MediaWiki
- * @subpackage Extensions
+ * @addtogroup Extensions
  *
  * @link http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion Documentation
  *
