@@ -74,7 +74,7 @@ function wfLstIncludeHeading($parser, $page='', $sec='', $to='')
 
 
   if (! isset($end_off)) {
-    $pat = '^(={1,'.$head_len.'})(?!=)\s*.*?\1\s*$';
+    $pat = '^(={1,'.$head_len.'})(?!=).*?\1\s*$';
     if (preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off))
       $end_off = $m[0][1]-1;
     else 
