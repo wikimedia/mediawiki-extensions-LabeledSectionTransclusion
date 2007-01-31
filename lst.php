@@ -33,7 +33,7 @@ $wgParserTestFiles[] = dirname( __FILE__ ) . "/lstParserTests.txt";
 
 function wfLabeledSectionTransclusion() 
 {
-  global $wgParser;
+  global $wgParser, $wgVersion, $wgHooks;
   
   $wgParser->setHook( 'section', 'wfLstNoop' );
   $wgParser->setFunctionHook( 'lst', 'wfLstInclude' );
@@ -83,18 +83,13 @@ function wfLst_close_($parser, $part1)
  **/
 function wfLst_parse_($parser, $title, $text, $part1, $skiphead=0) 
 {
-  global $wgVersion;
-
   // if someone tries something like<section begin=blah>lst only</section>
   // text, may as well do the right thing.
   $text = str_replace('</section>', '', $text);
 
   if (wfLst_open_($parser, $part1)) {
-
-    //Handle recursion here, so we can break cycles.  Although we can't do
-    //feature detection here, r18473 was only a few weeks before the
-    //release, so this is close enough.
-
+    //Handle recursion here, so we can break cycles.
+    global $wgVersion;
     if( version_compare( $wgVersion, "1.9" ) < 0 ) {
       $text = $parser->replaceVariables($text);
       wfLst_close_($parser, $part1);
@@ -138,7 +133,7 @@ function wfLst_count_headings_($text,$limit)
 {
   //count skipped headings, so parser (as of r18218) can skip them, to
   //prevent wrong heading links (see bug 6563).
-  $pat = '^(={1,6}).+\s*.*?\1\s*$';
+  $pat = '^(={1,6}).+\1\s*$';
   return preg_match_all( "/$pat/im", substr($text,0,$limit), $m);
 }
 
