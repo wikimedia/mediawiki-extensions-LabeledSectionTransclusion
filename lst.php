@@ -145,7 +145,11 @@ function wfLst_text_($parser, $page, &$title, &$text)
     $text = '';
     return true;
   } else {
-    $text = $parser->fetchTemplate($title);
+    if (method_exists($parser, 'fetchTemplateAndTitle')) {
+      list($text,$title) = $parser->fetchTemplateAndTitle($title);
+    } else {
+      $text = $parser->fetchTemplate($title);
+    }
   }
   
   //if article doesn't exist, return a red link.
