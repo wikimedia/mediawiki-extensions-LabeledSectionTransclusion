@@ -80,7 +80,15 @@ function wfLst_close_($parser, $part1)
 /**
  * Handle recursive substitution here, so we can break cycles, and set up
  * return values so that edit sections will resolve correctly.
- **/
+ * @param Parser $parser
+ * @param Title $title of target page
+ * @param string $text
+ * @param string $part1 Key for cycle detection
+ * @param int $skiphead Number of source string headers to skip for numbering
+ * @return mixed string or magic array of bits
+ * @todo handle mixed-case </section>
+ * @private
+ */
 function wfLst_parse_($parser, $title, $text, $part1, $skiphead=0) 
 {
   // if someone tries something like<section begin=blah>lst only</section>
@@ -109,12 +117,28 @@ function wfLst_parse_($parser, $title, $text, $part1, $skiphead=0)
 # And now, the labeled section transclusion
 ##############################################################
 
-///The section markers aren't paired, so we only need to remove them.
+/**
+ * Parser tag hook for <section>.
+ * The section markers aren't paired, so we only need to remove them.
+ *
+ * @param string $in
+ * @param array $assocArgs
+ * @param Parser $parser
+ * @return string HTML output
+ */
 function wfLstNoop( $in, $assocArgs=array(), $parser=null ) {
   return '';
 }
 
-///Generate a regex to match the section(s) we're interested in.
+/**
+ * Generate a regex to match the section(s) we're interested in.
+ * @param string $sec Name of target section
+ * @param string $to Optional name of section to end with, if transcluding
+ *                   multiple sections in sequence. If blank, will assume
+ *                   same section name as started with.
+ * @return string regex
+ * @private
+ */
 function wfLst_pat_($sec, $to) 
 {
   $to_sec = ($to == '')?$sec : $to;
@@ -128,15 +152,34 @@ function wfLst_pat_($sec, $to)
     "$ws\/?>/s";
 }
 
-///Count headings in skipped text; the $parser arg could go away in the future.
+/**
+ * Count headings in skipped text.
+ *
+ * Count skipped headings, so parser (as of r18218) can skip them, to
+ * prevent wrong heading links (see bug 6563).
+ *
+ * @param string $text
+ * @param int $limit Cutoff point in the text to stop searching
+ * @return int Number of matches
+ * @private
+ */
 function wfLst_count_headings_($text,$limit) 
 {
-  //count skipped headings, so parser (as of r18218) can skip them, to
-  //prevent wrong heading links (see bug 6563).
   $pat = '^(={1,6}).+\1\s*$';
   return preg_match_all( "/$pat/im", substr($text,0,$limit), $m);
 }
 
+/**
+ * Fetches content of target page if valid and found, otherwise
+ * produces wikitext of a link to the target page.
+ *
+ * @param Parser $parser
+ * @param string $page title text of target page
+ * @param (out) Title $title normalized title object
+ * @param (out) string $text wikitext output
+ * @return string bool true if returning text, false if target not found
+ * @private
+ */
 function wfLst_text_($parser, $page, &$title, &$text) 
 {
   $title = Title::newFromText($page);
@@ -161,7 +204,16 @@ function wfLst_text_($parser, $page, &$title, &$text)
   }
 }
 
-///section inclusion - include all matching sections
+/**
+ * Parser function hook for '#lst:'
+ * section inclusion - include all matching sections
+ *
+ * @param Parser $parser
+ * @param string $page Title text of target page
+ * @param string $sec Named section to transclude
+ * @param string $to Optional named section to end at
+ * @return mixed wikitext output
+ */
 function wfLstInclude($parser, $page='', $sec='', $to='')
 {
   if (wfLst_text_($parser, $page, $title, $text) == false)
@@ -182,8 +234,18 @@ function wfLstInclude($parser, $page='', $sec='', $to='')
   //wfDebug("wfLstInclude: skip $headings headings");
   return wfLst_parse_($parser,$title,$text, "#lst:${page}|${sec}", $headings);
 }
-  
-///section exclusion, with optional replacement
+
+/**
+ * Parser function hook for '#lstx:'
+ * section exclusion, with optional replacement
+ *
+ * @param Parser $parser
+ * @param string $page Title text of target page
+ * @param string $sec Named section to transclude
+ * @param string $repl Optional wikitext to use to fill in the excluded section
+ * @param string $to Optional named section to end at
+ * @return mixed wikitext output
+ */
 function wfLstExclude($parser, $page='', $sec='', $repl='',$to='')
 {
   if (wfLst_text_($parser, $page, $title, $text) == false)
