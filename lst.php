@@ -165,8 +165,21 @@ function wfLst_pat_($sec, $to)
  */
 function wfLst_count_headings_($text,$limit) 
 {
-  $pat = '^(={1,6}).+\1\s*$';
-  return preg_match_all( "/$pat/im", substr($text,0,$limit), $m);
+  $pat = '^(={1,6}).+\1\s*$()';
+  
+  //return preg_match_all( "/$pat/im", substr($text,0,$limit), $m);
+
+  $count = 0;
+  $offset = 0;
+  while (preg_match("/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $offset)) {
+    if ($m[2][1] > $limit)
+      break;
+
+    $count++;
+    $offset = $m[2][1];
+  }
+
+  return $count;
 }
 
 /**

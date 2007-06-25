@@ -267,6 +267,30 @@ Transcluded section headings create edit link to right section (mw 1.9r18218)
 </p>
 !!end
 
+!!article
+lst_head_bounds
+!!text
+===
+=2=
+<section begin=s/>
+=3=
+hi
+=4=
+<section end=s/>
+=head4=
+!!endarticle
+!!test
+more sensitive test for heading count boundaries.
+!!input
+{{#lst:lst_head_bounds|s}}
+!!result
+<a name="3"></a><h1><span class="editsection">[<a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=3" title="Lst head bounds">edit</a>]</span> <span class="mw-headline">3</span></h1>
+<p>hi
+</p>
+<a name="4"></a><h1><span class="editsection">[<a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=4" title="Lst head bounds">edit</a>]</span> <span class="mw-headline">4</span></h1>
+
+!!end
+
 
 !!test
 Nick's bogus input
