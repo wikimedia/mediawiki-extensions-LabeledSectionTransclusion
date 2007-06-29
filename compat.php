@@ -25,4 +25,4 @@ function wfLstIncludeHeading2($parser, $page='', $sec='', $to='')
   return wfLstIncludeHeading($parser, $page, $sec, $to);
 }
 
-?>
+

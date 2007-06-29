@@ -268,4 +268,4 @@ function wfLstExclude($parser, $page='', $sec='', $repl='',$to='')
   return wfLst_parse_($parser,$title,$text, "#lstx:$page|$sec");
 }
 
-?>
+
