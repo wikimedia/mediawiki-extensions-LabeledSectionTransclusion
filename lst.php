@@ -42,8 +42,24 @@ function wfLabeledSectionTransclusion()
 
 /// Add the magic words - possibly with more readable aliases
 function wfLabeledSectionTransclusionMagic( &$magicWords, $langCode ) {
-  $magicWords['lst'] = array( 0, 'lst', 'section' );
-  $magicWords['lstx'] = array( 0, 'lstx', 'section-x' );
+  global $wgParser, $wgLstLocal;
+  
+  switch ($langCode) {
+  case 'de':
+    $include = 'steil';
+    $exclude = 'steil-x';
+    $wgLstLocal=array('section'=>'steil', 'begin'=>'anfang', 'end'=>'ende');
+  }
+  
+  if (isset($include)) {
+    $magicWords['lst'] = array( 0, 'lst', 'section', $include );
+    $magicWords['lstx'] = array( 0, 'lstx', 'section-x', $exclude );
+    $wgParser->setHook( $include, 'wfLstNoop' );
+  } else {
+    $magicWords['lst'] = array( 0, 'lst', 'section' );
+    $magicWords['lstx'] = array( 0, 'lstx', 'section-x' );
+  }
+  
   return true;
 }
 
@@ -141,13 +157,25 @@ function wfLstNoop( $in, $assocArgs=array(), $parser=null ) {
  */
 function wfLst_pat_($sec, $to) 
 {
+  global $wgLstLocal;
+  
   $to_sec = ($to == '')?$sec : $to;
   $sec = preg_quote($sec, '/');
   $to_sec = preg_quote($to_sec, '/');
   $ws="(?:\s+[^>]+)?"; //was like $ws="\s*"
-  return "/<section$ws\s+(?i:begin)=".
+  if (isset($wgLstLocal)){
+    $begin="(?i:begin|$wgLstLocal[begin])";
+    $end="(?i:end|$wgLstLocal[end])";
+    $section_re = "(?:section|$wgLstLocal[section])";
+  } else {
+    $begin="(?i:begin)";
+    $end="(?i:end)";
+    $section_re = "section";
+  }
+  
+  return "/<$section_re$ws\s+$begin=".
     "(?:$sec|\"$sec\"|'$sec')".
-    "$ws\/?>(.*?)\n?<section$ws\s+(?:[^>]+\s+)?(?i:end)=".
+    "$ws\/?>(.*?)\n?<$section_re$ws\s+(?:[^>]+\s+)?$end=".
     "(?:$to_sec|\"$to_sec\"|'$to_sec')".
     "$ws\/?>/s";
 }
