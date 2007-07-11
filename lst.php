@@ -43,15 +43,15 @@ function wfLabeledSectionTransclusion()
 /// Add the magic words - possibly with more readable aliases
 function wfLabeledSectionTransclusionMagic( &$magicWords, $langCode ) {
   global $wgParser, $wgLstLocal;
-  
-  switch ($langCode) {
+
+  switch( $langCode ) {
   case 'de':
-    $include = 'steil';
-    $exclude = 'steil-x';
-    $wgLstLocal=array('section'=>'steil', 'begin'=>'anfang', 'end'=>'ende');
+    $include = 'Abschnitt';
+    $exclude = 'Abschnitt-x';
+    $wgLstLocal = array( 'section' => 'Abschnitt', 'begin' => 'Anfang', 'end' => 'Ende') ;
   }
   
-  if (isset($include)) {
+  if( isset( $include ) ) {
     $magicWords['lst'] = array( 0, 'lst', 'section', $include );
     $magicWords['lstx'] = array( 0, 'lstx', 'section-x', $exclude );
     $wgParser->setHook( $include, 'wfLstNoop' );
