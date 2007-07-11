@@ -171,11 +171,11 @@ function wfLst_pat_($sec, $to)
   if (isset($wgLstLocal)){
     $begin="(?i:begin|$wgLstLocal[begin])";
     $end="(?i:end|$wgLstLocal[end])";
-    $section_re = "(?:section|$wgLstLocal[section])";
+    $section_re = "(?i:section|$wgLstLocal[section])";
   } else {
     $begin="(?i:begin)";
     $end="(?i:end)";
-    $section_re = "section";
+    $section_re = "(?i:section)";
   }
   
   return "/<$section_re$ws\s+$begin=".
