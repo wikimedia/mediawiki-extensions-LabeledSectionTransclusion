@@ -94,4 +94,3 @@ function wfLstIncludeHeading($parser, $page='', $sec='', $to='')
   return wfLst_parse_($parser,$title,$result, "#lsth:${page}|${sec}", $nhead);
 }
 
-?>
