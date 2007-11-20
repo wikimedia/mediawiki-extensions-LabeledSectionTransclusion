@@ -119,10 +119,10 @@ function wfLst_parse_($parser, $title, $text, $part1, $skiphead=0)
   if (wfLst_open_($parser, $part1)) {
     //Handle recursion here, so we can break cycles.
     global $wgVersion;
-    if( version_compare( $wgVersion, "1.9" ) < 0 ) {
+//    if( version_compare( $wgVersion, "1.9" ) < 0 ) {
       $text = $parser->replaceVariables($text);
       wfLst_close_($parser, $part1);
-    }
+//    }
     
     //Try to get edit sections correct by munging around the parser's guts.
     return array($text, 'title'=>$title, 'replaceHeadings'=>true, 
