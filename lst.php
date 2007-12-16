@@ -2,7 +2,7 @@
 if ( ! defined( 'MEDIAWIKI' ) )
 	die();
 /**#@+
- * A parser extension that adds two functions, #lst and #lstx, and the
+ * A parser extension that adds two functions, #lst and #lstx, and the 
  * <section> tag, for transcluding marked sections of text.
  *
  * @addtogroup Extensions
@@ -24,18 +24,17 @@ $wgExtensionFunctions[]="wfLabeledSectionTransclusion";
 $wgHooks['LanguageGetMagic'][]       = 'wfLabeledSectionTransclusionMagic';
 
 $wgExtensionCredits['parserhook'][] = array(
-	'name' => 'LabeledSectionTransclusion',
-	'version'     => '1.1',
-	'author' => 'Steve Sanbeg',
-	'description' => 'adds #lst and #lstx functions and &lt;section&gt; tag, enables marked sections of text to be transcluded',
-	'url' => 'http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion',
-);
+        'name' => 'LabeledSectionTransclusion',
+        'author' => 'Steve Sanbeg',
+        'description' => 'adds #lst and #lstx functions and &lt;section&gt; tag, enables marked sections of text to be transcluded',
+        'url' => 'http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion'
+        );
 $wgParserTestFiles[] = dirname( __FILE__ ) . "/lstParserTests.txt";
 
-function wfLabeledSectionTransclusion()
+function wfLabeledSectionTransclusion() 
 {
   global $wgParser;
-
+  
   $wgParser->setHook( 'section', 'wfLstNoop' );
   $wgParser->setFunctionHook( 'lst', 'wfLstInclude' );
   $wgParser->setFunctionHook( 'lstx', 'wfLstExclude' );
@@ -56,7 +55,7 @@ function wfLabeledSectionTransclusionMagic( &$magicWords, $langCode ) {
     $exclude = 'בלי קטע';
     $wgLstLocal = array( 'section' => 'קטע', 'begin' => 'התחלה', 'end' => 'סוף') ;
   }
-
+  
   if( isset( $include ) ) {
     $magicWords['lst'] = array( 0, 'lst', 'section', $include );
     $magicWords['lstx'] = array( 0, 'lstx', 'section-x', $exclude );
@@ -65,7 +64,7 @@ function wfLabeledSectionTransclusionMagic( &$magicWords, $langCode ) {
     $magicWords['lst'] = array( 0, 'lst', 'section' );
     $magicWords['lstx'] = array( 0, 'lstx', 'section-x' );
   }
-
+  
   return true;
 }
 
@@ -75,7 +74,7 @@ function wfLabeledSectionTransclusionMagic( &$magicWords, $langCode ) {
 ##############################################################
 
 ///Register what we're working on in the parser, so we don't fall into a trap.
-function wfLst_open_($parser, $part1)
+function wfLst_open_($parser, $part1) 
 {
   // Infinite loop test
   if ( isset( $parser->mTemplatePath[$part1] ) ) {
@@ -85,11 +84,11 @@ function wfLst_open_($parser, $part1)
     $parser->mTemplatePath[$part1] = 1;
     return true;
   }
-
+  
 }
 
 ///Finish processing the function.
-function wfLst_close_($parser, $part1)
+function wfLst_close_($parser, $part1) 
 {
   // Infinite loop test
   if ( isset( $parser->mTemplatePath[$part1] ) ) {
@@ -111,7 +110,7 @@ function wfLst_close_($parser, $part1)
  * @todo handle mixed-case </section>
  * @private
  */
-function wfLst_parse_($parser, $title, $text, $part1, $skiphead=0)
+function wfLst_parse_($parser, $title, $text, $part1, $skiphead=0) 
 {
   // if someone tries something like<section begin=blah>lst only</section>
   // text, may as well do the right thing.
@@ -124,15 +123,15 @@ function wfLst_parse_($parser, $title, $text, $part1, $skiphead=0)
       $text = $parser->replaceVariables($text);
       wfLst_close_($parser, $part1);
     }
-
+    
     //Try to get edit sections correct by munging around the parser's guts.
-    return array($text, 'title'=>$title, 'replaceHeadings'=>true,
+    return array($text, 'title'=>$title, 'replaceHeadings'=>true, 
 		 'headingOffset'=>$skiphead, 'noparse'=>false, 'noargs'=>false);
   }  else {
-    return "[[" . $title->getPrefixedText() . "]]".
+    return "[[" . $title->getPrefixedText() . "]]". 
       "<!-- WARNING: LST loop detected -->";
   }
-
+  
 }
 
 ##############################################################
@@ -161,10 +160,10 @@ function wfLstNoop( $in, $assocArgs=array(), $parser=null ) {
  * @return string regex
  * @private
  */
-function wfLst_pat_($sec, $to)
+function wfLst_pat_($sec, $to) 
 {
   global $wgLstLocal;
-
+  
   $to_sec = ($to == '')?$sec : $to;
   $sec = preg_quote($sec, '/');
   $to_sec = preg_quote($to_sec, '/');
@@ -178,7 +177,7 @@ function wfLst_pat_($sec, $to)
     $end="(?i:end)";
     $section_re = "(?i:section)";
   }
-
+  
   return "/<$section_re$ws\s+$begin=".
     "(?:$sec|\"$sec\"|'$sec')".
     "$ws\/?>(.*?)\n?<$section_re$ws\s+(?:[^>]+\s+)?$end=".
@@ -197,10 +196,10 @@ function wfLst_pat_($sec, $to)
  * @return int Number of matches
  * @private
  */
-function wfLst_count_headings_($text,$limit)
+function wfLst_count_headings_($text,$limit) 
 {
   $pat = '^(={1,6}).+\1\s*$()';
-
+  
   //return preg_match_all( "/$pat/im", substr($text,0,$limit), $m);
 
   $count = 0;
@@ -227,10 +226,10 @@ function wfLst_count_headings_($text,$limit)
  * @return string bool true if returning text, false if target not found
  * @private
  */
-function wfLst_text_($parser, $page, &$title, &$text)
+function wfLst_text_($parser, $page, &$title, &$text) 
 {
   $title = Title::newFromText($page);
-
+  
   if (is_null($title) ) {
     $text = '';
     return true;
@@ -241,7 +240,7 @@ function wfLst_text_($parser, $page, &$title, &$text)
       $text = $parser->fetchTemplate($title);
     }
   }
-
+  
   //if article doesn't exist, return a red link.
   if ($text == false) {
     $text = "[[" . $title->getPrefixedText() . "]]";
@@ -272,7 +271,7 @@ function wfLstInclude($parser, $page='', $sec='', $to='')
   } else {
     $headings = 0;
   }
-
+  
   $text = '';
   foreach ($m[1] as $piece)  {
     $text .= $piece[0];
@@ -301,3 +300,4 @@ function wfLstExclude($parser, $page='', $sec='', $repl='',$to='')
   $text = preg_replace( $pat, $repl, $text);
   return wfLst_parse_($parser,$title,$text, "#lstx:$page|$sec");
 }
+
