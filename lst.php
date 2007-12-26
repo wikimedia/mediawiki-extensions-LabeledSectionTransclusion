@@ -49,11 +49,17 @@ function wfLabeledSectionTransclusionMagic( &$magicWords, $langCode ) {
     $include = 'Abschnitt';
     $exclude = 'Abschnitt-x';
     $wgLstLocal = array( 'section' => 'Abschnitt', 'begin' => 'Anfang', 'end' => 'Ende') ;
-	break;
+  break;
   case 'he':
     $include = 'קטע';
     $exclude = 'בלי קטע';
     $wgLstLocal = array( 'section' => 'קטע', 'begin' => 'התחלה', 'end' => 'סוף') ;
+  break;
+  case 'pt':
+    $include = 'trecho';
+    $exclude = 'trecho-x';
+    $wgLstLocal = array( 'section' => 'trecho', 'begin' => 'começo', 'end' => 'fim');
+    break;
   }
   
   if( isset( $include ) ) {
