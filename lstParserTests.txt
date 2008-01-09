@@ -25,7 +25,7 @@ a <section begin=a/>sec a<section end=a/>
 
 #test to see what happens when we don't use LST.
 !!test
-Normal rendering
+LST: Normal rendering
 !!input
 begin <section begin=test/>middle<section end=test/> end
 !!result
@@ -34,7 +34,7 @@ begin <section begin=test/>middle<section end=test/> end
 !!end
 
 !!test
-Normal (non-labelled) transclusion
+LST: Normal (non-labelled) transclusion
 !!input
 {{:sections}}
 !!result
@@ -47,7 +47,7 @@ Normal (non-labelled) transclusion
 !!end
 
 !!test
-Transclude a section (#lst)
+LST: Transclude a section (#lst)
 !!input
 {{#lst:sections|1}}
 !!result
@@ -56,7 +56,7 @@ Transclude a section (#lst)
 !!end
 
 !!test
-Transclude a section (#section)
+LST: Transclude a section (#section)
 !!input
 {{#section:sections|1}}
 !!result
@@ -65,7 +65,7 @@ Transclude a section (#section)
 !!end
 
 !!test
-Substitute a section
+LST: Substitute a section
 !!options
 pst
 !!input
@@ -76,7 +76,7 @@ sec 1
 
 
 !!test
-  with quoted attributes
+LST: Substitute a section with quoted attributes
 !!input
 {{#lst:sections|2}}
 !!result
@@ -85,7 +85,7 @@ sec 1
 !!end
 
 !!test
-  with an optional /
+LST: Substitute a section with an optional /
 !!input
 {{#lst:sections|3}}
 !!result
@@ -94,7 +94,7 @@ sec 1
 !!end
 
 !!test
-  multiple sections with the same name
+LST: multiple sections with the same name
 !!input
 {{#lst:sections|a}}
 !!result
@@ -103,7 +103,7 @@ sec 1
 !!end
 
 !!test
-Transclude range of sections
+LST: Transclude range of sections
 !!input
 {{#lst:sections|1|3}}
 !!result
@@ -114,7 +114,7 @@ Transclude range of sections
 !!end
 
 !!test
-Exclude a section
+LST: Exclude a section
 !!input
 {{#lstx:sections|1}}
 !!result
@@ -127,7 +127,7 @@ Exclude a section
 !!end
 
 !!test
-  Exclude a range
+LST: Exclude a range
 !!input
 {{#lstx:sections|1||3}}
 !!result
@@ -138,7 +138,7 @@ Exclude a section
 !!end
 
 !!test
-Replace a section
+LST: Replace a section
 !!input
 {{#lstx:sections|1|one}}
 !!result
@@ -151,7 +151,7 @@ Replace a section
 !!end
 
 !!test
-  Replace multiple sections
+LST: Replace multiple sections
 !!input
 {{#lstx:sections|a|A}}
 !!result
@@ -164,7 +164,7 @@ Replace a section
 !!end
 
 !!test
-  Replace a range
+LST: Replace a range
 !!input
 {{#lstx:sections|1|test|3}}
 !!result
@@ -214,17 +214,18 @@ inner
 <section end=outer/>
 !!endarticle
 !!test
-Nested sections - inner section marks removed by tag hook.
+LST: Nested sections - inner section marks removed by tag hook.
 !!input
 {{#lst:nest|outer}}
 !!result
 <p>I am outer
 </p><p>inner
+</p><p><br />
 </p>
 !!end
 
 !!test
-red link from nonexistent article
+LST: red link from nonexistent article
 !!input
 {{#lst:no such article|anything}}
 !!result
@@ -233,7 +234,7 @@ red link from nonexistent article
 !!end
 
 # Note: MW <= 1.8 uses a different section header format. In these versions, the header out will look like this instead:
-# <div class="editsection" style="float:right;margin-left:5px;">[<a href="/index.php?title=Headings&amp;action=edit&amp;section=1" title="Headings">edit</a>]</div><a name="section"></a><h2>section</h2>
+# <div class="editsection" style="float:right;margin-left:5px;">[<a href="/index.php?title=Headings&amp;action=edit&amp;section=T-1" title="Headings">edit</a>]</div><a name="section"></a><h2>section</h2>
 !!article
 headings
 !!text
@@ -248,21 +249,21 @@ blah
 !!endarticle
 
 !!test
-Transcluded section headings create edit link to template
+LST: Transcluded section headings create edit link to template
 !!input
 {{#lst:headings|head}}
 !!result
-<a name="section"></a><h2><span class="editsection">[<a href="/index.php?title=Headings&amp;action=edit&amp;section=1" title="Headings">edit</a>]</span> <span class="mw-headline">section</span></h2>
+<a name="section"></a><h2><span class="editsection">[<a href="/index.php?title=Headings&amp;action=edit&amp;section=T-1" title="Headings">edit</a>]</span> <span class="mw-headline">section</span></h2>
 <p>blah
 </p>
 !!end
 
 !!test
-Transcluded section headings create edit link to right section (mw 1.9r18218)
+LST: Transcluded section headings create edit link to right section (mw 1.9r18218)
 !!input
 {{#lst:headings|head2}}
 !!result
-<a name="section2"></a><h2><span class="editsection">[<a href="/index.php?title=Headings&amp;action=edit&amp;section=2" title="Headings">edit</a>]</span> <span class="mw-headline">section2</span></h2>
+<a name="section2"></a><h2><span class="editsection">[<a href="/index.php?title=Headings&amp;action=edit&amp;section=T-2" title="Headings">edit</a>]</span> <span class="mw-headline">section2</span></h2>
 <p>blah
 </p>
 !!end
@@ -284,16 +285,16 @@ more sensitive test for heading count boundaries.
 !!input
 {{#lst:lst_head_bounds|s}}
 !!result
-<a name="3"></a><h1><span class="editsection">[<a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=3" title="Lst head bounds">edit</a>]</span> <span class="mw-headline">3</span></h1>
+<a name="3"></a><h1><span class="editsection">[<a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=T-3" title="Lst head bounds">edit</a>]</span> <span class="mw-headline">3</span></h1>
 <p>hi
 </p>
-<a name="4"></a><h1><span class="editsection">[<a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=4" title="Lst head bounds">edit</a>]</span> <span class="mw-headline">4</span></h1>
+<a name="4"></a><h1><span class="editsection">[<a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=T-4" title="Lst head bounds">edit</a>]</span> <span class="mw-headline">4</span></h1>
 
 !!end
 
 
 !!test
-Nick's bogus input
+LST: Nick's bogus input
 !!input
 {{#lstx:</
 includeonly>
@@ -351,7 +352,7 @@ cycle detection
 
 #make sure we can still multiply-transclude (that is, path is cleared)
 !!test
-multiple transclude
+LST: multiple transclude
 !!input
 {{#lst:sections|1}}
 {{#lst:sections|1}}
@@ -383,7 +384,7 @@ alternate caps
 </p>
 !!end
 !!test
-useless options
+LST: useless options
 !!input
 {{#section:LST-alt|2}}
 !!result

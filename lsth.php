@@ -11,6 +11,8 @@ if ( ! defined( 'MEDIAWIKI' ) )
  * extension is not enabled, and may not work if the two files are not in
  * sync.
  *
+ * @todo: MW 1.12 version, as per #lst/#lstx
+ *
  * @addtogroup Extensions
  *
  * @link http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion Documentation
@@ -43,7 +45,7 @@ function wfLabeledSectionTransclusionHeadingMagic( &$magicWords, $langCode ) {
 ///section inclusion - include all matching sections
 function wfLstIncludeHeading($parser, $page='', $sec='', $to='')
 {
-  if (wfLst_text_($parser, $page, $title, $text) == false)
+  if (LabeledSectionTransclusion::getTemplateText_($parser, $page, $title, $text) == false)
     return $text;
 
   //Generate a regex to match the === classical heading section(s) === we're
@@ -83,7 +85,7 @@ function wfLstIncludeHeading($parser, $page='', $sec='', $to='')
     //wfDebug("LSTH:head len is $head_len, pat is $pat, head is '.$m[1][0]'";
   } 
 
-  $nhead = wfLst_count_headings_($text, $begin_off);
+  $nhead = LabeledSectionTransclusion::countHeadings_($text, $begin_off);
   wfDebug( "LSTH: head offset = $nhead" );
 
   if (isset($end_off))
@@ -91,6 +93,6 @@ function wfLstIncludeHeading($parser, $page='', $sec='', $to='')
   else
     $result = substr($text, $begin_off);
   
-  return wfLst_parse_($parser,$title,$result, "#lsth:${page}|${sec}", $nhead);
+  return LabeledSectionTransclusion::parse_($parser,$title,$result, "#lsth:${page}|${sec}", $nhead);
 }
 
