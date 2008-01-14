@@ -180,7 +180,7 @@ template:sub
 <<includeonly>section {{{1}}}=test</includeonly>/>
 !!endarticle
 !!test
-Substitute a tag from a template
+LST: Substitute a tag from a template
 !!options
 pst noxml
 !!input
@@ -195,7 +195,7 @@ sub
 begin {{subst:sub|begin}}middle{{subst:sub|end}} end
 !!endarticle
 !!test
-Indirect substitution
+LST: Indirect substitution
 !!input
 {{#lst:sub|test}}
 !!result
@@ -281,7 +281,7 @@ hi
 =head4=
 !!endarticle
 !!test
-more sensitive test for heading count boundaries.
+LST: more sensitive test for heading count boundaries.
 !!input
 {{#lst:lst_head_bounds|s}}
 !!result
@@ -310,7 +310,7 @@ lst_javascript
 <section end=ownage />
 !!endarticle
 !!test
-javascript
+LST: javascript
 !!input
 {{#lst:lst javascript|ownage}}
 !!result
@@ -324,7 +324,7 @@ slash
 <section begin="/"/>slash<section end="/"/>
 !!endarticle
 !!test
-regexp special chars in section name
+LST: regexp special chars in section name
 !!input
 {{#lst:Slash|/}}
 !!result
@@ -341,7 +341,7 @@ cycle
 <section begin=cycle/>{{#lst:cycle|cycle}}<section end=cycle/>
 !!endarticle
 !!test
-cycle detection
+LST: cycle detection
 !!options
 !!input
 {{#lst:cycle|cycle}}
@@ -363,7 +363,7 @@ sec 1
 !!end
 
 !!test
-transclude nonexistant section
+LST: transclude nonexistant section
 !!input
 {{#lst:sections|9999}}
 !!result
@@ -376,7 +376,7 @@ LST-alt
 <section com=test begin=2 ent=test />junk<section x=y end=2 boo=hoo/>
 !!endarticle
 !!test
-alternate caps
+LST: alternate caps
 !!input
 {{#section:LST-alt|1}}
 !!result

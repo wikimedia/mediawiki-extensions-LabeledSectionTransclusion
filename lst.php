@@ -334,6 +334,11 @@ class LabeledSectionTransclusion {
     if ( !$title ) {
       return '';
     }
+    if ( !$frame->loopCheck( $title ) ) {
+      return "[[" . $title->getPrefixedText() . "]]". 
+        "<!-- WARNING: LST loop detected -->";
+    }
+
     list( $dom, $finalTitle ) = $parser->getTemplateDom( $title );
 
     // if article doesn't exist, return a red link.
