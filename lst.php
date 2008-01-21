@@ -339,14 +339,13 @@ class LabeledSectionTransclusion {
         "<!-- WARNING: LST loop detected -->";
     }
 
-    list( $dom, $finalTitle ) = $parser->getTemplateDom( $title );
+    list( $root, $finalTitle ) = $parser->getTemplateDom( $title );
 
     // if article doesn't exist, return a red link.
-    if ($dom === false) {
+    if ($root === false) {
       return "[[" . $title->getPrefixedText() . "]]";
     }
 
-    $root = $dom->documentElement;
     $newFrame = $frame->newChild( false, $finalTitle );
     if ( !count( $args ) ) {
       return $newFrame->expand( $root );
@@ -408,15 +407,15 @@ class LabeledSectionTransclusion {
     extract( $setup );
 
     $text = '';
-    $node = $root->firstChild;
+    $node = $root->getFirstChild();
     while ( $node ) {
       // Find the begin node
       $found = false;
-      for ( ; $node; $node = $node->nextSibling ) {
-        if ( $node->nodeName != 'ext' ) {
+      for ( ; $node; $node = $node->getNextSibling() ) {
+        if ( $node->getName() != 'ext' ) {
           continue;
         }
-        $parts = $newFrame->splitExtNode( $node );
+        $parts = $node->splitExt();
         $parts = array_map( array( $newFrame, 'expand' ), $parts );
         if ( self::isSection( $parts['name'] ) ) {
           if ( preg_match( $beginRegex, $parts['attr'] ) ) {
@@ -431,9 +430,9 @@ class LabeledSectionTransclusion {
 
       // Write the text out while looking for the end node
       $found = false;
-      for ( ; $node; $node = $node->nextSibling ) {
-        if ( $node->nodeName === 'ext' ) {
-          $parts = $newFrame->splitExtNode( $node );
+      for ( ; $node; $node = $node->getNextSibling() ) {
+        if ( $node->getName() === 'ext' ) {
+          $parts = $node->splitExt();
           $parts = array_map( array( $newFrame, 'expand' ), $parts );
           if ( self::isSection( $parts['name'] ) ) {
             if ( preg_match( $endRegex, $parts['attr'] ) ) {
@@ -451,7 +450,7 @@ class LabeledSectionTransclusion {
       if ( !$found ) {
         break;
       }
-      $node = $node->nextSibling;
+      $node = $node->getNextSibling();
     }
     return $text;
   }
@@ -487,12 +486,12 @@ class LabeledSectionTransclusion {
     extract( $setup );
 
     $text = '';
-    for ( $node = $root->firstChild; $node; $node = $node ? $node->nextSibling : false ) {
+    for ( $node = $root->getFirstChild(); $node; $node = $node ? $node->getNextSibling() : false ) {
       // Search for the start tag
       $found = false;
-      for ( ; $node; $node = $node->nextSibling ) {
-        if ( $node->nodeName == 'ext' ) {
-          $parts = $newFrame->splitExtNode( $node );
+      for ( ; $node; $node = $node->getNextSibling() ) {
+        if ( $node->getName() == 'ext' ) {
+          $parts = $node->splitExt();
           $parts = array_map( array( $newFrame, 'expand' ), $parts );
           if ( self::isSection( $parts['name'] ) ) {
             if ( preg_match( $beginRegex, $parts['attr'] ) ) {
@@ -516,9 +515,9 @@ class LabeledSectionTransclusion {
       $text .= $repl;
 
       // Search for the end tag
-      for ( ; $node; $node = $node->nextSibling ) {
-        if ( $node->nodeName == 'ext' ) {
-          $parts = $newFrame->splitExtNode( $node );
+      for ( ; $node; $node = $node->getNextSibling() ) {
+        if ( $node->getName() == 'ext' ) {
+          $parts = $node->splitExt( $node );
           $parts = array_map( array( $newFrame, 'expand' ), $parts );
           if ( self::isSection( $parts['name'] ) ) {
             if ( preg_match( $endRegex, $parts['attr'] ) ) {
