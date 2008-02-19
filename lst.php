@@ -21,15 +21,18 @@ if ( ! defined( 'MEDIAWIKI' ) )
 ##
 
 $wgExtensionFunctions[] = array( 'LabeledSectionTransclusion', "setup" );
-$wgHooks['LanguageGetMagic'][]       = 'LabeledSectionTransclusion::setupMagic';
+$wgHooks['LanguageGetMagic'][] = 'LabeledSectionTransclusion::setupMagic';
 
 $wgExtensionCredits['parserhook'][] = array(
-        'name' => 'LabeledSectionTransclusion',
-        'author' => 'Steve Sanbeg',
-        'description' => 'adds #lst and #lstx functions and &lt;section&gt; tag, enables marked sections of text to be transcluded',
-        'url' => 'http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion'
-        );
+	'name'           => 'LabeledSectionTransclusion',
+	'author'         => 'Steve Sanbeg',
+	'url'            => 'http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion',
+	'version'        => '2008-02-19',
+	'description'    => 'Adds #lst and #lstx functions and &lt;section&gt; tag, enables marked sections of text to be transcluded',
+	'descriptionmsg' => 'lst-desc',
+);
 $wgParserTestFiles[] = dirname( __FILE__ ) . "/lstParserTests.txt";
+$wgExtensionMessagesFiles['LabeledSectionTransclusion'] = dirname(__FILE__) . '/lst.i18n.php';
 
 // Local settings variable
 // Must be set now to avoid injection via register_globals
