@@ -8,7 +8,7 @@
 $messages = array();
 
 $messages['en'] = array(
-	'lst-desc' => 'Adds <tt>#lst</tt> and <tt>#lstx</tt> functions and &lt;section&gt; tag, enables marked sections of text to be transcluded',
+	'lst-desc' => 'Adds <tt>#lst</tt> and <tt>#lstx</tt> functions and <tt>&lt;section&gt;</tt> tag, enables marked sections of text to be transcluded',
 );
 
 /** German (Deutsch)
