@@ -46,6 +46,20 @@ $messages['fr'] = array(
 	'lst-desc' => 'Ajoute les fonctions <tt>#lst</tt> et <tt>#lstx</tt> ainsi que la balise <tt>&lt;section&gt;</tt>, active les sections marquées du texte devant être transclus',
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'lst-desc' => 'Apond les fonccions <tt>#lst</tt> et <tt>#lstx</tt> et pués la balisa <tt>&lt;section&gt;</tt>, active les sèccions marcâs du tèxte devant étre transcllu.',
+);
+
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'lst-desc' => 'Přidawa funkcije <tt>#lst</tt> a <tt>#lstx</tt> kaž tafličku <tt>&lt;section&gt;</tt>, zo bychu so markěrowane wotrězki teksta zapřijeli',
+);
+
 /** Japanese (日本語)
  * @author JtFuruhata
  */
@@ -58,6 +72,13 @@ $messages['ja'] = array(
  */
 $messages['nl'] = array(
 	'lst-desc' => 'Voegt de functies <tt>#lst</tt> en <tt>#lstx</tt> en de tag <tt>&lt;section&gt;</tt> toe  voor het markeren van tekstdelen die getranscludeerd moeten worden',
+);
+
+/** Norwegian (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ */
+$messages['no'] = array(
+	'lst-desc' => 'Legger til funksjonene <tt>#lst</tt> og <tt>#lstx</tt> for å inkludere avsnitt av en tekst, samt taggen <tt>&lt;section&gt;</tt> for å markere de avsnitt som kan inkluderes',
 );
 
 /** Portuguese (Português)
