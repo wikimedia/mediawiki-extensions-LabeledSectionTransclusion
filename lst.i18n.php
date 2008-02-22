@@ -11,6 +11,13 @@ $messages['en'] = array(
 	'lst-desc' => 'Adds <tt>#lst</tt> and <tt>#lstx</tt> functions and <tt>&lt;section&gt;</tt> tag, enables marked sections of text to be transcluded',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'lst-desc' => 'Adibe as funzions <tt>#lst</tt> y <tt>#lstx</tt> y a etiqueta <tt>&lt;section&gt;</tt>, premite que as sezions de testo siñalatas sían transcluyitas',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */
