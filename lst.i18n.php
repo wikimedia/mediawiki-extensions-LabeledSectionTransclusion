@@ -74,6 +74,13 @@ $messages['ja'] = array(
 	'lst-desc' => '文書を章単位で埋め込み参照可能とする <tt>#lst</tt>、<tt>#lstx</tt> 関数および <tt>&lt;section&gt;</tt> タグを追加する',
 );
 
+/** Limburgish (Limburgs)
+ * @author Matthias
+ */
+$messages['li'] = array(
+	'lst-desc' => 'Voegt de functies <tt>#lst</tt> en <tt>#lstx</tt> en de tag <tt>&lt;section&gt;</tt> toe  voor het markere van tekstdele die getranscludeerd motte worde',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
