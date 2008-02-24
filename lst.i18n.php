@@ -67,6 +67,13 @@ $messages['hsb'] = array(
 	'lst-desc' => 'Přidawa funkcije <tt>#lst</tt> a <tt>#lstx</tt> kaž tafličku <tt>&lt;section&gt;</tt>, zo bychu so markěrowane wotrězki teksta zapřijeli',
 );
 
+/** Italian (Italiano)
+ * @author BrokenArrow
+ */
+$messages['it'] = array(
+	'lst-desc' => "Aggiunge le funzioni <tt>#lst</tt> e <tt>#lstx</tt> e il tag <tt>&lt;section&gt;</tt> consentendo l'inclusione delle sezioni di testo così indicate",
+);
+
 /** Japanese (日本語)
  * @author JtFuruhata
  */
