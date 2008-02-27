@@ -36,7 +36,7 @@ $messages['cs'] = array(
  * @author Raimond Spekking
  */
 $messages['de'] = array(
-	'lst-desc' => 'Fügt die <tt>#lst</tt> und <tt>#lstx</tt> Funktionen sowie das <tt>&lt;section&gt;</tt>-Tag hinzu, um so markierte Abschnitte eingebunden werden zu können',
+	'lst-desc' => 'Fügt die <tt>#lst</tt> und <tt>#lstx</tt> Funktionen sowie das <tt>&lt;section&gt;</tt>-Tag hinzu, um so markierte Abschnitte einbinden zu können',
 );
 
 /** فارسی (فارسی)
