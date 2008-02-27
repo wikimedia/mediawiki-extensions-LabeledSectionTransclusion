@@ -67,6 +67,13 @@ $messages['hsb'] = array(
 	'lst-desc' => 'Přidawa funkcije <tt>#lst</tt> a <tt>#lstx</tt> kaž tafličku <tt>&lt;section&gt;</tt>, zo bychu so markěrowane wotrězki teksta zapřijeli',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author IvanLanin
+ */
+$messages['id'] = array(
+	'lst-desc' => 'Menambahkan fungsi <tt>#lst</tt> dan <tt>#lstx</tt> serta tag <tt>&lt;section&gt;</tt> yang memungkinkan bagian yang ditandai dari suatu teks ditransklusikan',
+);
+
 /** Italian (Italiano)
  * @author BrokenArrow
  */
