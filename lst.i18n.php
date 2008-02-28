@@ -109,6 +109,13 @@ $messages['no'] = array(
 	'lst-desc' => 'Legger til funksjonene <tt>#lst</tt> og <tt>#lstx</tt> for å inkludere avsnitt av en tekst, samt taggen <tt>&lt;section&gt;</tt> for å markere de avsnitt som kan inkluderes',
 );
 
+/** Occitan (Occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'lst-desc' => 'Ajusta las foncions <tt>#lst</tt> e <tt>#lstx</tt> e mai la balisa <tt>&lt;section&gt;</tt>, activa las seccions marcadas del tèxt devent èsser transclus',
+);
+
 /** Portuguese (Português)
  * @author Malafaya
  */
