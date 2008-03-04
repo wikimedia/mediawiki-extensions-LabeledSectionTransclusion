@@ -137,6 +137,13 @@ $messages['sk'] = array(
 	'lst-desc' => 'Pridáva funkcie <tt>#lst</tt> and <tt>#lstx</tt> a značku <tt>&lt;section&gt;</tt>, umožňuje transklúziu označených častí textu',
 );
 
+/** Seeltersk (Seeltersk)
+ * @author Pyt
+ */
+$messages['stq'] = array(
+	'lst-desc' => 'Föiget do <tt>#lst</tt> un <tt>#lstx</tt> Funktione as uk dät <tt>&lt;section&gt;</tt>-Tag bietou, uum so do markierde Ousnitte apnieme tou konnen',
+);
+
 /** Swedish (Svenska)
  * @author Lejonel
  */
