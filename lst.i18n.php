@@ -95,6 +95,13 @@ $messages['li'] = array(
 	'lst-desc' => 'Voegt de functies <tt>#lst</tt> en <tt>#lstx</tt> en de tag <tt>&lt;section&gt;</tt> toe  voor het markere van tekstdele die getranscludeerd motte worde',
 );
 
+/** Marathi (मराठी)
+ * @author Kaustubh
+ */
+$messages['mr'] = array(
+	'lst-desc' => '<tt>#lst</tt> व <tt>#lstx</tt> कार्ये आणि <tt>&lt;section&gt;</tt> टॅग वाढवितो, मजकूरातील चिन्हांकीत विभाग एकत्रीत करण्यास परवानगी देतो.',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
