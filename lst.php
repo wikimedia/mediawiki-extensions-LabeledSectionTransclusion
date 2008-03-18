@@ -385,7 +385,7 @@ class LabeledSectionTransclusion {
     global $wgLstLocal;
     $name = strtolower( $name );
     return $name == 'section' 
-      || ( isset( $wgLstLocal['section'] ) && $wgLstLocal['section'] == $name );
+      || ( isset( $wgLstLocal['section'] ) && strtolower( $wgLstLocal['section'] ) == $name );
   }
 
   /**
