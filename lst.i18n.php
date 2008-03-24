@@ -67,6 +67,13 @@ $messages['hsb'] = array(
 	'lst-desc' => 'Přidawa funkcije <tt>#lst</tt> a <tt>#lstx</tt> kaž tafličku <tt>&lt;section&gt;</tt>, zo bychu so markěrowane wotrězki teksta zapřijeli',
 );
 
+/** Hungarian (Magyar)
+ * @author Dani
+ */
+$messages['hu'] = array(
+	'lst-desc' => '<tt>#lst</tt> és <tt>#lstx</tt> függvények használata, valamint <tt>&lt;section&gt;</tt> tag szöveg adott részeink beillesztéséhez',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author IvanLanin
  */
