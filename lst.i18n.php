@@ -175,7 +175,7 @@ $messages['sv'] = array(
 /** Tajik (Тоҷикӣ)
  * @author Ibrahim
  */
-$messages['tg'] = array(
+$messages['tg-cyrl'] = array(
 	'lst-desc' => 'Амалгарҳои <tt>#lst</tt> ва <tt>#lstx</tt>  ва барчасби <tt>&lt;section&gt;</tt>-ро  илова мекунад, то битавон қисматҳои аз матнро дар саҳифаҳои дигар ғунҷонид',
 );
 
