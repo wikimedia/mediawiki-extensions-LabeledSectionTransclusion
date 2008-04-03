@@ -60,6 +60,13 @@ $messages['frp'] = array(
 	'lst-desc' => 'Apond les fonccions <tt>#lst</tt> et <tt>#lstx</tt> et pués la balisa <tt>&lt;section&gt;</tt>, active les sèccions marcâs du tèxte devant étre transcllu.',
 );
 
+/** Hindi (हिन्दी)
+ * @author Kaustubh
+ */
+$messages['hi'] = array(
+	'lst-desc' => '<tt>#lst</tt> और <tt>#lstx</tt> कार्य तथा <tt>&lt;section&gt;</tt> टॅग बढायें, पाठमेंसे चिन्हांकीत विभाग एकत्रित करें।',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
