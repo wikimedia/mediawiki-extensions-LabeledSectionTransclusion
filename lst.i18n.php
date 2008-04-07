@@ -144,6 +144,13 @@ $messages['oc'] = array(
 	'lst-desc' => 'Ajusta las foncions <tt>#lst</tt> e <tt>#lstx</tt> e mai la balisa <tt>&lt;section&gt;</tt>, activa las seccions marcadas del tèxt devent èsser transclus',
 );
 
+/** Polish (Polski)
+ * @author Sp5uhe
+ */
+$messages['pl'] = array(
+	'lst-desc' => 'Dodaje funkcje <tt>#lst</tt> i <tt>#lstx</tt> oraz znacznik <tt>&lt;section&gt;</tt> umożliwiające umieszczenie oznaczonej sekcji tekstu w treści innej strony',
+);
+
 /** Portuguese (Português)
  * @author Malafaya
  */
