@@ -229,7 +229,7 @@ LST: red link from nonexistent article
 !!input
 {{#lst:no such article|anything}}
 !!result
-<p><a href="/index.php?title=No_such_article&amp;action=edit" class="new" title="No such article">No such article</a>
+<p><a href="/index.php?title=No_such_article&amp;action=edit&amp;redlink=1" class="new" title="No such article (not yet written)">No such article</a>
 </p>
 !!end
 

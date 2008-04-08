@@ -93,6 +93,15 @@ function wfLstIncludeHeading($parser, $page='', $sec='', $to='')
   else
     $result = substr($text, $begin_off);
   
+
+  if (method_exists($parser->getPreprocessor))
+  {
+    $frame = $parser->getPreprocessor()->newFrame();
+    $dom = $parser->preprocessToDom( $result );
+    $result = $frame->expand( $dom );
+  }
+      
+
   return LabeledSectionTransclusion::parse_($parser,$title,$result, "#lsth:${page}|${sec}", $nhead);
 }
 
