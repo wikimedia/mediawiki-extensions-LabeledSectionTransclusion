@@ -214,3 +214,23 @@ $messages['vi'] = array(
 	'lst-desc' => 'Thêm hàm <tt>#lst</tt> và <tt>#lstx</tt> và thẻ <tt>&lt;section&gt;</tt> để cho phép những đoạn văn bản được đánh dấu sẽ được nhúng.',
 );
 
+/** Cantonese
+ * @author Shinjiman
+ */
+$messages['yue'] = array(
+	'lst-desc' => '加 <tt>#lst</tt> 同埋 <tt>#lstx</tt> 功能同埋 <tt>&lt;section&gt;</tt> 標籤，可以用來將已經標示咗嘅小節包含出來',
+);
+
+/** Chinese (Simplified)
+ * @author Shinjiman
+ */
+$messages['zh-hans'] = array(
+	'lst-desc' => '加入 <tt>#lst</tt> 和 <tt>#lstx</tt> 功能以及 <tt>&lt;section&gt;</tt> 标签，可以用来将已经标示的段落包含起来',
+);
+
+/** Chinese (Traditional)
+ * @author Shinjiman
+ */
+$messages['zh-hant'] = array(
+	'lst-desc' => '加入 <tt>#lst</tt> 和 <tt>#lstx</tt> 功能以及 <tt>&lt;section&gt;</tt> 標籤，可以用來將已經標示的段落包含起來',
+);
