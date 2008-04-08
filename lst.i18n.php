@@ -116,6 +116,13 @@ $messages['li'] = array(
 	'lst-desc' => 'Voegt de functies <tt>#lst</tt> en <tt>#lstx</tt> en de tag <tt>&lt;section&gt;</tt> toe  voor het markere van tekstdele die getranscludeerd motte worde',
 );
 
+/** Malayalam (മലയാളം)
+ * @author Shijualex
+ */
+$messages['ml'] = array(
+	'lst-desc' => '<tt>#lst</tt>, <tt>#lstx</tt> എന്ന ഫങ്ങഷന്‍സ്, <tt>&lt;section&gt;</tt> എന്ന ടാഗ് എന്നിവ ചേര്‍ക്കുകയും, transclude ചെയ്യാനുള്ള ഉള്ളടക്ക വിഭാഗങ്ങളെ അടയാളപ്പെടുത്തുകയും ചെയ്യുന്നു.',
+);
+
 /** Marathi (मराठी)
  * @author Kaustubh
  */
@@ -191,6 +198,13 @@ $messages['sv'] = array(
  */
 $messages['tg-cyrl'] = array(
 	'lst-desc' => 'Амалгарҳои <tt>#lst</tt> ва <tt>#lstx</tt>  ва барчасби <tt>&lt;section&gt;</tt>-ро  илова мекунад, то битавон қисматҳои аз матнро дар саҳифаҳои дигар ғунҷонид',
+);
+
+/** Vèneto (Vèneto)
+ * @author Candalua
+ */
+$messages['vec'] = array(
+	'lst-desc' => "Zonta le funzion <tt>#lst</tt> e <tt>#lstx</tt> e el tag <tt>&lt;section&gt;</tt> consentendo l'inclusion de le sezion de testo cussì indicà",
 );
 
 /** Vietnamese (Tiếng Việt)
