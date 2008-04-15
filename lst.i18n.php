@@ -200,6 +200,13 @@ $messages['tg-cyrl'] = array(
 	'lst-desc' => 'Амалгарҳои <tt>#lst</tt> ва <tt>#lstx</tt>  ва барчасби <tt>&lt;section&gt;</tt>-ро  илова мекунад, то битавон қисматҳои аз матнро дар саҳифаҳои дигар ғунҷонид',
 );
 
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'lst-desc' => 'Додає функції <tt>#lst</tt> та <tt>#lstx</tt> і тег <tt>&lt;section&gt;</tt>, дозволяє включати позначені ділянки тексту на інші сторінки',
+);
+
 /** Vèneto (Vèneto)
  * @author Candalua
  */
@@ -234,3 +241,4 @@ $messages['zh-hans'] = array(
 $messages['zh-hant'] = array(
 	'lst-desc' => '加入 <tt>#lst</tt> 和 <tt>#lstx</tt> 功能以及 <tt>&lt;section&gt;</tt> 標籤，可以用來將已經標示的段落包含起來',
 );
+
