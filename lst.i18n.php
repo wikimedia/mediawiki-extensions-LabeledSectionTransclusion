@@ -109,6 +109,13 @@ $messages['jut'] = array(
 	'lst-desc' => 'Tilføje <tt>#lst</tt> og <tt>#lstx</tt> funksje og <tt>&lt;section&gt;</tt> tag, måk markærn seksje der tekst til være transcluded',
 );
 
+/** Javanese (Basa Jawa)
+ * @author Meursault2004
+ */
+$messages['jv'] = array(
+	'lst-desc' => 'Nambahaké fungsi <tt>#lst</tt> lan <tt>#lstx</tt> serta tag <tt>&lt;section&gt;</tt> sing mungkinaké bagéyan sing ditandhani saka sawijining tèks bisa ditransklusi',
+);
+
 /** Limburgish (Limburgs)
  * @author Matthias
  */
