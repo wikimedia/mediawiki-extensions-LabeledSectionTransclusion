@@ -179,6 +179,13 @@ $messages['ru'] = array(
 	'lst-desc' => 'Добавляет функции <tt>#lst</tt> и <tt>#lstx</tt> и тег <tt>&lt;section&gt;</tt>, позволяет включать отмеченные участки текста на другие страницы',
 );
 
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'lst-desc' => '<tt>#lst</tt> уонна <tt>#lstx</tt> функциялары уонна <tt>&lt;section&gt;</tt> тиэги эбэр, бу бэлиэтэммит тиэкиһи атын сирэйдэргэ киллэрэри ситиһэр.',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */
