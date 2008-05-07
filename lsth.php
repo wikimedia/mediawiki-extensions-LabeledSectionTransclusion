@@ -94,7 +94,7 @@ function wfLstIncludeHeading($parser, $page='', $sec='', $to='')
     $result = substr($text, $begin_off);
   
 
-  if (method_exists($parser->getPreprocessor))
+  if (method_exists($parser,'getPreprocessor'))
   {
     $frame = $parser->getPreprocessor()->newFrame();
     $dom = $parser->preprocessToDom( $result );
