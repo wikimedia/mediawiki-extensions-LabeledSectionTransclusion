@@ -173,7 +173,7 @@ $messages['pt'] = array(
 );
 
 /** Russian (Русский)
- * @author .:Ajvol:.
+ * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'lst-desc' => 'Добавляет функции <tt>#lst</tt> и <tt>#lstx</tt> и тег <tt>&lt;section&gt;</tt>, позволяет включать отмеченные участки текста на другие страницы',
