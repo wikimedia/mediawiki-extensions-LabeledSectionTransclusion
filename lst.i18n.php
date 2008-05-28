@@ -116,6 +116,13 @@ $messages['jv'] = array(
 	'lst-desc' => 'Nambahaké fungsi <tt>#lst</tt> lan <tt>#lstx</tt> serta tag <tt>&lt;section&gt;</tt> sing mungkinaké bagéyan sing ditandhani saka sawijining tèks bisa ditransklusi',
 );
 
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'lst-desc' => 'Setzt <tt>#lst</tt> an <tt>#lstx</tt> Funktiounen a <tt>&lt;section&gt;</tt> Tag derbäi, fir esou markéiert Abschnitter ablenden ze kënnen',
+);
+
 /** Limburgish (Limburgs)
  * @author Matthias
  */
