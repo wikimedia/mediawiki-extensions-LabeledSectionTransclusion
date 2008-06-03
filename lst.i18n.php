@@ -116,6 +116,13 @@ $messages['jv'] = array(
 	'lst-desc' => 'Nambahaké fungsi <tt>#lst</tt> lan <tt>#lstx</tt> serta tag <tt>&lt;section&gt;</tt> sing mungkinaké bagéyan sing ditandhani saka sawijining tèks bisa ditransklusi',
 );
 
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'lst-desc' => 'Dëijt de Fungkzjone <tt>#lst</tt>, un <tt>#lstx</tt>, un der Befääl <tt>&lt;section&gt;</tt> en et Wiki bei, un määd_et mööschlesch, esu makeete TëxShtöcker wohannders wi_j_en Schabloon ėnnzofööje',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
