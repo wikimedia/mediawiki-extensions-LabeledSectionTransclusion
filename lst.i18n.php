@@ -60,6 +60,13 @@ $messages['frp'] = array(
 	'lst-desc' => 'Apond les fonccions <tt>#lst</tt> et <tt>#lstx</tt> et pués la balisa <tt>&lt;section&gt;</tt>, active les sèccions marcâs du tèxte devant étre transcllu.',
 );
 
+/** Hebrew (עברית)
+ * @author Rotem Liss
+ */
+$messages['he'] = array(
+	'lst-desc' => 'הוספת פונקציות <tt>#lst</tt> ו־<tt>#lstx</tt> ותגית <tt>&lt;section&gt;</tt>, המאפשרים הכללה של קטעים מסומנים של טקסט',
+);
+
 /** Hindi (हिन्दी)
  * @author Kaustubh
  */
