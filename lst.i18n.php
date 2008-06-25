@@ -39,6 +39,13 @@ $messages['de'] = array(
 	'lst-desc' => 'Fügt die <tt>#lst</tt> und <tt>#lstx</tt> Funktionen sowie das <tt>&lt;section&gt;</tt>-Tag hinzu, um so markierte Abschnitte einbinden zu können',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'lst-desc' => 'Aldonas funkciojn <tt>#lst</tt> kaj <tt>#lstx</tt> kaj etikedon <tt>&lt;section&gt;</tt>, ebligas markitajn sekciojn da tekston por esti transinkluzivitaj',
+);
+
 /** فارسی (فارسی)
  * @author Huji
  */
@@ -58,6 +65,13 @@ $messages['fr'] = array(
  */
 $messages['frp'] = array(
 	'lst-desc' => 'Apond les fonccions <tt>#lst</tt> et <tt>#lstx</tt> et pués la balisa <tt>&lt;section&gt;</tt>, active les sèccions marcâs du tèxte devant étre transcllu.',
+);
+
+/** Galician (Galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'lst-desc' => 'Engade as funcións <tt>#lst</tt> e <tt>#lstx</tt> funcións, e a etiqueta <tt>&lt;section&gt;</tt>, permite que as seccións maradas dun texto sexan transcluídas',
 );
 
 /** Hebrew (עברית)
