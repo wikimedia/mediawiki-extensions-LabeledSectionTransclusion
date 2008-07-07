@@ -172,6 +172,13 @@ $messages['mr'] = array(
 	'lst-desc' => '<tt>#lst</tt> व <tt>#lstx</tt> कार्ये आणि <tt>&lt;section&gt;</tt> टॅग वाढवितो, मजकूरातील चिन्हांकीत विभाग एकत्रीत करण्यास परवानगी देतो.',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'lst-desc' => 'Menambah fungsi <tt>#lst</tt> dan <tt>#lstx</tt> serta tag <tt>&lt;section&gt;</tt>, justeru membolehkan kemasukan bahagian-bahagian teks yang telah ditanda',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
