@@ -46,7 +46,7 @@ $messages['eo'] = array(
 	'lst-desc' => 'Aldonas funkciojn <tt>#lst</tt> kaj <tt>#lstx</tt> kaj etikedon <tt>&lt;section&gt;</tt>, ebligas markitajn sekciojn da tekston por esti transinkluzivitaj',
 );
 
-/** فارسی (فارسی)
+/** Persian (فارسی)
  * @author Huji
  */
 $messages['fa'] = array(
@@ -186,7 +186,7 @@ $messages['nl'] = array(
 	'lst-desc' => 'Voegt de functies <tt>#lst</tt> en <tt>#lstx</tt> en de tag <tt>&lt;section&gt;</tt> toe  voor het markeren van tekstdelen die getranscludeerd moeten worden',
 );
 
-/** Norwegian (‪Norsk (bokmål)‬)
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
@@ -249,7 +249,7 @@ $messages['sv'] = array(
 	'lst-desc' => 'Lägger till funktionerna <tt>#lst</tt> och <tt>#lstx</tt> för att inkludera avsnitt av en text, samt taggen <tt>&lt;section&gt;</tt> för att markera de avsnitt som kan inkluderas',
 );
 
-/** Tajik (Тоҷикӣ)
+/** Tajik (Cyrillic) (Тоҷикӣ/tojikī (Cyrillic))
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -277,21 +277,21 @@ $messages['vi'] = array(
 	'lst-desc' => 'Thêm hàm <tt>#lst</tt> và <tt>#lstx</tt> và thẻ <tt>&lt;section&gt;</tt> để cho phép những đoạn văn bản được đánh dấu sẽ được nhúng.',
 );
 
-/** Cantonese
+/** Yue (粵語)
  * @author Shinjiman
  */
 $messages['yue'] = array(
 	'lst-desc' => '加 <tt>#lst</tt> 同埋 <tt>#lstx</tt> 功能同埋 <tt>&lt;section&gt;</tt> 標籤，可以用來將已經標示咗嘅小節包含出來',
 );
 
-/** Chinese (Simplified)
+/** Simplified Chinese (‪中文(简体)‬)
  * @author Shinjiman
  */
 $messages['zh-hans'] = array(
 	'lst-desc' => '加入 <tt>#lst</tt> 和 <tt>#lstx</tt> 功能以及 <tt>&lt;section&gt;</tt> 标签，可以用来将已经标示的段落包含起来',
 );
 
-/** Chinese (Traditional)
+/** Traditional Chinese (‪中文(繁體)‬)
  * @author Shinjiman
  */
 $messages['zh-hant'] = array(
