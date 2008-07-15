@@ -25,6 +25,13 @@ $messages['ar'] = array(
 	'lst-desc' => 'يضيف الدالتين <tt>#lst</tt> و <tt>#lstx</tt> والوسم <tt>&lt;section&gt;</tt>، يفعل تضمين الأقسام المعلمة من النص',
 );
 
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'lst-desc' => 'هورکنت <tt>#lst</tt> و<tt>#lstx</tt> عملگران و <tt>&lt;بخش&gt;</tt> برچسپ، هلیت که بخشان انتخابی متن نیمه شفاف بیت',
+);
+
 /** Czech (Česky)
  * @author Matěj Grabovský
  */
