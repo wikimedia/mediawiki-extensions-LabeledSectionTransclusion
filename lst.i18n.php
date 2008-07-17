@@ -109,6 +109,13 @@ $messages['hu'] = array(
 	'lst-desc' => '<tt>#lst</tt> és <tt>#lstx</tt> függvények használata, valamint <tt>&lt;section&gt;</tt> tag szöveg adott részeink beillesztéséhez',
 );
 
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'lst-desc' => 'Adde le functiones <tt>#lst</tt> e <tt>#lstx</tt> e le etiquetta <tt>&lt;section&gt;</tt>, permittente le transclusion de sectiones marcate de texto',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author IvanLanin
  */
