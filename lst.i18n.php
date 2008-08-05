@@ -155,7 +155,7 @@ $messages['jv'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'lst-desc' => 'Dëijt de Fungkzjone <tt>#lst</tt>, un <tt>#lstx</tt>, un der Befääl <tt>&lt;section&gt;</tt> en et Wiki bei, un määd_et mööschlesch, esu makeete TëxShtöcker wohannders wi_j_en Schabloon ėnnzofööje',
+	'lst-desc' => 'Dëijt de Fungkzjone <tt>#lst</tt>, un <tt>#lstx</tt>, un der Befääl <tt>&lt;section&gt;</tt> en et Wiki bei, un määd_et müjjelesch, de su makeete TëxShtöcker wohannders wi_j_en Schabloon ėnnzofööje.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
