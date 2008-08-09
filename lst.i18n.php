@@ -25,6 +25,13 @@ $messages['ar'] = array(
 	'lst-desc' => 'يضيف الدالتين <tt>#lst</tt> و <tt>#lstx</tt> والوسم <tt>&lt;section&gt;</tt>، يفعل تضمين الأقسام المعلمة من النص',
 );
 
+/** Asturian (Asturianu)
+ * @author Esbardu
+ */
+$messages['ast'] = array(
+	'lst-desc' => 'Añade les funciones <tt>#lst</tt> y <tt>#lstx</tt> y la etiqueta <tt>&lt;section&gt;</tt>, habilita les seiciones de testu marcaes pa ser trescluyíes',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */
