@@ -11,6 +11,13 @@ $messages['en'] = array(
 	'lst-desc' => 'Adds <tt>#lst</tt> and <tt>#lstx</tt> functions and <tt>&lt;section&gt;</tt> tag, enables marked sections of text to be transcluded',
 );
 
+/** Message documentation (Message documentation)
+ * @author Raymond
+ */
+$messages['qqq'] = array(
+	'lst-desc' => 'Extension description displayed on [[Special:Version]]',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */
@@ -270,7 +277,7 @@ $messages['sv'] = array(
 	'lst-desc' => 'Lägger till funktionerna <tt>#lst</tt> och <tt>#lstx</tt> för att inkludera avsnitt av en text, samt taggen <tt>&lt;section&gt;</tt> för att markera de avsnitt som kan inkluderas',
 );
 
-/** Tajik (Cyrillic) (Тоҷикӣ/tojikī (Cyrillic))
+/** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
