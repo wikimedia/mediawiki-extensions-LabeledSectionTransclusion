@@ -109,6 +109,13 @@ $messages['hi'] = array(
 	'lst-desc' => '<tt>#lst</tt> और <tt>#lstx</tt> कार्य तथा <tt>&lt;section&gt;</tt> टॅग बढायें, पाठमेंसे चिन्हांकीत विभाग एकत्रित करें।',
 );
 
+/** Croatian (Hrvatski)
+ * @author Dalibor Bosits
+ */
+$messages['hr'] = array(
+	'lst-desc' => 'Dodaje <tt>#lst</tt> i <tt>#lstx</tt> funkcije i <tt>&lt;section&gt;</tt> oznake, omogućava transkluziju označenog odlomka u tekstu',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
