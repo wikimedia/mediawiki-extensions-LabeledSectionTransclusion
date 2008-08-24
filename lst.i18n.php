@@ -74,6 +74,13 @@ $messages['fa'] = array(
 	'lst-desc' => 'عملگرهای <tt>#lst</tt> و <tt>#lstx</tt> و برچسب <tt>&lt;section&gt;</tt> را می‌افزاید، تا بتوان قسمت‌هایی از متن را در صفحه‌های دیگر گنجاند',
 );
 
+/** Finnish (Suomi)
+ * @author Crt
+ */
+$messages['fi'] = array(
+	'lst-desc' => 'Lisää funktiot <tt>#lst</tt>, <tt>#lstx</tt> ja tagin <tt>&lt;section&gt;</tt> sekä mahdollistaa merkattujen tekstinosien sisällytyksen.',
+);
+
 /** French (Français)
  * @author Grondin
  */
