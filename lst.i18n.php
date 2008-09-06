@@ -33,10 +33,11 @@ $messages['ar'] = array(
 );
 
 /** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
  * @author Ramsis II
  */
 $messages['arz'] = array(
-	'lst-desc' => 'بيضيف الدالتين <tt>#lst</tt> و <tt>#lstx</tt> والتاج <tt>&lt;section&gt;</tt>، بيفعل تضمين الأقسام المتعلم عليها من النص',
+	'lst-desc' => 'يضيف الدالتين <tt>#lst</tt> و <tt>#lstx</tt> والوسم <tt>&lt;section&gt;</tt>، يفعل تضمين الأقسام المعلمة من النص',
 );
 
 /** Asturian (Asturianu)
