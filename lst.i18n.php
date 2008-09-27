@@ -54,6 +54,13 @@ $messages['bcc'] = array(
 	'lst-desc' => 'هورکنت <tt>#lst</tt> و<tt>#lstx</tt> عملگران و <tt>&lt;بخش&gt;</tt> برچسپ، هلیت که بخشان انتخابی متن نیمه شفاف بیت',
 );
 
+/** Catalan (Català)
+ * @author Aleator
+ */
+$messages['ca'] = array(
+	'lst-desc' => "Afegeix les funcions <tt>#lst</tt> i <tt>#lstx</tt> i l'etiqueta <tt>&lt;section&gt;</tt>, permet transcloure seccions de text amb marques",
+);
+
 /** Czech (Česky)
  * @author Matěj Grabovský
  */
@@ -247,7 +254,7 @@ $messages['no'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'lst-desc' => 'Apondís las foncions <tt>#lst</tt> e <tt>#lstx</tt> e mai la balisa <tt>&lt;section&gt;</tt>, activa las seccions marcadas del tèxt que devon èsser transclusas',
+	'lst-desc' => 'Apond las foncions <tt>#lst</tt> e <tt>#lstx</tt> e mai la balisa <tt>&lt;section&gt;</tt>, activa las seccions marcadas del tèxt que devon èsser transclusas',
 );
 
 /** Polish (Polski)
