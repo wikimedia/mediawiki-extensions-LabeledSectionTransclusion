@@ -233,7 +233,7 @@ $messages['mr'] = array(
  * @author Aviator
  */
 $messages['ms'] = array(
-	'lst-desc' => 'Menambah fungsi <tt>#lst</tt> dan <tt>#lstx</tt> serta tag <tt>&lt;section&gt;</tt>, justeru membolehkan kemasukan bahagian-bahagian teks yang telah ditanda',
+	'lst-desc' => 'Menambah fungsi <tt>#lst</tt> dan <tt>#lstx</tt> serta tag <tt>&lt;section&gt;</tt>, justeru membolehkan penyertaan bahagian-bahagian teks yang telah ditanda',
 );
 
 /** Dutch (Nederlands)
