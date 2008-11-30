@@ -32,10 +32,8 @@ $wgExtensionCredits['parserhook'][] = array(
 	'description'    => 'Adds #lst and #lstx functions and &lt;section&gt; tag, enables marked sections of text to be transcluded',
 	'descriptionmsg' => 'lst-desc',
 );
-
-$dir = dirname(__FILE__) . '/';
-$wgParserTestFiles[] = $dir . "lstParserTests.txt";
-$wgExtensionMessagesFiles['LabeledSectionTransclusion'] = $dir . 'lst.i18n.php';
+$wgParserTestFiles[] = dirname( __FILE__ ) . "/lstParserTests.txt";
+$wgExtensionMessagesFiles['LabeledSectionTransclusion'] = dirname(__FILE__) . '/lst.i18n.php';
 
 // Local settings variable
 // Must be set now to avoid injection via register_globals
