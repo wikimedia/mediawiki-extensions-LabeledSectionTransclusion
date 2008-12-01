@@ -285,6 +285,13 @@ $messages['sah'] = array(
 	'lst-desc' => '<tt>#lst</tt> уонна <tt>#lstx</tt> функциялары уонна <tt>&lt;section&gt;</tt> тиэги эбэр, бу бэлиэтэммит тиэкиһи атын сирэйдэргэ киллэрэри ситиһэр.',
 );
 
+/** Sinhala (සිංහල)
+ * @author නන්දිමිතුරු
+ */
+$messages['si'] = array(
+	'lst-desc' => '<tt>#lst</tt> සහ <tt>#lstx</tt> ශ්‍රිතයන් හා <tt>&lt;section&gt;</tt> ටැගය එක්කරමින්, පෙළෙහි සළකුණු කල කොටස්  අන්තඃකරණය කෙරුම සක්‍රීය කෙරේ',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */
