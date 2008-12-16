@@ -82,6 +82,13 @@ $messages['eo'] = array(
 	'lst-desc' => 'Aldonas funkciojn <tt>#lst</tt> kaj <tt>#lstx</tt> kaj etikedon <tt>&lt;section&gt;</tt>, ebligas markitajn sekciojn da tekston por esti transinkluzivitaj',
 );
 
+/** Spanish (Español)
+ * @author Sanbec
+ */
+$messages['es'] = array(
+	'lst-desc' => 'Añade las funciones <tt>#lst</tt> y <tt>#lstx</tt> y la etiqueta <tt>&lt;section&gt;</tt>, que permite transcluir secciones de texto marcadas',
+);
+
 /** Persian (فارسی)
  * @author Huji
  */
