@@ -278,6 +278,13 @@ $messages['pt'] = array(
 	'lst-desc' => 'Adiciona as funções <tt>#lst</tt> e <tt>#lstx</tt>, e a marca &lt;section&gt;, activa secções marcadas de texto para serem transcluídas',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'lst-desc' => "Aggiunge le funzione <tt>#lst</tt> e <tt>#lstx</tt> e 'u tag <tt>&lt;section&gt;</tt>, ca abilitesce le sezione marchete de teste pe essere escluse",
+);
+
 /** Russian (Русский)
  * @author Александр Сигачёв
  */
