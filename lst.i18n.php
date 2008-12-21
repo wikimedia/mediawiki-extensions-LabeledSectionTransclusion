@@ -13,6 +13,7 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Raimond Spekking
+ * @author Raymond
  */
 $messages['qqq'] = array(
 	'lst-desc' => 'Extension description displayed on [[Special:Version]]',
@@ -73,6 +74,13 @@ $messages['cs'] = array(
  */
 $messages['de'] = array(
 	'lst-desc' => 'Fügt die <tt>#lst</tt> und <tt>#lstx</tt> Funktionen sowie das <tt>&lt;section&gt;</tt>-Tag hinzu, um so markierte Abschnitte einbinden zu können',
+);
+
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'lst-desc' => 'Pśidawa funkciji <tt>#lst</tt> a <tt>#lstx</tt> a toflicku <tt>&lt;section&gt;</tt>, zmóžnja zapśěgnjenje  markěrowanych tekstowych wótrězkow',
 );
 
 /** Esperanto (Esperanto)
