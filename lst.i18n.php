@@ -258,6 +258,13 @@ $messages['nl'] = array(
 	'lst-desc' => 'Voegt de functies <tt>#lst</tt> en <tt>#lstx</tt> en de tag <tt>&lt;section&gt;</tt> toe  voor het markeren van tekstdelen die getranscludeerd moeten worden',
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Harald Khan
+ */
+$messages['nn'] = array(
+	'lst-desc' => 'Legg til funksjonane <tt>#lst</tt> og <tt>#lstx</tt> for å inkludera avsnitt av ein tekst, i tillegg til merket <tt>&lt;section&gt;</tt> for å markera dei avsnitta som kan bli inkluderte',
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  */
