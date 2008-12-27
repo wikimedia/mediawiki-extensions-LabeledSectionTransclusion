@@ -55,6 +55,13 @@ $messages['bcc'] = array(
 	'lst-desc' => 'هورکنت <tt>#lst</tt> و<tt>#lstx</tt> عملگران و <tt>&lt;بخش&gt;</tt> برچسپ، هلیت که بخشان انتخابی متن نیمه شفاف بیت',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'lst-desc' => 'Dodaje <tt>#lst</tt> i <tt>#lstx</tt> funkcije i oznaku <tt>&lt;section&gt;</tt>, omogućava označenim sekcijama teksta da budu uključeni',
+);
+
 /** Catalan (Català)
  * @author Aleator
  */
