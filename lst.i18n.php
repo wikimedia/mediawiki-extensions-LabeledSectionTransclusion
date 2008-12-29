@@ -55,6 +55,13 @@ $messages['bcc'] = array(
 	'lst-desc' => 'هورکنت <tt>#lst</tt> و<tt>#lstx</tt> عملگران و <tt>&lt;بخش&gt;</tt> برچسپ، هلیت که بخشان انتخابی متن نیمه شفاف بیت',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author Jim-by
+ */
+$messages['be-tarask'] = array(
+	'lst-desc' => 'Дадае функцыі <tt>#lst</tt> і <tt>#lstx</tt> і тэг <tt>&lt;section&gt;</tt>, дазваляе пераносіць вызначаныя ўчасткі тэксту на іншыя старонкі',
+);
+
 /** Bosnian (Bosanski)
  * @author CERminator
  */
