@@ -363,6 +363,13 @@ $messages['tg-cyrl'] = array(
 	'lst-desc' => 'Амалгарҳои <tt>#lst</tt> ва <tt>#lstx</tt>  ва барчасби <tt>&lt;section&gt;</tt>-ро  илова мекунад, то битавон қисматҳои аз матнро дар саҳифаҳои дигар ғунҷонид',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'lst-desc' => 'Nagdaragdag ng mga tungkuling <tt>#lst</tt> at <tt>#lstx</tt> at tatak na <tt>&lt;seksyon&gt;</tt>, nagbibigay ng kakayahang mailipat-sama (transklusyon) ang tinandaang mga seksyon ng teksto',
+);
+
 /** Ukrainian (Українська)
  * @author Ahonc
  */
