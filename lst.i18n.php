@@ -146,6 +146,13 @@ $messages['gl'] = array(
 	'lst-desc' => 'Engade as funcións <tt>#lst</tt> e <tt>#lstx</tt> funcións, e a etiqueta <tt>&lt;section&gt;</tt>, permite que as seccións maradas dun texto sexan transcluídas',
 );
 
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'lst-desc' => 'Fiegt d <tt>#lst</tt> un <tt>#lstx</tt> Funktione un s <tt>&lt;section&gt;</tt>-Tag yy go eso markierti Abschnitt yybinde z chenne',
+);
+
 /** Hebrew (עברית)
  * @author Rotem Liss
  */
@@ -263,6 +270,13 @@ $messages['mr'] = array(
  */
 $messages['ms'] = array(
 	'lst-desc' => 'Menambah fungsi <tt>#lst</tt> dan <tt>#lstx</tt> serta tag <tt>&lt;section&gt;</tt>, justeru membolehkan penyertaan bahagian-bahagian teks yang telah ditanda',
+);
+
+/** Low German (Plattdüütsch)
+ * @author Slomox
+ */
+$messages['nds'] = array(
+	'lst-desc' => 'Föögt de <tt>#lst</tt>- un <tt>#lstx</tt>-Funktionen un dat <tt>&lt;section&gt;</tt>-Tag to, dat markeerte Afsneed vun Text inbunnen warrn köönt',
 );
 
 /** Dutch (Nederlands)
