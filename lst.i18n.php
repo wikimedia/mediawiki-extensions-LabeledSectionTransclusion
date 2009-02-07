@@ -321,6 +321,13 @@ $messages['pt'] = array(
 	'lst-desc' => 'Adiciona as funções <tt>#lst</tt> e <tt>#lstx</tt>, e a marca &lt;section&gt;, activa secções marcadas de texto para serem transcluídas',
 );
 
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'lst-desc' => 'Adiciona as funções <tt>#lst</tt> e <tt>#lstx</tt>, e a marca &lt;section&gt;, ativa seções marcadas de texto para serem transcluídas',
+);
+
 /** Tarandíne (Tarandíne)
  * @author Joetaras
  */
