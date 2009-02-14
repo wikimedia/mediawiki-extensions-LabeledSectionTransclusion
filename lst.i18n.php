@@ -97,6 +97,13 @@ $messages['dsb'] = array(
 	'lst-desc' => 'Pśidawa funkciji <tt>#lst</tt> a <tt>#lstx</tt> a toflicku <tt>&lt;section&gt;</tt>, zmóžnja zapśěgnjenje  markěrowanych tekstowych wótrězkow',
 );
 
+/** Greek (Ελληνικά)
+ * @author Dead3y3
+ */
+$messages['el'] = array(
+	'lst-desc' => 'Προσθέτει τις συναρτήσεις <tt>#lst</tt> και <tt>#lstx</tt> και την ετικέτα <tt>&lt;section&gt;</tt>, ενεργοποιεί την δυνατότητα αντικατάστασης επιλεγμένων τμημάτων κειμένου',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */
