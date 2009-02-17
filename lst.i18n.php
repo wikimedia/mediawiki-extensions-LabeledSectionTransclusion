@@ -118,6 +118,13 @@ $messages['es'] = array(
 	'lst-desc' => 'Añade las funciones <tt>#lst</tt> y <tt>#lstx</tt> y la etiqueta <tt>&lt;section&gt;</tt>, que permite transcluir secciones de texto marcadas',
 );
 
+/** Basque (Euskara)
+ * @author An13sa
+ */
+$messages['eu'] = array(
+	'lst-desc' => '<tt>#lst</tt> eta <tt>#lstx</tt> funtzioak eta <tt>&lt;atal&gt;</tt> etiketak gehitzen ditu, eta aukeratutako testuaren atalak ordezkatzen ditu',
+);
+
 /** Persian (فارسی)
  * @author Huji
  */
