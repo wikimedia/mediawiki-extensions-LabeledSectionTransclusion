@@ -405,6 +405,13 @@ $messages['tl'] = array(
 	'lst-desc' => 'Nagdaragdag ng mga tungkuling <tt>#lst</tt> at <tt>#lstx</tt> at tatak na <tt>&lt;seksyon&gt;</tt>, nagbibigay ng kakayahang mailipat-sama (transklusyon) ang tinandaang mga seksyon ng teksto',
 );
 
+/** Turkish (Türkçe)
+ * @author Joseph
+ */
+$messages['tr'] = array(
+	'lst-desc' => '<tt>#lst</tt> ve <tt>#lstx</tt> fonksiyonlarını ve <tt>&lt;section&gt;</tt> etiketini ekler, çapraz eklenecek metnin işaretli bölümlerini etkinleştirir',
+);
+
 /** Ukrainian (Українська)
  * @author Ahonc
  */
