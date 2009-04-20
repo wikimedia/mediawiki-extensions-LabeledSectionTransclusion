@@ -318,7 +318,7 @@ $messages['no'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'lst-desc' => 'Apond las foncions <tt>#lst</tt> e <tt>#lstx</tt> e mai la balisa <tt>&lt;section&gt;</tt>, activa las seccions marcadas del tèxt que devon èsser transclusas',
+	'lst-desc' => 'Apond las foncions <tt>#lst</tt> e <tt>#lstx</tt> e mai la balisa <tt>&lt;section&gt;</tt>, activa las seccions marcadas del tèxte que devon èsser transclusas',
 );
 
 /** Polish (Polski)
