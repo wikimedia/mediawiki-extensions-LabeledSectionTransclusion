@@ -24,6 +24,7 @@ $wgExtensionFunctions[] = array( 'LabeledSectionTransclusion', "setup" );
 $wgHooks['LanguageGetMagic'][] = 'LabeledSectionTransclusion::setupMagic';
 
 $wgExtensionCredits['parserhook'][] = array(
+	'path'           => __FILE__,
 	'name'           => 'LabeledSectionTransclusion',
 	'author'         => 'Steve Sanbeg',
 	'url'            => 'http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion',
