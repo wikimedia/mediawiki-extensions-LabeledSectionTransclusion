@@ -377,6 +377,13 @@ $messages['sk'] = array(
 	'lst-desc' => 'Pridáva funkcie <tt>#lst</tt> and <tt>#lstx</tt> a značku <tt>&lt;section&gt;</tt>, umožňuje transklúziu označených častí textu',
 );
 
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Михајло Анђелковић
+ */
+$messages['sr-ec'] = array(
+	'lst-desc' => 'Додаје <tt>#lst</tt> и <tt>#lstx</tt> функције и <tt>&lt;section&gt;</tt> таг, омогућује да означени одељци текста буду укључени',
+);
+
 /** Seeltersk (Seeltersk)
  * @author Pyt
  */
