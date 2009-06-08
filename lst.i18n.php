@@ -150,7 +150,7 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'lst-desc' => 'Apond les fonccions <tt>#lst</tt> et <tt>#lstx</tt> et pués la balisa <tt>&lt;section&gt;</tt>, active les sèccions marcâs du tèxte devant étre transcllu.',
+	'lst-desc' => 'Apond les fonccions <tt>#lst</tt> et <tt>#lstx</tt> et pués la balisa <tt>&lt;section&gt;</tt>, active les sèccions marcâs du tèxto que dêvont étre transcllues.',
 );
 
 /** Galician (Galego)
