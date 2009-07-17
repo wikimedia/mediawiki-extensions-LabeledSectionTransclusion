@@ -328,6 +328,13 @@ $messages['pl'] = array(
 	'lst-desc' => 'Dodaje funkcje <tt>#lst</tt> i <tt>#lstx</tt> oraz znacznik <tt>&lt;section&gt;</tt> umożliwiające umieszczenie oznaczonej sekcji tekstu w treści innej strony',
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'lst-desc' => 'A gionta le fonsion <tt>#lst</tt> e ël tag <tt>&lt;section&gt;</tt>, a abìlita le session ëd test marcà a esse anserìe',
+);
+
 /** Portuguese (Português)
  * @author Malafaya
  */
