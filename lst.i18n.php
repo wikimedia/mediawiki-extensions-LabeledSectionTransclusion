@@ -181,6 +181,13 @@ $messages['hi'] = array(
 	'lst-desc' => '<tt>#lst</tt> और <tt>#lstx</tt> कार्य तथा <tt>&lt;section&gt;</tt> टॅग बढायें, पाठमेंसे चिन्हांकीत विभाग एकत्रित करें।',
 );
 
+/** Hiligaynon (Ilonggo)
+ * @author Tagimata
+ */
+$messages['hil'] = array(
+	'lst-desc' => 'Nagadugang <tt>#lst</tt> kag <tt>#lstx</tt> panksiyon kag <tt>&lt;section&gt;</tt> tag, nagapasugot sang na-markahan nga mga seksiyon sang teksto nga himuon transkluded',
+);
+
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
  */
