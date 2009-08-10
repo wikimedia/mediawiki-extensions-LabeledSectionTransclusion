@@ -398,6 +398,13 @@ $messages['sr-ec'] = array(
 	'lst-desc' => 'Додаје <tt>#lst</tt> и <tt>#lstx</tt> функције и <tt>&lt;section&gt;</tt> таг, омогућује да означени одељци текста буду укључени',
 );
 
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'lst-desc' => 'Dodaje <tt>#lst</tt> i <tt>#lstx</tt> funkcije i <tt>&lt;section&gt;</tt> tag, omogućuje da označeni odeljci teksta budu uključeni',
+);
+
 /** Seeltersk (Seeltersk)
  * @author Pyt
  */
