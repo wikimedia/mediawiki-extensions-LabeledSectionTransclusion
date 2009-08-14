@@ -272,6 +272,13 @@ $messages['li'] = array(
 	'lst-desc' => 'Voegt de functies <tt>#lst</tt> en <tt>#lstx</tt> en de tag <tt>&lt;section&gt;</tt> toe  voor het markere van tekstdele die getranscludeerd motte worde',
 );
 
+/** Macedonian (Македонски)
+ * @author Bjankuloski06
+ */
+$messages['mk'] = array(
+	'lst-desc' => 'Ги додава фукциите <tt>#lst</tt> и <tt>#lstx</tt> и ознака <tt>&lt;section&gt;</tt>, што овозможува трансклудирање на обележаните делови од текстот',
+);
+
 /** Malayalam (മലയാളം)
  * @author Shijualex
  */
