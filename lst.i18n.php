@@ -465,7 +465,7 @@ $messages['vec'] = array(
  * @author Vinhtantran
  */
 $messages['vi'] = array(
-	'lst-desc' => 'Thêm hàm <tt>#lst</tt> và <tt>#lstx</tt> và thẻ <tt>&lt;section&gt;</tt> để cho phép những đoạn văn bản được đánh dấu sẽ được nhúng.',
+	'lst-desc' => 'Thêm các hàm <tt>#lst</tt> và <tt>#lstx</tt> cùng thẻ <tt>&lt;section&gt;</tt> để cho phép nhúng những đoạn văn bản được đánh dấu.',
 );
 
 /** Yue (粵語)
