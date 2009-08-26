@@ -426,6 +426,13 @@ $messages['sv'] = array(
 	'lst-desc' => 'Lägger till funktionerna <tt>#lst</tt> och <tt>#lstx</tt> för att inkludera avsnitt av en text, samt taggen <tt>&lt;section&gt;</tt> för att markera de avsnitt som kan inkluderas',
 );
 
+/** Telugu (తెలుగు)
+ * @author Kiranmayee
+ */
+$messages['te'] = array(
+	'lst-desc' => '<tt>#lst</tt> మరియు  <tt>#lstx</tt> కార్యములను మరి <tt>&lt;section&gt;</tt> ట్యాగు ను కలిపి, గుర్తింపబడిన సెక్షన్లను ఏకీకృతం చేయడానికి అవకాశమును ఇస్తుంది.',
+);
+
 /** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
  * @author Ibrahim
  */
