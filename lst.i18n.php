@@ -62,6 +62,13 @@ $messages['be-tarask'] = array(
 	'lst-desc' => 'Дадае функцыі <tt>#lst</tt> і <tt>#lstx</tt> і тэг <tt>&lt;section&gt;</tt>, дазваляе пераносіць вызначаныя ўчасткі тэксту на іншыя старонкі',
 );
 
+/** Breton (Brezhoneg)
+ * @author Fulup
+ */
+$messages['br'] = array(
+	'lst-desc' => "Ouzhpennañ a ra an arc'hwelioù <tt>#lst</tt> and <tt>#lstx</tt> hag ar valizenn <tt>&lt;section&gt;</tt> a dalvez da dreuzklozañ lodennoù skrid merket",
+);
+
 /** Bosnian (Bosanski)
  * @author CERminator
  */
