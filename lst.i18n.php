@@ -97,6 +97,13 @@ $messages['de'] = array(
 	'lst-desc' => 'Fügt die <tt>#lst</tt> und <tt>#lstx</tt> Funktionen sowie das <tt>&lt;section&gt;</tt>-Tag hinzu, um so markierte Abschnitte einbinden zu können',
 );
 
+/** Zazaki (Zazaki)
+ * @author Aspar
+ */
+$messages['diq'] = array(
+	'lst-desc' => 'fonksiyonê <tt>#lst</tt> ve <tt>#lstx</tt>i u etiketê <tt>&lt;section&gt;</tt>i têarê keno, metno ke zi çepraşt têarê beno qısmê nişanbiyayeyê (n)inan aktif keno.',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
