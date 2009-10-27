@@ -280,10 +280,11 @@ $messages['lb'] = array(
 );
 
 /** Limburgish (Limburgs)
+ * @author Aelske
  * @author Matthias
  */
 $messages['li'] = array(
-	'lst-desc' => 'Voegt de functies <tt>#lst</tt> en <tt>#lstx</tt> en de tag <tt>&lt;section&gt;</tt> toe  voor het markere van tekstdele die getranscludeerd motte worde',
+	'lst-desc' => 'Voog de functies <tt>#lst</tt> en <tt>#lstx</tt> en de tag <tt>&lt;section&gt;</tt> toe  voor het markere van teksdele die getranscludeerd motte waere',
 );
 
 /** Macedonian (Македонски)
