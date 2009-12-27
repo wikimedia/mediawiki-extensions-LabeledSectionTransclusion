@@ -455,6 +455,13 @@ $messages['tg-cyrl'] = array(
 	'lst-desc' => 'Амалгарҳои <tt>#lst</tt> ва <tt>#lstx</tt>  ва барчасби <tt>&lt;section&gt;</tt>-ро  илова мекунад, то битавон қисматҳои аз матнро дар саҳифаҳои дигар ғунҷонид',
 );
 
+/** Tajik (Latin) (Тоҷикӣ (Latin))
+ * @author Liangent
+ */
+$messages['tg-latn'] = array(
+	'lst-desc' => 'Amalgarhoi <tt>#lst</tt> va <tt>#lstx</tt>  va barcasbi <tt>&lt;section&gt;</tt>-ro  ilova mekunad, to bitavon qismathoi az matnro dar sahifahoi digar ƣunçonid',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */
