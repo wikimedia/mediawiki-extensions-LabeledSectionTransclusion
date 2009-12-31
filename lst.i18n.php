@@ -462,6 +462,13 @@ $messages['tg-latn'] = array(
 	'lst-desc' => 'Amalgarhoi <tt>#lst</tt> va <tt>#lstx</tt>  va barcasbi <tt>&lt;section&gt;</tt>-ro  ilova mekunad, to bitavon qismathoi az matnro dar sahifahoi digar ƣunçonid',
 );
 
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'lst-desc' => 'tt>#lst</tt> we <tt>#lstx</tt> funksiýalaryny we <tt>&lt;section&gt;</tt> tegini goşýar, atanaklaýyn giriziljek tekstiň bellenilen bölümlerini açýar',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */
