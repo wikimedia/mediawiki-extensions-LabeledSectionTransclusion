@@ -298,7 +298,7 @@ $messages['mk'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
-	'lst-desc' => '<tt>#lst</tt>, <tt>#lstx</tt> എന്ന ഫങ്ങഷന്‍സ്, <tt>&lt;section&gt;</tt> എന്ന ടാഗ് എന്നിവ ചേര്‍ക്കുകയും, transclude ചെയ്യാനുള്ള ഉള്ളടക്ക വിഭാഗങ്ങളെ അടയാളപ്പെടുത്തുകയും ചെയ്യുന്നു.',
+	'lst-desc' => '<tt>#lst</tt>, <tt>#lstx</tt> എന്ന ഫങ്ങഷൻസ്, <tt>&lt;section&gt;</tt> എന്ന ടാഗ് എന്നിവ ചേർക്കുകയും, transclude ചെയ്യാനുള്ള ഉള്ളടക്ക വിഭാഗങ്ങളെ അടയാളപ്പെടുത്തുകയും ചെയ്യുന്നു.',
 );
 
 /** Marathi (मराठी)
@@ -432,6 +432,13 @@ $messages['sr-el'] = array(
  */
 $messages['stq'] = array(
 	'lst-desc' => 'Föiget do <tt>#lst</tt> un <tt>#lstx</tt> Funktione as uk dät <tt>&lt;section&gt;</tt>-Tag bietou, uum so do markierde Ousnitte apnieme tou konnen',
+);
+
+/** Sundanese (Basa Sunda)
+ * @author Kandar
+ */
+$messages['su'] = array(
+	'lst-desc' => 'Nambahkeun fungsi <tt>#lst</tt> jeung <tt>#lstx</tt> sarta tag <tt>&lt;subjudul&gt;</tt>, ngarah bisa ngasupkeun bagian tulisan anu ditandaan',
 );
 
 /** Swedish (Svenska)
