@@ -265,7 +265,7 @@ $messages['jv'] = array(
 	'lst-desc' => 'Nambahaké fungsi <tt>#lst</tt> lan <tt>#lstx</tt> serta tag <tt>&lt;section&gt;</tt> sing mungkinaké bagéyan sing ditandhani saka sawijining tèks bisa ditransklusi',
 );
 
-/** Ripoarisch (Ripoarisch)
+/** Colognian (Ripoarisch)
  * @author Purodha
  */
 $messages['ksh'] = array(
@@ -511,7 +511,7 @@ $messages['vi'] = array(
 	'lst-desc' => 'Thêm các hàm <tt>#lst</tt> và <tt>#lstx</tt> cùng thẻ <tt>&lt;section&gt;</tt> để cho phép nhúng những đoạn văn bản được đánh dấu.',
 );
 
-/** Yue (粵語)
+/** Cantonese (粵語)
  * @author Shinjiman
  */
 $messages['yue'] = array(
