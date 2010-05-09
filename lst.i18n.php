@@ -265,6 +265,13 @@ $messages['jv'] = array(
 	'lst-desc' => 'Nambahaké fungsi <tt>#lst</tt> lan <tt>#lstx</tt> serta tag <tt>&lt;section&gt;</tt> sing mungkinaké bagéyan sing ditandhani saka sawijining tèks bisa ditransklusi',
 );
 
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'lst-desc' => '특정 부분의 글을 틀처럼 포함할 수 있게 <tt>#lst</tt>, <tt>#lstx</tt> 함수와 <tt>&lt;section&gt;</tt> 태그를 추가',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
