@@ -19,6 +19,13 @@ $messages['qqq'] = array(
 	'lst-desc' => 'Extension description displayed on [[Special:Version]]',
 );
 
+/** Gheg Albanian (Gegë)
+ * @author Mdupont
+ */
+$messages['aln'] = array(
+	'lst-desc' => 'Shton <code>#lst</code> dhe <code>#lstx</code> funksionet dhe <code><section></code> tag, mundëson shënuar pjesëve të tekstit që do të transcluded',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */
