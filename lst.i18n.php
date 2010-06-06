@@ -2,7 +2,8 @@
 /**
  * Internationalisation file for LabeledSectionTransclusion extension.
  *
- * @addtogroup Extensions
+ * @file
+ * @ingroup Extensions
  */
 
 $messages = array();

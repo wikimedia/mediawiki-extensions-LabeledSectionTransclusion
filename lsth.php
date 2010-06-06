@@ -13,7 +13,8 @@ if ( ! defined( 'MEDIAWIKI' ) )
  *
  * @todo: MW 1.12 version, as per #lst/#lstx
  *
- * @addtogroup Extensions
+ * @file
+ * @ingroup Extensions
  *
  * @link http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion Documentation
  *

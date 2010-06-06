@@ -5,7 +5,8 @@ if ( ! defined( 'MEDIAWIKI' ) )
  * A parser extension that adds two functions, #lst and #lstx, and the 
  * <section> tag, for transcluding marked sections of text.
  *
- * @addtogroup Extensions
+ * @file
+ * @ingroup Extensions
  *
  * @link http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion Documentation
  *
