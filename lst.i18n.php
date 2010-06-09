@@ -31,7 +31,7 @@ $messages['aln'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'lst-desc' => 'Adibe as funzions <code>#lst</code> y <code>#lstx</code> y a etiqueta <code>&lt;section&gt;</code>, premite que as sezions de testo siñalatas sían transcluyitas',
+	'lst-desc' => 'Adibe as funcions <code>#lst</code> y <code>#lstx</code> y a etiqueta <code>&lt;section&gt;</code>, premite que as seccions de testo sinyalatas sían transcluyitas',
 );
 
 /** Arabic (العربية)
