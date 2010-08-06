@@ -137,13 +137,6 @@ class LabeledSectionTransclusion {
     $text = str_replace('</section>', '', $text);
 
     if (self::open_($parser, $part1)) {
-      //Handle recursion here, so we can break cycles.
-      global $wgVersion;
-      if( version_compare( $wgVersion, "1.9" ) < 0 ) {
-        $text = $parser->replaceVariables($text);
-        self::close_($parser, $part1);
-      }
-      
       //Try to get edit sections correct by munging around the parser's guts.
       return array($text, 'title'=>$title, 'replaceHeadings'=>true, 
            'headingOffset'=>$skiphead, 'noparse'=>false, 'noargs'=>false);
