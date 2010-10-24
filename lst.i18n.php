@@ -429,6 +429,13 @@ $messages['sk'] = array(
 	'lst-desc' => 'Pridáva funkcie <code>#lst</code> and <code>#lstx</code> a značku <code>&lt;section&gt;</code>, umožňuje transklúziu označených častí textu',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'lst-desc' => 'Doda funkciji <code>#lst</code> in <code>#lstx</code> ter oznako <code>&lt;section&gt;</code>, kar omogoča vključevanje označenih delov besedila',
+);
+
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Михајло Анђелковић
  */
