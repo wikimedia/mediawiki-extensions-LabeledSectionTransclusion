@@ -321,7 +321,6 @@ class LabeledSectionTransclusion {
    * Set up some variables for MW-1.12 parser functions
    */
   static function setupPfunc12( $parser, $frame, $args, $func = 'lst' ) {
-    global $wgLstLocal;
     if ( !count( $args ) ) {
       return '';
     }
