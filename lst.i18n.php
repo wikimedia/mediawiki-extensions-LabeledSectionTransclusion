@@ -306,7 +306,7 @@ $messages['li'] = array(
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
-	'lst-desc' => 'Ги додава фукциите <code>#lst</code> и <code>#lstx</code> и ознака <code>&lt;section&gt;</code>, што овозможува трансклудирање на обележаните делови од текстот',
+	'lst-desc' => 'Ги додава фукциите <code>#lst</code> и <code>#lstx</code> и ознака <code>&lt;section&gt;</code>, што овозможува превметнување на обележаните делови од текстот',
 );
 
 /** Malayalam (മലയാളം)
