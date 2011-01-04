@@ -21,7 +21,7 @@ if ( ! defined( 'MEDIAWIKI' ) )
 # Standard initialisation code
 ##
 
-$wgExtensionFunctions[] = array( 'LabeledSectionTransclusion', "setup" );
+$wgHooks['ParserFirstCallInit'][] = 'LabeledSectionTransclusion::setup';
 $wgHooks['LanguageGetMagic'][] = 'LabeledSectionTransclusion::setupMagic';
 
 $wgExtensionCredits['parserhook'][] = array(
@@ -40,17 +40,15 @@ $wgLstLocal = null;
 
 class LabeledSectionTransclusion {
 
-  static function setup() 
+  static function setup( $parser )
   {
-    global $wgParser;
-    
-    $wgParser->setHook( 'section', array( __CLASS__, 'noop' ) );
-    if ( defined( get_class( $wgParser ) . '::SFH_OBJECT_ARGS' ) ) {
-        $wgParser->setFunctionHook( 'lst', array( __CLASS__, 'pfuncIncludeObj' ), SFH_OBJECT_ARGS );
-        $wgParser->setFunctionHook( 'lstx', array( __CLASS__, 'pfuncExcludeObj' ), SFH_OBJECT_ARGS );
+    $parser->setHook( 'section', array( __CLASS__, 'noop' ) );
+    if ( defined( get_class( $parser ) . '::SFH_OBJECT_ARGS' ) ) {
+        $parser->setFunctionHook( 'lst', array( __CLASS__, 'pfuncIncludeObj' ), SFH_OBJECT_ARGS );
+        $parser->setFunctionHook( 'lstx', array( __CLASS__, 'pfuncExcludeObj' ), SFH_OBJECT_ARGS );
     } else {
-        $wgParser->setFunctionHook( 'lst', array( __CLASS__, 'pfuncInclude' ) );
-        $wgParser->setFunctionHook( 'lstx', array( __CLASS__, 'pfuncExclude' ) );
+        $parser->setFunctionHook( 'lst', array( __CLASS__, 'pfuncInclude' ) );
+        $parser->setFunctionHook( 'lstx', array( __CLASS__, 'pfuncExclude' ) );
     }
   }
 
