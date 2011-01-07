@@ -49,6 +49,8 @@ class LabeledSectionTransclusion {
 				$parser->setFunctionHook( 'lst', array( __CLASS__, 'pfuncInclude' ) );
 				$parser->setFunctionHook( 'lstx', array( __CLASS__, 'pfuncExclude' ) );
 		}
+
+		return true;
 	}
 
 	// / Add the magic words - possibly with more readable aliases
