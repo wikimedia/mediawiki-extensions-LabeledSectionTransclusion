@@ -63,7 +63,7 @@ $messages['bcc'] = array(
 	'lst-desc' => 'هورکنت <code>#lst</code> و<code>#lstx</code> عملگران و <code>&lt;بخش&gt;</code> برچسپ، هلیت که بخشان انتخابی متن نیمه شفاف بیت',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author Jim-by
  */
 $messages['be-tarask'] = array(
@@ -436,14 +436,14 @@ $messages['sl'] = array(
 	'lst-desc' => 'Doda funkciji <code>#lst</code> in <code>#lstx</code> ter oznako <code>&lt;section&gt;</code>, kar omogoča vključevanje označenih delov besedila',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'lst-desc' => 'Додаје <code>#lst</code> и <code>#lstx</code> функције и <code>&lt;section&gt;</code> таг, омогућује да означени одељци текста буду укључени',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica))
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
