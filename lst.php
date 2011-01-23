@@ -239,6 +239,7 @@ class LabeledSectionTransclusion {
 
 		$count = 0;
 		$offset = 0;
+		$m = array();
 		while ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $offset ) ) {
 			if ( $m[2][1] > $limit )
 				break;
@@ -301,6 +302,7 @@ class LabeledSectionTransclusion {
 			return $text;
 		$pat = self::getPattern_( $sec, $to );
 
+		$m = array();
 		if ( preg_match_all( $pat, $text, $m, PREG_OFFSET_CAPTURE ) ) {
 			$headings = self::countHeadings_( $text, $m[0][0][1] );
 		} else {
