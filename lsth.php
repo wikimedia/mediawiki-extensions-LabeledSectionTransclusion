@@ -27,14 +27,13 @@ if ( ! defined( 'MEDIAWIKI' ) )
 # Standard initialisation code
 ##
 
-$wgExtensionFunctions[] = "wfLabeledSectionTransclusionHeading";
+$wgHooks['ParserFirstCallInit'][] = 'wfLabeledSectionTransclusionHeading';
 $wgHooks['LanguageGetMagic'][] = 'wfLabeledSectionTransclusionHeadingMagic';
 $wgParserTestFiles[] = dirname( __FILE__ ) . "/lsthParserTests.txt";
 
-function wfLabeledSectionTransclusionHeading()
-{
-	global $wgParser;
-	$wgParser->setFunctionHook( 'lsth', 'wfLstIncludeHeading' );
+function wfLabeledSectionTransclusionHeading( $parser ) {
+	$parser->setFunctionHook( 'lsth', 'wfLstIncludeHeading' );
+	return true;
 }
 
 function wfLabeledSectionTransclusionHeadingMagic( &$magicWords, $langCode ) {
