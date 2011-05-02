@@ -45,8 +45,9 @@ function wfLabeledSectionTransclusionHeadingMagic( &$magicWords, $langCode ) {
 /// section inclusion - include all matching sections
 function wfLstIncludeHeading( $parser, $page = '', $sec = '', $to = '' )
 {
-	if ( LabeledSectionTransclusion::getTemplateText_( $parser, $page, $title, $text ) == false )
+	if ( LabeledSectionTransclusion::getTemplateText_( $parser, $page, $title, $text ) == false ) {
 		return $text;
+	}
 
 	// Generate a regex to match the === classical heading section(s) === we're
 	// interested in.
@@ -74,7 +75,6 @@ function wfLstIncludeHeading( $parser, $page = '', $sec = '', $to = '' )
 			$end_off = $m[0][1] -1;
 	}
 
-
 	if ( ! isset( $end_off ) ) {
 		$pat = '^(={1,' . $head_len . '})(?!=).*?\1\s*$';
 		if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off ) )
@@ -88,19 +88,17 @@ function wfLstIncludeHeading( $parser, $page = '', $sec = '', $to = '' )
 	$nhead = LabeledSectionTransclusion::countHeadings_( $text, $begin_off );
 	wfDebug( "LSTH: head offset = $nhead" );
 
-	if ( isset( $end_off ) )
+	if ( isset( $end_off ) ) {
 		$result = substr( $text, $begin_off, $end_off - $begin_off );
-	else
+	} else {
 		$result = substr( $text, $begin_off );
+	}
 
-
-	if ( method_exists( $parser, 'getPreprocessor' ) )
-	{
+	if ( method_exists( $parser, 'getPreprocessor' ) ) {
 		$frame = $parser->getPreprocessor()->newFrame();
 		$dom = $parser->preprocessToDom( $result );
 		$result = $frame->expand( $dom );
 	}
-
 
 	return LabeledSectionTransclusion::parse_( $parser, $title, $result, "#lsth:${page}|${sec}", $nhead );
 }
