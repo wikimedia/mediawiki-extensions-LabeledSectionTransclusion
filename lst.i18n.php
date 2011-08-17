@@ -408,7 +408,7 @@ $messages['ru'] = array(
 	'lst-desc' => 'Добавляет функции <code>#lst</code> и <code>#lstx</code> и тег <code>&lt;section&gt;</code>, позволяет включать отмеченные участки текста на другие страницы',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
