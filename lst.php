@@ -322,7 +322,7 @@ class LabeledSectionTransclusion {
 		$endAttr = self::getAttrPattern_( $end, 'end' );
 		$endRegex = "/^$endAttr$/s";
 
-		return compact( 'dom', 'root', 'newFrame', 'repl', 'beginRegex', 'endRegex' );
+		return compact( 'dom', 'root', 'newFrame', 'repl', 'beginRegex', 'begin', 'endRegex' );
 	}
 
 	/**
@@ -359,23 +359,27 @@ class LabeledSectionTransclusion {
 		$text = '';
 		$node = $root->getFirstChild();
 		while ( $node ) {
-			// Find the begin node
-			$found = false;
-			for ( ; $node; $node = $node->getNextSibling() ) {
-				if ( $node->getName() != 'ext' ) {
-					continue;
-				}
-				$parts = $node->splitExt();
-				$parts = array_map( array( $newFrame, 'expand' ), $parts );
-				if ( self::isSection( $parts['name'] ) ) {
-					if ( preg_match( $beginRegex, $parts['attr'] ) ) {
-						$found = true;
-						break;
+			// If name of begin node was specified find it
+			// otherwise transclude everything from the beginning of the page
+			if ( $begin != '' ) {
+				// Find the begin node
+				$found = false;
+				for ( ; $node; $node = $node->getNextSibling() ) {
+					if ( $node->getName() != 'ext' ) {
+						continue;
+					}
+					$parts = $node->splitExt();
+					$parts = array_map( array( $newFrame, 'expand' ), $parts );
+					if ( self::isSection( $parts['name'] ) ) {
+						if ( preg_match( $beginRegex, $parts['attr'] ) ) {
+							$found = true;
+							break;
+						}
 					}
 				}
-			}
-			if ( !$found || !$node ) {
-				break;
+				if ( !$found || !$node ) {
+					break;
+				}
 			}
 
 			// Write the text out while looking for the end node
@@ -399,7 +403,13 @@ class LabeledSectionTransclusion {
 			}
 			if ( !$found ) {
 				break;
+			} else if ( $begin == '' ) {
+				// When end node was found and
+				// text is transcluded from the beginning of the page
+				// finish the transclusion
+				break;
 			}
+
 			$node = $node->getNextSibling();
 		}
 		return $text;
