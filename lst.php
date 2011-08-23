@@ -403,7 +403,7 @@ class LabeledSectionTransclusion {
 			}
 			if ( !$found ) {
 				break;
-			} else if ( $begin == '' ) {
+			} elseif ( $begin == '' ) {
 				// When end node was found and
 				// text is transcluded from the beginning of the page
 				// finish the transclusion
