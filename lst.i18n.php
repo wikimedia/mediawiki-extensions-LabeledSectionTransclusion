@@ -543,9 +543,10 @@ $messages['yue'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Shinjiman
+ * @author Xiaomingyan
  */
 $messages['zh-hans'] = array(
-	'lst-desc' => '加入 <code>#lst</code> 和 <code>#lstx</code> 功能以及 <code>&lt;section&gt;</code> 标签，可以用来将已经标示的段落包含起来',
+	'lst-desc' => '添加“<code>#lst</code>”和“<code>#lstx</code>”功能以及“<code>&lt;section&gt;</code>”标签，可以用来将已经标示的段落包含起来',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
