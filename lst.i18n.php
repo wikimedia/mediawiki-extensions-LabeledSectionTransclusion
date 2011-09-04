@@ -98,6 +98,13 @@ $messages['cs'] = array(
 	'lst-desc' => 'Přidává funkce <code>{{#lst:}}</code> a <code>{{#lstx:}}</code> a tag <code>&lt;section&gt;</code>, umožňuje transkluzi označených částí textu',
 );
 
+/** Danish (Dansk)
+ * @author Peter Alberti
+ */
+$messages['da'] = array(
+	'lst-desc' => 'Tilføjer funktionerne <code>#lst</code> og <code>#lstx</code> og tagget <code>&lt;section&gt;</code>, som gør det muligt at transkludere udvalgte afsnit',
+);
+
 /** German (Deutsch)
  * @author Raimond Spekking
  */
@@ -406,6 +413,13 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'lst-desc' => 'Добавляет функции <code>#lst</code> и <code>#lstx</code> и тег <code>&lt;section&gt;</code>, позволяет включать отмеченные участки текста на другие страницы',
+);
+
+/** Rusyn (Русиньскый)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'lst-desc' => 'Придасть функції <code>{{#lst:}}</code> a <code>{{#lstx:}}</code> a tag <code>&lt;section&gt;</code>, доволюють трансклузію означеных частей тексту',
 );
 
 /** Sakha (Саха тыла)
