@@ -450,14 +450,14 @@ $messages['sl'] = array(
 	'lst-desc' => 'Doda funkciji <code>#lst</code> in <code>#lstx</code> ter oznako <code>&lt;section&gt;</code>, kar omogoča vključevanje označenih delov besedila',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'lst-desc' => 'Додаје <code>#lst</code> и <code>#lstx</code> функције и <code>&lt;section&gt;</code> таг, омогућује да означени одељци текста буду укључени',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -492,14 +492,14 @@ $messages['te'] = array(
 	'lst-desc' => '<code>#lst</code> మరియు  <code>#lstx</code> కార్యములను మరి <code>&lt;section&gt;</code> ట్యాగు ను కలిపి, గుర్తింపబడిన సెక్షన్లను ఏకీకృతం చేయడానికి అవకాశమును ఇస్తుంది.',
 );
 
-/** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
+/** Tajik (Cyrillic script) (Тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
 	'lst-desc' => 'Амалгарҳои <code>#lst</code> ва <code>#lstx</code>  ва барчасби <code>&lt;section&gt;</code>-ро  илова мекунад, то битавон қисматҳои аз матнро дар саҳифаҳои дигар ғунҷонид',
 );
 
-/** Tajik (Latin) (Тоҷикӣ (Latin))
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
