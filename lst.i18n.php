@@ -451,10 +451,11 @@ $messages['sl'] = array(
 );
 
 /** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+ * @author Rancher
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'lst-desc' => 'Додаје <code>#lst</code> и <code>#lstx</code> функције и <code>&lt;section&gt;</code> таг, омогућује да означени одељци текста буду укључени',
+	'lst-desc' => 'Додаје функције <code>#lst</code> и <code>#lstx</code> и ознаку <code>&lt;section&gt;</code>, која омогућава трансклузију означених делова текста',
 );
 
 /** Serbian (Latin script) (‪Srpski (latinica)‬)
