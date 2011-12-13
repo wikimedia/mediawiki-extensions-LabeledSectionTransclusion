@@ -28,7 +28,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'LabeledSectionTransclusion',
 	'author'         => 'Steve Sanbeg',
-	'url'            => 'http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion',
+	'url'            => 'https://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion',
 );
 $wgParserTestFiles[] = dirname( __FILE__ ) . "/lstParserTests.txt";
 $wgExtensionMessagesFiles['LabeledSectionTransclusion'] = dirname( __FILE__ ) . '/lst.i18n.php';
