@@ -361,7 +361,7 @@ $messages['nn'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'lst-desc' => 'Legger til funksjonene <code>#lst</code> og <code>#lstx</code> for å inkludere avsnitt av en tekst, samt taggen <code>&lt;section&gt;</code> for å markere de avsnitt som kan inkluderes',
 );
 
