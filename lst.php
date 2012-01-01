@@ -359,8 +359,8 @@ class LabeledSectionTransclusion {
 		$text = '';
 		$node = $root->getFirstChild();
 		while ( $node ) {
-			// If name of begin node was specified find it
-			// otherwise transclude everything from the beginning of the page
+			// If the name of the begin node was specified, find it.
+			// Otherwise transclude everything from the beginning of the page.
 			if ( $begin != '' ) {
 				// Find the begin node
 				$found = false;
@@ -404,9 +404,8 @@ class LabeledSectionTransclusion {
 			if ( !$found ) {
 				break;
 			} elseif ( $begin == '' ) {
-				// When end node was found and
-				// text is transcluded from the beginning of the page
-				// finish the transclusion
+				// When the end node was found and text is transcluded from 
+				// the beginning of the page, finish the transclusion
 				break;
 			}
 
