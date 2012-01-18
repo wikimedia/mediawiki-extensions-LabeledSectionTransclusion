@@ -22,6 +22,8 @@ if ( ! defined( 'MEDIAWIKI' ) )
 ##
 
 $wgHooks['ParserFirstCallInit'][] = 'LabeledSectionTransclusion::setup';
+// @todo FIXME: LanguageGetMagic is obsolete, but LabeledSectionTransclusion::setupMagic()
+//              contains magic hack that $magicWords cannot handle.
 $wgHooks['LanguageGetMagic'][] = 'LabeledSectionTransclusion::setupMagic';
 
 $wgExtensionCredits['parserhook'][] = array(
@@ -37,8 +39,8 @@ $wgExtensionMessagesFiles['LabeledSectionTransclusion'] = dirname( __FILE__ ) . 
 // Must be set now to avoid injection via register_globals
 $wgLstLocal = null;
 
+// @todo FIXME: move to a separate file.
 class LabeledSectionTransclusion {
-
 	static function setup( $parser ) {
 		$parser->setHook( 'section', array( __CLASS__, 'noop' ) );
 		$parser->setFunctionHook( 'lst', array( __CLASS__, 'pfuncIncludeObj' ), SFH_OBJECT_ARGS );
