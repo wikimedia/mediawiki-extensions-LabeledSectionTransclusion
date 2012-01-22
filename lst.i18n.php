@@ -106,10 +106,11 @@ $messages['da'] = array(
 );
 
 /** German (Deutsch)
+ * @author Kghbln
  * @author Raimond Spekking
  */
 $messages['de'] = array(
-	'lst-desc' => 'Fügt die <code>#lst</code> und <code>#lstx</code> Funktionen sowie das <code>&lt;section&gt;</code>-Tag hinzu, um so markierte Abschnitte einbinden zu können',
+	'lst-desc' => 'Ergänzt die Funktionen <code>#lst</code> und <code>#lstx</code> sowie das Tag <code>&lt;section&gt;</code>, um so markierte Abschnitte einbinden zu können',
 );
 
 /** Zazaki (Zazaki)
@@ -337,6 +338,13 @@ $messages['ms'] = array(
 	'lst-desc' => 'Menambah fungsi <code>#lst</code> dan <code>#lstx</code> serta tag <code>&lt;section&gt;</code>, justeru membolehkan penyertaan bahagian-bahagian teks yang telah ditanda',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ */
+$messages['nb'] = array(
+	'lst-desc' => 'Legger til funksjonene <code>#lst</code> og <code>#lstx</code> for å inkludere avsnitt av en tekst, samt taggen <code>&lt;section&gt;</code> for å markere de avsnitt som kan inkluderes',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -356,13 +364,6 @@ $messages['nl'] = array(
  */
 $messages['nn'] = array(
 	'lst-desc' => 'Legg til funksjonane <code>#lst</code> og <code>#lstx</code> for å inkludera avsnitt av ein tekst, i tillegg til merket <code>&lt;section&gt;</code> for å markera dei avsnitta som kan bli inkluderte',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
- */
-$messages['nb'] = array(
-	'lst-desc' => 'Legger til funksjonene <code>#lst</code> og <code>#lstx</code> for å inkludere avsnitt av en tekst, samt taggen <code>&lt;section&gt;</code> for å markere de avsnitt som kan inkluderes',
 );
 
 /** Occitan (Occitan)
