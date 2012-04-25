@@ -318,10 +318,11 @@ $messages['mk'] = array(
 );
 
 /** Malayalam (മലയാളം)
+ * @author Praveenp
  * @author Shijualex
  */
 $messages['ml'] = array(
-	'lst-desc' => '<code>#lst</code>, <code>#lstx</code> എന്ന ഫങ്ങഷൻസ്, <code>&lt;section&gt;</code> എന്ന ടാഗ് എന്നിവ ചേർക്കുകയും, transclude ചെയ്യാനുള്ള ഉള്ളടക്ക വിഭാഗങ്ങളെ അടയാളപ്പെടുത്തുകയും ചെയ്യുന്നു.',
+	'lst-desc' => '<code>#lst</code>, <code>#lstx</code> എന്നീ ഫങ്ഷനുകൾ, <code>&lt;section&gt;</code> എന്ന ടാഗ് എന്നിവ ചേർക്കുകയും, transclude ചെയ്യാനുള്ള ഉള്ളടക്ക വിഭാഗങ്ങളെ അടയാളപ്പെടുത്തുകയും ചെയ്യുന്നു.',
 );
 
 /** Marathi (मराठी)
