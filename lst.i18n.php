@@ -502,7 +502,7 @@ $messages['tg-cyrl'] = array(
 	'lst-desc' => 'Амалгарҳои <code>#lst</code> ва <code>#lstx</code>  ва барчасби <code>&lt;section&gt;</code>-ро  илова мекунад, то битавон қисматҳои аз матнро дар саҳифаҳои дигар ғунҷонид',
 );
 
-/** Tajik (Latin script) (tojikī)
+/** Tajik (Latin script) (Tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
