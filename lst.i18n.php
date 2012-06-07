@@ -262,9 +262,10 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author JtFuruhata
+ * @author Shirayuki
  */
 $messages['ja'] = array(
-	'lst-desc' => '文書を章単位で埋め込み参照可能とする <code>#lst</code>、<code>#lstx</code> 関数および <code>&lt;section&gt;</code> タグを追加する',
+	'lst-desc' => '文章を章単位で埋め込み参照できるようにする <code>#lst</code>、<code>#lstx</code> 関数および <code>&lt;section&gt;</code> タグを追加する',
 );
 
 /** Jutish (Jysk)
