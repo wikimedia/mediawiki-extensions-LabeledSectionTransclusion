@@ -27,7 +27,7 @@ $messages['aln'] = array(
 	'lst-desc' => 'Shton <code>#lst</code> dhe <code>#lstx</code> funksionet dhe <code><section></code> tag, mundëson shënuar pjesëve të tekstit që do të transcluded',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -63,7 +63,7 @@ $messages['bcc'] = array(
 	'lst-desc' => 'هورکنت <code>#lst</code> و<code>#lstx</code> عملگران و <code>&lt;بخش&gt;</code> برچسپ، هلیت که بخشان انتخابی متن نیمه شفاف بیت',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author Jim-by
  */
 $messages['be-tarask'] = array(
@@ -120,7 +120,7 @@ $messages['diq'] = array(
 	'lst-desc' => 'fonksiyonê <code>#lst</code> ve <code>#lstx</code>i u etiketê <code>&lt;section&gt;</code>i têarê keno, metno ke zi çepraşt têarê beno qısmê nişanbiyayeyê (n)inan aktif keno.',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -183,7 +183,7 @@ $messages['frp'] = array(
 	'lst-desc' => 'Apond les fonccions <code>#lst</code> et <code>#lstx</code> et pués la balisa <code>&lt;section&gt;</code>, active les sèccions marcâs du tèxto que dêvont étre transcllues.',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -225,7 +225,7 @@ $messages['hr'] = array(
 	'lst-desc' => 'Dodaje <code>#lst</code> i <code>#lstx</code> funkcije i <code>&lt;section&gt;</code> oznake, omogućava transkluziju označenog odlomka u tekstu',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -418,7 +418,7 @@ $messages['ru'] = array(
 	'lst-desc' => 'Добавляет функции <code>#lst</code> и <code>#lstx</code> и тег <code>&lt;section&gt;</code>, позволяет включать отмеченные участки текста на другие страницы',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
