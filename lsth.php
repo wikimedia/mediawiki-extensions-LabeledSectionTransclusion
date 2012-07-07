@@ -31,20 +31,35 @@ $wgHooks['ParserFirstCallInit'][] = 'wfLabeledSectionTransclusionHeading';
 $wgHooks['LanguageGetMagic'][] = 'wfLabeledSectionTransclusionHeadingMagic';
 $wgParserTestFiles[] = dirname( __FILE__ ) . "/lsthParserTests.txt";
 
+/**
+ * @param $parser Parser
+ * @return bool
+ */
 function wfLabeledSectionTransclusionHeading( $parser ) {
 	$parser->setFunctionHook( 'lsth', 'wfLstIncludeHeading' );
 	return true;
 }
 
+/**
+ * @param $magicWords array
+ * @param $langCode string
+ * @return bool
+ */
 function wfLabeledSectionTransclusionHeadingMagic( &$magicWords, $langCode ) {
 	// Add the magic words
 	$magicWords['lsth'] = array( 0, 'lsth', 'section-h' );
 	return true;
 }
 
-/// section inclusion - include all matching sections
-function wfLstIncludeHeading( $parser, $page = '', $sec = '', $to = '' )
-{
+/**
+ * section inclusion - include all matching sections
+ * @param $parser Parser
+ * @param $page string
+ * @param $sec string
+ * @param $to string
+ * @return mixed|string
+ */
+function wfLstIncludeHeading( $parser, $page = '', $sec = '', $to = '' ) {
 	if ( LabeledSectionTransclusion::getTemplateText_( $parser, $page, $title, $text ) == false ) {
 		return $text;
 	}

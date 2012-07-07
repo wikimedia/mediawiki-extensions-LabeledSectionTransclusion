@@ -42,6 +42,11 @@ $wgLstLocal = null;
 
 // @todo FIXME: move to a separate file.
 class LabeledSectionTransclusion {
+
+	/**
+	 * @param $parser Parser
+	 * @return bool
+	 */
 	static function setup( $parser ) {
 		$parser->setHook( 'section', array( __CLASS__, 'noop' ) );
 		$parser->setFunctionHook( 'lst', array( __CLASS__, 'pfuncIncludeObj' ), SFH_OBJECT_ARGS );
@@ -59,12 +64,12 @@ class LabeledSectionTransclusion {
 			$include = 'Abschnitt';
 			$exclude = 'Abschnitt-x';
 			$wgLstLocal = array( 'section' => 'Abschnitt', 'begin' => 'Anfang', 'end' => 'Ende' ) ;
-		break;
+			break;
 		case 'he':
 			$include = 'קטע';
 			$exclude = 'בלי קטע';
 			$wgLstLocal = array( 'section' => 'קטע', 'begin' => 'התחלה', 'end' => 'סוף' ) ;
-		break;
+			break;
 		case 'pt':
 			$include = 'trecho';
 			$exclude = 'trecho-x';
@@ -89,7 +94,12 @@ class LabeledSectionTransclusion {
 	# at a low level. This is the general transclusion functionality
 	##############################################################
 
-	/// Register what we're working on in the parser, so we don't fall into a trap.
+	/**
+	 * Register what we're working on in the parser, so we don't fall into a trap.
+	 * @param $parser Parser
+	 * @param $part1
+	 * @return bool
+	 */
 	static function open_( $parser, $part1 ) {
 		// Infinite loop test
 		if ( isset( $parser->mTemplatePath[$part1] ) ) {
@@ -102,7 +112,12 @@ class LabeledSectionTransclusion {
 
 	}
 
-	/// Finish processing the function.
+	/**
+	 * Finish processing the function.
+	 * @param $parser Parser
+	 * @param $part1
+	 * @return bool
+	 */
 	static function close_( $parser, $part1 ) {
 		// Infinite loop test
 		if ( isset( $parser->mTemplatePath[$part1] ) ) {
@@ -224,8 +239,6 @@ class LabeledSectionTransclusion {
 	static function countHeadings_( $text, $limit ) {
 		$pat = '^(={1,6}).+\1\s*$()';
 
-		// return preg_match_all( "/$pat/im", substr($text,0,$limit), $m);
-
 		$count = 0;
 		$offset = 0;
 		$m = array();
@@ -277,6 +290,11 @@ class LabeledSectionTransclusion {
 
 	/**
 	 * Set up some variables for MW-1.12 parser functions
+	 * @param $parser Parser
+	 * @param $frame PPFrame
+	 * @param $args array
+	 * @param $func string
+	 * @return array|string
 	 */
 	static function setupPfunc12( $parser, $frame, $args, $func = 'lst' ) {
 		if ( !count( $args ) ) {
@@ -340,6 +358,10 @@ class LabeledSectionTransclusion {
 
 	/**
 	 * Returns the text for the inside of a split <section> node
+	 * @param $parser Parser
+	 * @param $frame PPFrame
+	 * @param $parts array
+	 * @return string
 	 */
 	static function expandSectionNode( $parser, $frame, $parts ) {
 		if ( isset( $parts['inner'] ) ) {
@@ -350,7 +372,10 @@ class LabeledSectionTransclusion {
 	}
 
 	/**
-	 * MW 1.12 version of #lst
+	 * @param $parser Parser
+	 * @param $frame PPFrame
+	 * @param $args array
+	 * @return array|string
 	 */
 	static function pfuncIncludeObj( $parser, $frame, $args ) {
 		$setup = self::setupPfunc12( $parser, $frame, $args, 'lst' );
@@ -418,7 +443,10 @@ class LabeledSectionTransclusion {
 	}
 
 	/**
-	 * MW 1.12 version of #lstx
+	 * @param $parser Parser
+	 * @param $frame PPFrame
+	 * @param $args array
+	 * @return array|string
 	 */
 	static function pfuncExcludeObj( $parser, $frame, $args ) {
 		$setup = self::setupPfunc12( $parser, $frame, $args, 'lstx' );
