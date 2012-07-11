@@ -340,9 +340,7 @@ $messages['ms'] = array(
 	'lst-desc' => 'Menambah fungsi <code>#lst</code> dan <code>#lstx</code> serta tag <code>&lt;section&gt;</code>, justeru membolehkan penyertaan bahagian-bahagian teks yang telah ditanda',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
- */
+/** Norwegian Bokmål (‪norsk (bokmål)‬) */
 $messages['nb'] = array(
 	'lst-desc' => 'Legger til funksjonene <code>#lst</code> og <code>#lstx</code> for å inkludere avsnitt av en tekst, samt taggen <code>&lt;section&gt;</code> for å markere de avsnitt som kan inkluderes',
 );
