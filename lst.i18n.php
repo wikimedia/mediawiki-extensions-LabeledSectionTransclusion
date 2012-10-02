@@ -63,7 +63,7 @@ $messages['bcc'] = array(
 	'lst-desc' => 'هورکنت <code>#lst</code> و<code>#lstx</code> عملگران و <code>&lt;بخش&gt;</code> برچسپ، هلیت که بخشان انتخابی متن نیمه شفاف بیت',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author Jim-by
  */
 $messages['be-tarask'] = array(
@@ -340,7 +340,7 @@ $messages['ms'] = array(
 	'lst-desc' => 'Menambah fungsi <code>#lst</code> dan <code>#lstx</code> serta tag <code>&lt;section&gt;</code>, justeru membolehkan penyertaan bahagian-bahagian teks yang telah ditanda',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬) */
+/** Norwegian Bokmål (norsk (bokmål)‎) */
 $messages['nb'] = array(
 	'lst-desc' => 'Legger til funksjonene <code>#lst</code> og <code>#lstx</code> for å inkludere avsnitt av en tekst, samt taggen <code>&lt;section&gt;</code> for å markere de avsnitt som kan inkluderes',
 );
@@ -359,7 +359,7 @@ $messages['nl'] = array(
 	'lst-desc' => 'Voegt de functies <code>#lst</code> en <code>#lstx</code> en de tag <code>&lt;section&gt;</code> toe  voor het markeren van tekstdelen die getranscludeerd moeten worden',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Harald Khan
  */
 $messages['nn'] = array(
@@ -451,7 +451,7 @@ $messages['sl'] = array(
 	'lst-desc' => 'Doda funkciji <code>#lst</code> in <code>#lstx</code> ter oznako <code>&lt;section&gt;</code>, kar omogoča vključevanje označenih delov besedila',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Rancher
  * @author Михајло Анђелковић
  */
@@ -459,7 +459,7 @@ $messages['sr-ec'] = array(
 	'lst-desc' => 'Додаје функције <code>#lst</code> и <code>#lstx</code> и ознаку <code>&lt;section&gt;</code>, која омогућава трансклузију означених делова текста',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -557,7 +557,7 @@ $messages['yue'] = array(
 	'lst-desc' => '加 <code>#lst</code> 同埋 <code>#lstx</code> 功能同埋 <code>&lt;section&gt;</code> 標籤，可以用來將已經標示咗嘅小節包含出來',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Shinjiman
  * @author Xiaomingyan
  */
@@ -565,7 +565,7 @@ $messages['zh-hans'] = array(
 	'lst-desc' => '添加“<code>#lst</code>”和“<code>#lstx</code>”功能以及“<code>&lt;section&gt;</code>”标签，可以用来将已经标示的段落包含起来',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Shinjiman
  */
 $messages['zh-hant'] = array(
