@@ -340,7 +340,8 @@ $messages['ms'] = array(
 	'lst-desc' => 'Menambah fungsi <code>#lst</code> dan <code>#lstx</code> serta tag <code>&lt;section&gt;</code>, justeru membolehkan penyertaan bahagian-bahagian teks yang telah ditanda',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎) */
+/** Norwegian Bokmål (norsk (bokmål)‎)
+ */
 $messages['nb'] = array(
 	'lst-desc' => 'Legger til funksjonene <code>#lst</code> og <code>#lstx</code> for å inkludere avsnitt av en tekst, samt taggen <code>&lt;section&gt;</code> for å markere de avsnitt som kan inkluderes',
 );
@@ -571,4 +572,3 @@ $messages['zh-hans'] = array(
 $messages['zh-hant'] = array(
 	'lst-desc' => '加入 <code>#lst</code> 和 <code>#lstx</code> 功能以及 <code>&lt;section&gt;</code> 標籤，可以用來將已經標示的段落包含起來',
 );
-
