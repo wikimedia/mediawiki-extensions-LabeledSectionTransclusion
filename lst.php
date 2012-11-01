@@ -289,6 +289,52 @@ class LabeledSectionTransclusion {
 	}
 
 	/**
+	 * Retrieve a fully expanded DOM. The calling function MUST take care to prevent
+	 * transclusion loops.
+	 *
+	 * @param $title Title of the WikiPage to get the DOM for
+	 * @param $parserconfig The Parser configuration array \see Parser::__construct
+	 * @return array( PPNode, Title ) containing ( the DOM, the Title after resolving redirects )
+	 */
+	static function getWikiPageDom( $title, $parserconfig ) {
+		wfProfileIn( __METHOD__ );
+		$page = new WikiPage( $title );
+
+		if ( $page->isRedirect() ) {
+			$target = $page->getRedirectTarget();
+			$page = new WikiPage( $target->getRedirectTarget() );
+		}
+
+		$finalTitle = $page->getTitle();
+
+		if ( !$page->exists() ) {
+			return array( false, $finalTitle );
+		}
+
+		if ( method_exists( $page, "getContent" ) ) {
+			$content = $page->getContent( Revision::FOR_THIS_USER );
+			if ( !is_null( $content ) ) {
+				$text = $content->getWikitextForTransclusion();
+			} else {
+				$text = null;
+			}
+		} else {
+			$text = $page->getText( Revision::FOR_THIS_USER );
+		}
+
+		if ( is_null( $text ) ) {
+			return array( false, $finalTitle );
+		}
+
+		$parser = new Parser( $parserconfig );
+		$finalText = $parser->preprocess( $text, $finalTitle, new ParserOptions() );
+		$root = $parser->preprocessToDom( $finalText );
+
+		wfProfileOut( __METHOD__ );
+		return array( $root, $finalTitle );
+	}
+
+	/**
 	 * Set up some variables for MW-1.12 parser functions
 	 * @param $parser Parser
 	 * @param $frame PPFrame
@@ -296,6 +342,7 @@ class LabeledSectionTransclusion {
 	 * @param $func string
 	 * @return array|string
 	 */
+	private static $loopCheck = array();
 	static function setupPfunc12( $parser, $frame, $args, $func = 'lst' ) {
 		if ( !count( $args ) ) {
 			return '';
@@ -305,21 +352,29 @@ class LabeledSectionTransclusion {
 		if ( !$title ) {
 			return '';
 		}
-                if ( !$frame->loopCheck( $title ) ) {
-                        return '<span class="error">'
-                               . wfMessage( 'parser-template-loop-warning', $title->getPrefixedText() )->inContentLanguage()->text()
-                               . '</span>';
+
+		if ( in_array( $title, self::$loopCheck ) ) {
+			return '<span class="error">'
+				   . wfMessage( 'parser-template-loop-warning', $title->getPrefixedText() )->inContentLanguage()->text()
+				   . '</span>';
 		}
 
-		list( $root, $finalTitle ) = $parser->getTemplateDom( $title );
+		// NB: every function exit should pop the title from loopCheck!
+		self::$loopCheck[] = $title;
+
+		$parser->getOutput()->addTemplate( $title, $title->getArticleID(), $title->getLatestRevID() );
+
+		list( $root, $finalTitle ) = self::getWikiPageDom( $title, $parser->mConf );
 
 		// if article doesn't exist, return a red link.
 		if ( $root === false ) {
+			assert( array_pop ( self::$loopCheck ) == $title );
 			return "[[" . $title->getPrefixedText() . "]]";
 		}
 
 		$newFrame = $frame->newChild( false, $finalTitle );
 		if ( !count( $args ) ) {
+			assert( array_pop ( self::$loopCheck ) == $title );
 			return $newFrame->expand( $root );
 		}
 
@@ -344,6 +399,7 @@ class LabeledSectionTransclusion {
 		$endAttr = self::getAttrPattern_( $end, 'end' );
 		$endRegex = "/^$endAttr$/s";
 
+		assert( array_pop ( self::$loopCheck ) == $title );
 		return compact( 'dom', 'root', 'newFrame', 'repl', 'beginRegex', 'begin', 'endRegex' );
 	}
 
