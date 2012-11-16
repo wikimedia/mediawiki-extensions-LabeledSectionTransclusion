@@ -305,9 +305,10 @@ class LabeledSectionTransclusion {
 		if ( !$title ) {
 			return '';
 		}
-		if ( !$frame->loopCheck( $title ) ) {
-			return "[[" . $title->getPrefixedText() . "]]" .
-				"<!-- WARNING: LST loop detected -->";
+                if ( !$frame->loopCheck( $title ) ) {
+                        return '<span class="error">'
+                               . wfMessage( 'parser-template-loop-warning', $title->getPrefixedText() )->inContentLanguage()->text()
+                               . '</span>';
 		}
 
 		list( $root, $finalTitle ) = $parser->getTemplateDom( $title );

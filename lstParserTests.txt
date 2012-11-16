@@ -346,7 +346,7 @@ LST: cycle detection
 !!input
 {{#lst:cycle|cycle}}
 !!result
-<p><a href="/wiki/Cycle" title="Cycle">Cycle</a>
+<p><span class="error">Template loop detected: <a href="/wiki/Cycle" title="Cycle">Cycle</a></span>
 </p>
 !!end
 
