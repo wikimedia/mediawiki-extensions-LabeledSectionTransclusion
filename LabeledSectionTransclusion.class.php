@@ -2,6 +2,8 @@
 
 class LabeledSectionTransclusion {
 
+	private static $loopCheck = array();
+
 	/**
 	 * @param $parser Parser
 	 * @return bool
@@ -14,29 +16,35 @@ class LabeledSectionTransclusion {
 		return true;
 	}
 
-	// / Add the magic words - possibly with more readable aliases
+	/**
+	 * Add the magic words - possibly with more readable aliases
+	 *
+	 * @param $magicWords array
+	 * @param $langCode string
+	 * @return bool
+	 */
 	static function setupMagic( &$magicWords, $langCode ) {
 		global $wgParser, $wgLstLocal;
 
 		switch( $langCode ) {
-		case 'de':
-			$include = 'Abschnitt';
-			$exclude = 'Abschnitt-x';
-			$wgLstLocal = array( 'section' => 'Abschnitt', 'begin' => 'Anfang', 'end' => 'Ende' ) ;
-			break;
-		case 'he':
-			$include = 'קטע';
-			$exclude = 'בלי קטע';
-			$wgLstLocal = array( 'section' => 'קטע', 'begin' => 'התחלה', 'end' => 'סוף' ) ;
-			break;
-		case 'pt':
-			$include = 'trecho';
-			$exclude = 'trecho-x';
-			$wgLstLocal = array( 'section' => 'trecho', 'begin' => 'começo', 'end' => 'fim' );
-			break;
+			case 'de':
+				$include = 'Abschnitt';
+				$exclude = 'Abschnitt-x';
+				$wgLstLocal = array( 'section' => 'Abschnitt', 'begin' => 'Anfang', 'end' => 'Ende' ) ;
+				break;
+			case 'he':
+				$include = 'קטע';
+				$exclude = 'בלי קטע';
+				$wgLstLocal = array( 'section' => 'קטע', 'begin' => 'התחלה', 'end' => 'סוף' ) ;
+				break;
+			case 'pt':
+				$include = 'trecho';
+				$exclude = 'trecho-x';
+				$wgLstLocal = array( 'section' => 'trecho', 'begin' => 'começo', 'end' => 'fim' );
+				break;
 		}
 
-		if ( isset( $include ) ) {
+		if ( isset( $include ) && isset( $exclude ) ) {
 			$magicWords['lst'] = array( 0, 'lst', 'section', $include );
 			$magicWords['lstx'] = array( 0, 'lstx', 'section-x', $exclude );
 			$wgParser->setHook( $include, array( __CLASS__, 'noop' ) );
@@ -106,7 +114,7 @@ class LabeledSectionTransclusion {
 		if ( self::open_( $parser, $part1 ) ) {
 			// Try to get edit sections correct by munging around the parser's guts.
 			return array( $text, 'title' => $title, 'replaceHeadings' => true,
-					 'headingOffset' => $skiphead, 'noparse' => false, 'noargs' => false );
+				'headingOffset' => $skiphead, 'noparse' => false, 'noargs' => false );
 		} else {
 			return "[[" . $title->getPrefixedText() . "]]" .
 				"<!-- WARNING: LST loop detected -->";
@@ -163,6 +171,7 @@ class LabeledSectionTransclusion {
 	 * Generate a regex fragment matching the attribute portion of a section tag
 	 * @param string $sec Name of the target section
 	 * @param string $type Either "begin" or "end" depending on the type of section tag to be matched
+	 * @return string
 	 */
 	static function getAttrPattern_( $sec, $type ) {
 		global $wgLstLocal;
@@ -342,7 +351,18 @@ class LabeledSectionTransclusion {
 		if ( !is_array( $setup ) ) {
 			return $setup;
 		}
-		extract( $setup );
+
+		/**
+		 * @var $root PPNode
+		 */
+		$root = $setup['root'];
+		/**
+		 * @var $newFrame PPFrame
+		 */
+		$newFrame = $setup['newFrame'];
+		$beginRegex = $setup['beginRegex'];
+		$endRegex = $setup['endregex'];
+		$begin = $setup['begin'];
 
 		$text = '';
 		$node = $root->getFirstChild();
@@ -413,7 +433,18 @@ class LabeledSectionTransclusion {
 		if ( !is_array( $setup ) ) {
 			return $setup;
 		}
-		extract( $setup );
+
+		/**
+		 * @var $root PPNode
+		 */
+		$root = $setup['root'];
+		/**
+		 * @var $newFrame PPFrame
+		 */
+		$newFrame = $setup['newFrame'];
+		$beginRegex = $setup['beginRegex'];
+		$endRegex = $setup['endregex'];
+		$repl = $setup['repl'];
 
 		$text = '';
 		for ( $node = $root->getFirstChild(); $node; $node = $node ? $node->getNextSibling() : false ) {
@@ -461,3 +492,4 @@ class LabeledSectionTransclusion {
 		return $text;
 	}
 }
+

@@ -19,10 +19,6 @@ if ( ! defined( 'MEDIAWIKI' ) ) {
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
 
-##
-# Standard initialisation code
-##
-
 $wgHooks['ParserFirstCallInit'][] = 'LabeledSectionTransclusion::setup';
 // @todo FIXME: LanguageGetMagic is obsolete, but LabeledSectionTransclusion::setupMagic()
 //              contains magic hack that $magicWords cannot handle.
@@ -41,6 +37,4 @@ $wgAutoloadClasses['LabeledSectionTransclusion'] = $dir . '/LabeledSectionTransc
 $wgParserTestFiles[] = $dir . "/lstParserTests.txt";
 $wgExtensionMessagesFiles['LabeledSectionTransclusion'] = $dir . '/lst.i18n.php';
 
-// Local settings variable
-// Must be set now to avoid injection via register_globals
 $wgLstLocal = null;
