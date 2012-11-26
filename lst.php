@@ -325,6 +325,7 @@ class LabeledSectionTransclusion {
 		}
 
 		if ( is_null( $text ) ) {
+			wfProfileOut( __METHOD__ );
 			return array( false, $finalTitle );
 		}
 
