@@ -303,7 +303,7 @@ class LabeledSectionTransclusion {
 		if ( $page->isRedirect() ) {
 			$target = $page->getRedirectTarget();
 			if ( $target ) {
-				$page = new WikiPage( $target->getRedirectTarget() );
+				$page = new WikiPage( $target );
 			}
 		}
 
