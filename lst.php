@@ -310,6 +310,7 @@ class LabeledSectionTransclusion {
 		$finalTitle = $page->getTitle();
 
 		if ( !$page->exists() ) {
+			wfProfileOut( __METHOD__ );
 			return array( false, $finalTitle );
 		}
 
