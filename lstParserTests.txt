@@ -433,3 +433,21 @@ SectionA
 SectionB
 </p>
 !!end
+
+!! article
+status
+!! text
+<section begin="latest" />c<section end="latest" />
+<section begin="a" />sec a<section end="a" />
+<section begin="b" />sec b<section end="b" />
+<section begin="c" />sec c<section end="c" />
+!! endarticle
+
+!!test
+LST: Allow subtransclusion in lst argument (bug 42481)
+!!input
+{{#lst:status|latest}}: {{#lst:status|{{#lst:status|latest}}}}
+!!result
+<p>c: sec c
+</p>
+!!end
