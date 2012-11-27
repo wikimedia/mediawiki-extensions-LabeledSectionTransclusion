@@ -476,7 +476,7 @@ TemplateEndStart
 template:tagsectionstart
 !!text
 TagSectionStartStart:{{{1}}}
-{{#tag:section|begin={{{1}}}}}
+{{#tag:section||begin={{{1}}}}}
 TagSectionStartEnd:{{{1}}}
 !!endarticle
 
@@ -484,7 +484,7 @@ TagSectionStartEnd:{{{1}}}
 template:tagsectionend
 !!text
 TagSectionEndStart:{{{1}}}
-{{#tag:section|end={{{1}}}}}
+{{#tag:section||end={{{1}}}}}
 TagSectionEndEnd:{{{1}}}
 !!endarticle
 
@@ -502,11 +502,11 @@ Before...
 LST: including a page which transcludes a template containing a variable ({{#tag}}) section tag
 !!options
 !!input
-{{#lst:tagintemplate|A}}
+{{#lst:variabletag|A}}
 !!result
-<p>TemplateStartEnd
+<p>TagSectionStartEnd:A
 ...during...
-TemplateEndStart
+TagSectionEndStart:A
 </p>
 !!end
 
@@ -525,5 +525,39 @@ LST: Allow subtransclusion in lst argument (bug 42481)
 {{#lst:status|latest}}: {{#lst:status|{{#lst:status|latest}}}}
 !!result
 <p>c: sec c
+</p>
+!!end
+
+!!article
+selfinclusion1
+!!text
+<section begin="A"/>
+Section A begin
+{{#lst:selfinclusion2|B}}
+Section A end
+<section end="A"/>
+!!endarticle
+
+!!article
+selfinclusion2
+!!text
+<section begin="B"/>
+Section B begin
+{{#lst:selfinclusion1|A}}
+Section B end
+<section end="B"/>
+!!endarticle
+
+!!test
+LST: verify self-inclusion fails
+!!options
+!!input
+{{#lst:selfinclusion1|A}}
+!!result
+<p>Section A begin
+</p><p>Section B begin
+<span class="error">Template loop detected: <a href="/wiki/Selfinclusion1" title="Selfinclusion1">Selfinclusion1</a></span>
+Section B end
+</p><p>Section A end
 </p>
 !!end
