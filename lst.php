@@ -363,22 +363,19 @@ class LabeledSectionTransclusion {
 				   . '</span>';
 		}
 
-		// NB: every function exit should pop the title from loopCheck!
-		self::$loopCheck[] = $title;
-
 		$parser->getOutput()->addTemplate( $title, $title->getArticleID(), $title->getLatestRevID() );
 
+		self::$loopCheck[] = $title;
 		list( $root, $finalTitle ) = self::getWikiPageDom( $title, $parser->mConf );
+		assert( array_pop ( self::$loopCheck ) == $title );
 
 		// if article doesn't exist, return a red link.
 		if ( $root === false ) {
-			assert( array_pop ( self::$loopCheck ) == $title );
 			return "[[" . $title->getPrefixedText() . "]]";
 		}
 
 		$newFrame = $frame->newChild( false, $finalTitle );
 		if ( !count( $args ) ) {
-			assert( array_pop ( self::$loopCheck ) == $title );
 			return $newFrame->expand( $root );
 		}
 
@@ -403,7 +400,6 @@ class LabeledSectionTransclusion {
 		$endAttr = self::getAttrPattern_( $end, 'end' );
 		$endRegex = "/^$endAttr$/s";
 
-		assert( array_pop ( self::$loopCheck ) == $title );
 		return compact( 'dom', 'root', 'newFrame', 'repl', 'beginRegex', 'begin', 'endRegex' );
 	}
 
