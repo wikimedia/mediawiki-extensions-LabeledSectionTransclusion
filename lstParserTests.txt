@@ -451,3 +451,37 @@ LST: Allow subtransclusion in lst argument (bug 42481)
 <p>c: sec c
 </p>
 !!end
+
+!!article
+selfinclusion1
+!!text
+<section begin="A"/>
+Section A begin
+{{#lst:selfinclusion2|B}}
+Section A end
+<section end="A"/>
+!!endarticle
+
+!!article
+selfinclusion2
+!!text
+<section begin="B"/>
+Section B begin
+{{#lst:selfinclusion1|A}}
+Section B end
+<section end="B"/>
+!!endarticle
+
+!!test
+LST: verify self-inclusion fails
+!!options
+!!input
+{{#lst:selfinclusion1|A}}
+!!result
+<p>Section A begin
+</p><p>Section B begin
+<span class="error">Template loop detected: <a href="/wiki/Selfinclusion1" title="Selfinclusion1">Selfinclusion1</a></span>
+Section B end
+</p><p>Section A end
+</p>
+!!end
