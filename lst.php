@@ -28,7 +28,7 @@ $wgHooks['ParserFirstCallInit'][] = 'LabeledSectionTransclusion::setup';
 //              contains magic hack that $magicWords cannot handle.
 $wgHooks['LanguageGetMagic'][] = 'LabeledSectionTransclusion::setupMagic';
 
-$wgExtensionCredits['parserhook'][] = array(
+$wgExtensionCredits['parserhook']['LabeledSectionTransclusion'] = array(
 	'path'           => __FILE__,
 	'name'           => 'LabeledSectionTransclusion',
 	'author'         => 'Steve Sanbeg',
