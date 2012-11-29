@@ -272,24 +272,8 @@ class LabeledSectionTransclusion {
 			return array( false, $finalTitle );
 		}
 
-		if ( method_exists( $page, "getContent" ) ) {
-			$content = $page->getContent( Revision::FOR_THIS_USER );
-			if ( !is_null( $content ) ) {
-				$text = $content->getWikitextForTransclusion();
-			} else {
-				$text = null;
-			}
-		} else {
-			$text = $page->getText( Revision::FOR_THIS_USER );
-		}
-
-		if ( is_null( $text ) ) {
-			wfProfileOut( __METHOD__ );
-			return array( false, $finalTitle );
-		}
-
 		$parser = new Parser( $parserconfig );
-		$finalText = $parser->preprocess( $text, $finalTitle, new ParserOptions() );
+		$finalText = $parser->preprocess( "{{:" . $finalTitle->getPrefixedText() . "}}", $finalTitle, new ParserOptions() );
 		$root = $parser->preprocessToDom( $finalText );
 
 		wfProfileOut( __METHOD__ );
