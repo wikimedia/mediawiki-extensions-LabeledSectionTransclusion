@@ -501,3 +501,44 @@ LST: Transclude a section via a redirect
 <p>sec 1
 </p>
 !!end
+
+!!article
+noinclude
+!!text
+<noinclude>before</noinclude>
+<section begin="a" />sec a<section end="a" />
+<noinclude>after</noinclude>
+!!endarticle
+
+!!test
+LST: Noinclude tags should not be included - start at section
+!!input
+{{#lst:noinclude|a|}}
+!!result
+<p>sec a
+</p>
+!!end
+
+!!test
+LST: Noinclude tags should not be included - end at section
+!!input
+{{#lst:noinclude||a}}
+!!result
+<p>sec a
+</p>
+!!end
+
+!!article
+User:DifferentNamespace/subpage
+!!text
+<section begin="a" />sec a<section end="a" />
+!!endarticle
+
+!!test
+LST: Transclusion from subpage in a non-standard namespace
+!!input
+{{#lst:User:DifferentNamespace/subpage|a}}
+!!result
+<p>sec a
+</p>
+!!end
