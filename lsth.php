@@ -1,7 +1,6 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) {
+if ( ! defined( 'MEDIAWIKI' ) )
 	die();
-}
 
 /**#@+
  *
@@ -30,19 +29,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 $wgHooks['ParserFirstCallInit'][] = 'wfLabeledSectionTransclusionHeading';
 $wgHooks['LanguageGetMagic'][] = 'wfLabeledSectionTransclusionHeadingMagic';
-
-$wgExtensionCredits['parserhook']['LabeledSectionTransclusion'] = array(
-	'path'           => __FILE__,
-	'name'           => 'LabeledSectionTransclusion',
-	'author'         => 'Steve Sanbeg',
-	'url'            => 'https://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion',
-	'descriptionmsg' => 'lst-desc',
-);
-
-$dir = dirname( __FILE__ );
-$wgAutoloadClasses['LabeledSectionTransclusion'] = $dir . '/LabeledSectionTransclusion.class.php';
-$wgParserTestFiles[] = $dir . "/lsthParserTests.txt";
-$wgExtensionMessagesFiles['LabeledSectionTransclusion'] = $dir . '/lst.i18n.php';
+$wgParserTestFiles[] = dirname( __FILE__ ) . "/lsthParserTests.txt";
 
 /**
  * @param $parser Parser
@@ -83,7 +70,7 @@ function wfLstIncludeHeading( $parser, $page = '', $sec = '', $to = '' ) {
 		$begin_off = 0;
 		$head_len = 6;
 	} else {
-		$pat = '^(={1,6})\s*' . preg_quote( $sec, '/' ) . '\s*\1\s*($)';
+		$pat = '^(={1,6})\s*' . preg_quote( $sec, '/' ) . '\s*\1\s*($)' ;
 		if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE ) ) {
 			$begin_off = $m[2][1];
 			$head_len = strlen( $m[1][0] );
@@ -99,18 +86,18 @@ function wfLstIncludeHeading( $parser, $page = '', $sec = '', $to = '' ) {
 		// if $to is supplied, try and match it. If we don't match, just
 		// ignore it.
 		$pat = '^(={1,6})\s*' . preg_quote( $to, '/' ) . '\s*\1\s*$';
-		if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off ) ) {
-			$end_off = $m[0][1] - 1;
-		}
+		if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off ) )
+			$end_off = $m[0][1] -1;
 	}
 
-	if ( !isset( $end_off ) ) {
+	if ( ! isset( $end_off ) ) {
 		$pat = '^(={1,' . $head_len . '})(?!=).*?\1\s*$';
-		if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off ) ) {
-			$end_off = $m[0][1] - 1;
-		} else {
+		if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off ) )
+			$end_off = $m[0][1] -1;
+		else
 			wfDebug( "LSTH: fail end match: '$pat'" );
-		}
+
+		// wfDebug("LSTH:head len is $head_len, pat is $pat, head is '.$m[1][0]'";
 	}
 
 	$nhead = LabeledSectionTransclusion::countHeadings_( $text, $begin_off );
