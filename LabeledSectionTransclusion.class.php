@@ -361,7 +361,7 @@ class LabeledSectionTransclusion {
 		 */
 		$newFrame = $setup['newFrame'];
 		$beginRegex = $setup['beginRegex'];
-		$endRegex = $setup['endregex'];
+		$endRegex = $setup['endRegex'];
 		$begin = $setup['begin'];
 
 		$text = '';
@@ -443,7 +443,7 @@ class LabeledSectionTransclusion {
 		 */
 		$newFrame = $setup['newFrame'];
 		$beginRegex = $setup['beginRegex'];
-		$endRegex = $setup['endregex'];
+		$endRegex = $setup['endRegex'];
 		$repl = $setup['repl'];
 
 		$text = '';
