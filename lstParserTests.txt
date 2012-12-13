@@ -485,3 +485,18 @@ Section B end
 </p><p>Section A end
 </p>
 !!end
+
+!!article
+redirected
+!!text
+#REDIRECT[[Sections]]
+!!endarticle
+
+!!test
+LST: Transclude a section via a redirect
+!!input
+{{#lst:redirected|1}}
+!!result
+<p>sec 1
+</p>
+!!end
