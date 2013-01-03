@@ -75,9 +75,7 @@ function wfLstIncludeHeading( $parser, $page = '', $sec = '', $to = '' ) {
 		if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE ) ) {
 			$begin_off = $m[2][1];
 			$head_len = strlen( $m[1][0] );
-			// wfDebug( "LSTH: offset is $begin_off" );
 		} else {
-			// wfDebug( "LSTH: match failed: '$pat'" );
 			return '';
 		}
 
@@ -87,18 +85,18 @@ function wfLstIncludeHeading( $parser, $page = '', $sec = '', $to = '' ) {
 		// if $to is supplied, try and match it. If we don't match, just
 		// ignore it.
 		$pat = '^(={1,6})\s*' . preg_quote( $to, '/' ) . '\s*\1\s*$';
-		if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off ) )
+		if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off ) ) {
 			$end_off = $m[0][1] -1;
+		}
 	}
 
-	if ( ! isset( $end_off ) ) {
+	if ( !isset( $end_off ) ) {
 		$pat = '^(={1,' . $head_len . '})(?!=).*?\1\s*$';
-		if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off ) )
+		if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off ) ) {
 			$end_off = $m[0][1] -1;
-		else
+		} else {
 			wfDebug( "LSTH: fail end match: '$pat'" );
-
-		// wfDebug("LSTH:head len is $head_len, pat is $pat, head is '.$m[1][0]'";
+		}
 	}
 
 	$nhead = LabeledSectionTransclusion::countHeadings_( $text, $begin_off );
