@@ -293,7 +293,7 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'lst-desc' => 'Dëijt de Fungkzjone <code>#lst</code>, un <code>#lstx</code>, un der Befääl <code>&lt;section&gt;</code> en et Wiki bei, un määd_et müjjelesch, de su makeete TëxShtöcker wohannders wi_j_en Schabloon ėnnzofööje.',
+	'lst-desc' => 'Dëijt de Fungkzjone <code>#lst</code>, un <code>#lstx</code>, un der Befähl <code>&lt;section&gt;</code> en et Wiki bei, un määd_ed möjjelesch, de su makeete Tëxschtöcker wohannders wi_j_en Schabloon ėnnzofööje.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
