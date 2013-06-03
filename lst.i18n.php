@@ -253,6 +253,13 @@ $messages['id'] = array(
 	'lst-desc' => 'Menambahkan fungsi <code>#lst</code> dan <code>#lstx</code> serta tag <code>&lt;section&gt;</code> yang memungkinkan bagian yang ditandai dari suatu teks ditransklusikan',
 );
 
+/** Iloko (Ilokano)
+ * @author Lam-ang
+ */
+$messages['ilo'] = array(
+	'lst-desc' => 'Agnayon kadagiti annong ti <code>#lst</code> ken <code>#lstx</code> ken etiketa ti <code>&lt;section&gt;</code>, ken mangpakabael a mangilak-am kadagiti namarkaan a paset ti testo',
+);
+
 /** Italian (italiano)
  * @author BrokenArrow
  */
