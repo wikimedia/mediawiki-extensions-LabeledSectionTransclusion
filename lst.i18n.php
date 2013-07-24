@@ -397,10 +397,11 @@ $messages['pms'] = array(
 
 /** Portuguese (português)
  * @author Hamilton Abreu
+ * @author Luckas
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'lst-desc' => 'Adiciona as funções <code>#lst</code> e <code>#lstx</code>, e o elemento &lt;section&gt;; permite a transclusão das secções de texto marcadas',
+	'lst-desc' => 'Adiciona as funções <code>#lst</code> e <code>#lstx</code>, e o elemento &lt;section&gt;; permite a transclusão das seções de texto marcadas',
 );
 
 /** Brazilian Portuguese (português do Brasil)
