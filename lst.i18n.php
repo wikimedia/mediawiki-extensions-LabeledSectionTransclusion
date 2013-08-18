@@ -291,9 +291,10 @@ $messages['jv'] = array(
 
 /** Korean (한국어)
  * @author Kwj2772
+ * @author 아라
  */
 $messages['ko'] = array(
-	'lst-desc' => '특정 부분의 글을 틀처럼 포함할 수 있게 <code>#lst</code>, <code>#lstx</code> 함수와 <code>&lt;section&gt;</code> 태그를 추가',
+	'lst-desc' => '특정 부분의 글을 틀처럼 포함할 수 있게 <code>#lst</code>, <code>#lstx</code> 함수와 <code>&lt;section&gt;</code> 태그를 추가합니다',
 );
 
 /** Colognian (Ripoarisch)
