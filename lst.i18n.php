@@ -93,9 +93,10 @@ $messages['ca'] = array(
 
 /** Czech (česky)
  * @author Matěj Grabovský
+ * @author Mormegil
  */
 $messages['cs'] = array(
-	'lst-desc' => 'Přidává funkce <code>{{#lst:}}</code> a <code>{{#lstx:}}</code> a tag <code>&lt;section&gt;</code>, umožňuje transkluzi označených částí textu',
+	'lst-desc' => 'Přidává funkce <code>#lst:</code> a <code>#lstx:</code> a tag <code>&lt;section&gt;</code>, umožňuje transkluzi označených částí textu',
 );
 
 /** Danish (dansk)
