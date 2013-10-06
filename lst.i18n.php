@@ -408,9 +408,10 @@ $messages['pt'] = array(
 
 /** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
+ * @author 555
  */
 $messages['pt-br'] = array(
-	'lst-desc' => 'Adiciona as funções <code>#lst</code> e <code>#lstx</code>, e a marca &lt;section&gt;, ativa seções marcadas de texto para serem transcluídas',
+	'lst-desc' => 'Adiciona as funções <code>#lst</code> e <code>#lstx</code> e a tag <code>&lt;section&gt;</code>. Ativa seções de texto marcadas para serem transcluídas',
 );
 
 /** tarandíne (tarandíne)
