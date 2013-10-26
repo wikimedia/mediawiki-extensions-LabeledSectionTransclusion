@@ -337,9 +337,10 @@ $messages['ml'] = array(
 
 /** Marathi (मराठी)
  * @author Kaustubh
+ * @author V.narsikar
  */
 $messages['mr'] = array(
-	'lst-desc' => '<code>#lst</code> व <code>#lstx</code> कार्ये आणि <code>&lt;section&gt;</code> टॅग वाढवितो, मजकूरातील चिन्हांकीत विभाग एकत्रीत करण्यास परवानगी देतो.',
+	'lst-desc' => '<code>#lst</code> व <code>#lstx</code> क्रिया आणि <code>&lt;section&gt;</code> टॅग वाढवितो, मजकूरातील चिन्हांकीत विभाग एकत्रीत करण्यास परवानगी देतो.',
 );
 
 /** Malay (Bahasa Melayu)
