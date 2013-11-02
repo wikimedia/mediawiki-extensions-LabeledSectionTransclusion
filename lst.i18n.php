@@ -307,9 +307,10 @@ $messages['ksh'] = array(
 
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
+ * @author Soued031
  */
 $messages['lb'] = array(
-	'lst-desc' => 'Setzt <code>#lst</code> an <code>#lstx</code> Funktiounen a <code>&lt;section&gt;</code> Tag derbäi, fir esou markéiert Abschnitter ablenden ze kënnen',
+	'lst-desc' => 'Setzt <code>#lst</code> an <code>#lstx</code> Funktiounen a <code>&lt;section&gt;</code> Tag derbäi, fir sou markéiert Abschnitter ablenden ze kënnen',
 );
 
 /** Limburgish (Limburgs)
