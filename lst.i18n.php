@@ -91,6 +91,13 @@ $messages['ca'] = array(
 	'lst-desc' => "Afegeix les funcions <code>#lst</code> i <code>#lstx</code> i l'etiqueta <code>&lt;section&gt;</code>, permet transcloure seccions de text amb marques",
 );
 
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'lst-desc' => 'ТӀетуху функцеш <code>#lst</code> а <code>#lstx</code> а тег <code>&lt;section&gt;</code>, билгалйина йозан меттигаш кхечу агӀонашкахь лато аьтту хуьлуьйту.',
+);
+
 /** Czech (čeština)
  * @author Matěj Grabovský
  * @author Mormegil
