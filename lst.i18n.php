@@ -328,6 +328,13 @@ $messages['li'] = array(
 	'lst-desc' => 'Voog de functies <code>#lst</code> en <code>#lstx</code> en de tag <code>&lt;section&gt;</code> toe  voor het markere van teksdele die getranscludeerd motte waere',
 );
 
+/** Latvian (latviešu)
+ * @author Papuass
+ */
+$messages['lv'] = array(
+	'lst-desc' => 'Pievieno <code>#lst</code> un <code>#lstx</code> funkcijas un <code>&lt;section&gt;</code> iezīmi, ļaujot iekļaut citās lapās iezīmētās teksta daļas',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */
