@@ -458,6 +458,13 @@ $messages['sah'] = array(
 	'lst-desc' => '<code>#lst</code> уонна <code>#lstx</code> функциялары уонна <code>&lt;section&gt;</code> тиэги эбэр, бу бэлиэтэммит тиэкиһи атын сирэйдэргэ киллэрэри ситиһэр.',
 );
 
+/** Scots (Scots)
+ * @author John Reid
+ */
+$messages['sco'] = array(
+	'lst-desc' => 'Adds <code>#lst</code> an <code>#lstx</code> functions an <code>&lt;section&gt;</code> tag, enables maurked sections o tex tae be transcluded',
+);
+
 /** Sinhala (සිංහල)
  * @author නන්දිමිතුරු
  */
