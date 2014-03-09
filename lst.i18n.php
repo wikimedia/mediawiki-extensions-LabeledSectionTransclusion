@@ -462,7 +462,7 @@ $messages['sah'] = array(
  * @author John Reid
  */
 $messages['sco'] = array(
-	'lst-desc' => 'Adds <code>#lst</code> an <code>#lstx</code> functions an <code>&lt;section&gt;</code> tag, enables maurked sections o tex tae be transcluded',
+	'lst-desc' => 'Adds <code>#lst</code> n <code>#lstx</code> functions n <code>&lt;section&gt;</code> tag, enables maurked sections o tex tae be transclæded',
 );
 
 /** Sinhala (සිංහල)
