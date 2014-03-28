@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Raimond Spekking",
+            "Raymond"
+        ]
+    },
+    "lst-desc": "Extension description displayed on [[Special:Version]]"
+}

@@ -32,9 +32,10 @@ $wgExtensionCredits['parserhook'][] = array(
 	'descriptionmsg' => 'lst-desc',
 );
 
-$dir = dirname( __FILE__ );
+$dir = __DIR__;
 $wgAutoloadClasses['LabeledSectionTransclusion'] = $dir . '/LabeledSectionTransclusion.class.php';
 $wgParserTestFiles[] = $dir . "/lstParserTests.txt";
+$wgMessagesDirs['LabeledSectionTransclusion'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['LabeledSectionTransclusion'] = $dir . '/lst.i18n.php';
 
 $wgLstLocal = null;

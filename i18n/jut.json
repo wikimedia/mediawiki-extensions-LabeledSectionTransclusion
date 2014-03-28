@@ -1,0 +1,8 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ælsån"
+        ]
+    },
+    "lst-desc": "Tilføje <code>#lst</code> og <code>#lstx</code> funksje og <code>&lt;section&gt;</code> tag, måk markærn seksje der tekst til være transcluded"
+}

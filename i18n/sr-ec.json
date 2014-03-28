@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Rancher",
+            "Михајло Анђелковић"
+        ]
+    },
+    "lst-desc": "Додаје функције <code>#lst</code> и <code>#lstx</code> и ознаку <code>&lt;section&gt;</code>, која омогућава трансклузију означених делова текста"
+}
