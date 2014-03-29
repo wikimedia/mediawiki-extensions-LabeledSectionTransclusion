@@ -4,5 +4,5 @@
             "Kaustubh"
         ]
     },
-    "lst-desc": "\u003Ccode\u003E#lst\u003C/code\u003E और \u003Ccode\u003E#lstx\u003C/code\u003E कार्य तथा \u003Ccode\u003E\u0026lt;section\u0026gt;\u003C/code\u003E टॅग बढायें, पाठमेंसे चिन्हांकीत विभाग एकत्रित करें।"
+    "lst-desc": "<code>#lst</code> और <code>#lstx</code> कार्य तथा <code>&lt;section&gt;</code> टॅग बढायें, पाठमेंसे चिन्हांकीत विभाग एकत्रित करें।"
 }
