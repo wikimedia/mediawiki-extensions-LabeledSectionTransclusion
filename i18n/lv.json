@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Papuass"
-        ]
-    },
-    "lst-desc": "Pievieno \u003Ccode\u003E#lst\u003C/code\u003E un \u003Ccode\u003E#lstx\u003C/code\u003E funkcijas un \u003Ccode\u003E\u0026lt;section\u0026gt;\u003C/code\u003E iezīmi, ļaujot iekļaut citās lapās iezīmētās teksta daļas"
+	"@metadata": {
+		"authors": [
+			"Papuass"
+		]
+	},
+	"lst-desc": "Pievieno <code>#lst</code> un <code>#lstx</code> funkcijas un <code>&lt;section&gt;</code> iezīmi, ļaujot iekļaut citās lapās iezīmētās teksta daļas"
 }

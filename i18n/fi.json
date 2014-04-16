@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Crt"
-        ]
-    },
-    "lst-desc": "Lisää funktiot <code>#lst</code>, <code>#lstx</code> ja tagin <code>&lt;section&gt;</code> sekä mahdollistaa merkattujen tekstinosien sisällytyksen."
+	"@metadata": {
+		"authors": [
+			"Crt"
+		]
+	},
+	"lst-desc": "Lisää funktiot <code>#lst</code>, <code>#lstx</code> ja tagin <code>&lt;section&gt;</code> sekä mahdollistaa merkattujen tekstinosien sisällytyksen."
 }

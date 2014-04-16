@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Hamilton Abreu",
-            "Luckas",
-            "Malafaya"
-        ]
-    },
-    "lst-desc": "Adiciona as funções <code>#lst</code> e <code>#lstx</code>, e o elemento &lt;section&gt;; permite a transclusão das seções de texto marcadas"
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu",
+			"Luckas",
+			"Malafaya"
+		]
+	},
+	"lst-desc": "Adiciona as funções <code>#lst</code> e <code>#lstx</code>, e o elemento &lt;section&gt;; permite a transclusão das seções de texto marcadas"
 }

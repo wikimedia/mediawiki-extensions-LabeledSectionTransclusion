@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Умар"
-        ]
-    },
-    "lst-desc": "ТӀетуху функцеш \u003Ccode\u003E#lst\u003C/code\u003E а \u003Ccode\u003E#lstx\u003C/code\u003E а тег \u003Ccode\u003E\u0026lt;section\u0026gt;\u003C/code\u003E, билгалйина йозан меттигаш кхечу агӀонашкахь лато аьтту хуьлуьйту."
+	"@metadata": {
+		"authors": [
+			"Умар"
+		]
+	},
+	"lst-desc": "ТӀетуху функцеш <code>#lst</code> а <code>#lstx</code> а тег <code>&lt;section&gt;</code>, билгалйина йозан меттигаш кхечу агӀонашкахь лато аьтту хуьлуьйту."
 }

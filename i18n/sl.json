@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Dbc334"
-        ]
-    },
-    "lst-desc": "Doda funkciji <code>#lst</code> in <code>#lstx</code> ter oznako <code>&lt;section&gt;</code>, kar omogoča vključevanje označenih delov besedila"
+	"@metadata": {
+		"authors": [
+			"Dbc334"
+		]
+	},
+	"lst-desc": "Doda funkciji <code>#lst</code> in <code>#lstx</code> ter oznako <code>&lt;section&gt;</code>, kar omogoča vključevanje označenih delov besedila"
 }
