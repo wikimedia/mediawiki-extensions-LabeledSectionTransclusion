@@ -1,7 +1,7 @@
 #
 # This parser test file documents known *incorrect* behavior, for which
 # a bug has been opened on bugzilla. The goal of these tests is to prevent
-# any additional regressions. 
+# any additional regressions.
 #
 # Each test should have a bug id # in the title and a link to bugzilla
 # in a comment. When the bug is resolved, the test in this file should
