@@ -10,8 +10,8 @@ class LabeledSectionTransclusion {
 	 */
 	static function setup( $parser ) {
 		$parser->setHook( 'section', array( __CLASS__, 'noop' ) );
-		$parser->setFunctionHook( 'lst', array( __CLASS__, 'pfuncIncludeObj' ), SFH_OBJECT_ARGS );
-		$parser->setFunctionHook( 'lstx', array( __CLASS__, 'pfuncExcludeObj' ), SFH_OBJECT_ARGS );
+		$parser->setFunctionHook( 'lst', array( __CLASS__, 'pfuncIncludeObj' ), Parser::SFH_OBJECT_ARGS );
+		$parser->setFunctionHook( 'lstx', array( __CLASS__, 'pfuncExcludeObj' ), Parser::SFH_OBJECT_ARGS );
 
 		return true;
 	}
