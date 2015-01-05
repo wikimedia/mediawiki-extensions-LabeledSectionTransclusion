@@ -12,6 +12,7 @@ class LabeledSectionTransclusion {
 		$parser->setHook( 'section', array( __CLASS__, 'noop' ) );
 		$parser->setFunctionHook( 'lst', array( __CLASS__, 'pfuncIncludeObj' ), Parser::SFH_OBJECT_ARGS );
 		$parser->setFunctionHook( 'lstx', array( __CLASS__, 'pfuncExcludeObj' ), Parser::SFH_OBJECT_ARGS );
+		$parser->setFunctionHook( 'lsth', array( __CLASS__, 'pfuncIncludeHeading' ) );
 
 		return true;
 	}
@@ -52,6 +53,8 @@ class LabeledSectionTransclusion {
 			$magicWords['lst'] = array( 0, 'lst', 'section' );
 			$magicWords['lstx'] = array( 0, 'lstx', 'section-x' );
 		}
+
+		$magicWords['lsth'] = array( 0, 'lsth', 'section-h' );
 
 		return true;
 	}
@@ -273,10 +276,10 @@ class LabeledSectionTransclusion {
 		if ( !$title ) {
 			return '';
 		}
-                if ( !$frame->loopCheck( $title ) ) {
-                        return '<span class="error">'
-                               . wfMessage( 'parser-template-loop-warning', $title->getPrefixedText() )->inContentLanguage()->text()
-                               . '</span>';
+		if ( !$frame->loopCheck( $title ) ) {
+			return '<span class="error">'
+				. wfMessage( 'parser-template-loop-warning', $title->getPrefixedText() )->inContentLanguage()->text()
+				. '</span>';
 		}
 
 		list( $root, $finalTitle ) = $parser->getTemplateDom( $title );
@@ -490,6 +493,74 @@ class LabeledSectionTransclusion {
 			}
 		}
 		return $text;
+	}
+
+	/**
+	 * section inclusion - include all matching sections
+	 *
+	 * A parser extension that further extends labeled section transclusion,
+	 * adding a function, #lsth for transcluding marked sections of text,
+	 *
+	 * @todo: MW 1.12 version, as per #lst/#lstx
+	 *
+	 * @param $parser Parser
+	 * @param $page string
+	 * @param $sec string
+	 * @param $to string
+	 * @return mixed|string
+	 */
+	static function pfuncIncludeHeading( $parser, $page = '', $sec = '', $to = '' ) {
+		if ( self::getTemplateText_( $parser, $page, $title, $text ) == false ) {
+			return $text;
+		}
+
+		// Generate a regex to match the === classical heading section(s) === we're
+		// interested in.
+		if ( $sec == '' ) {
+			$begin_off = 0;
+			$head_len = 6;
+		} else {
+			$pat = '^(={1,6})\s*' . preg_quote( $sec, '/' ) . '\s*\1\s*($)' ;
+			if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE ) ) {
+				$begin_off = $m[2][1];
+				$head_len = strlen( $m[1][0] );
+			} else {
+				return '';
+			}
+
+		}
+
+		if ( $to != '' ) {
+			// if $to is supplied, try and match it. If we don't match, just
+			// ignore it.
+			$pat = '^(={1,6})\s*' . preg_quote( $to, '/' ) . '\s*\1\s*$';
+			if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off ) ) {
+				$end_off = $m[0][1] -1;
+			}
+		}
+
+		if ( !isset( $end_off ) ) {
+			$pat = '^(={1,' . $head_len . '})(?!=).*?\1\s*$';
+			if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off ) ) {
+				$end_off = $m[0][1] -1;
+			}
+		}
+
+		$nhead = self::countHeadings_( $text, $begin_off );
+
+		if ( isset( $end_off ) ) {
+			$result = substr( $text, $begin_off, $end_off - $begin_off );
+		} else {
+			$result = substr( $text, $begin_off );
+		}
+
+		if ( method_exists( $parser, 'getPreprocessor' ) ) {
+			$frame = $parser->getPreprocessor()->newFrame();
+			$dom = $parser->preprocessToDom( $result );
+			$result = $frame->expand( $dom );
+		}
+
+		return self::parse_( $parser, $title, $result, "#lsth:${page}|${sec}", $nhead );
 	}
 }
 

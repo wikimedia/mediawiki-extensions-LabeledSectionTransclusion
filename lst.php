@@ -34,8 +34,9 @@ $wgExtensionCredits['parserhook'][] = array(
 
 $dir = __DIR__;
 $wgAutoloadClasses['LabeledSectionTransclusion'] = $dir . '/LabeledSectionTransclusion.class.php';
-$wgParserTestFiles[] = $dir . "/lstParserTests.txt";
-$wgParserTestFiles[] = $dir . "/lstIncorrectParserTest.txt";
+$wgParserTestFiles[] = $dir . '/lstParserTests.txt';
+$wgParserTestFiles[] = $dir . '/lstIncorrectParserTest.txt';
+$wgParserTestFiles[] = $dir . '/lsthParserTests.txt';
 $wgMessagesDirs['LabeledSectionTransclusion'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['LabeledSectionTransclusion'] = $dir . '/lst.i18n.php';
 

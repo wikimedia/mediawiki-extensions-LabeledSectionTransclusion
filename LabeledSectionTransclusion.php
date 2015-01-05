@@ -8,4 +8,3 @@ if( !defined('MEDIAWIKI') ) {
 }
 
 require_once( 'lst.php'  );
-require_once( 'lsth.php' );
