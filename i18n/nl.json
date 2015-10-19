@@ -4,5 +4,5 @@
 			"Siebrand"
 		]
 	},
-	"lst-desc": "Voegt de functies <code>#lst</code> en <code>#lstx</code> en de tag <code>&lt;section&gt;</code> toe  voor het markeren van tekstdelen die getranscludeerd moeten worden"
+	"lst-desc": "Voegt de functies <code>#lst</code> en <code>#lstx</code> en het label <code>&lt;section&gt;</code> toe  voor het markeren van tekstdelen die getranscludeerd moeten worden"
 }
