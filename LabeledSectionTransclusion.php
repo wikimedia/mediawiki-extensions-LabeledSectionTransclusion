@@ -1,7 +1,4 @@
 <?php
-if ( ! defined( 'MEDIAWIKI' ) ) {
-	die();
-}
 
 /**#@+
  * A parser extension that adds two functions, #lst and #lstx, and the
@@ -19,25 +16,16 @@ if ( ! defined( 'MEDIAWIKI' ) ) {
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
 
-$wgHooks['ParserFirstCallInit'][] = 'LabeledSectionTransclusion::setup';
-// @todo FIXME: LanguageGetMagic is obsolete, but LabeledSectionTransclusion::setupMagic()
-//              contains magic hack that $magicWords cannot handle.
-$wgHooks['LanguageGetMagic'][] = 'LabeledSectionTransclusion::setupMagic';
-
-$wgExtensionCredits['parserhook'][] = array(
-	'path'           => __FILE__,
-	'name'           => 'LabeledSectionTransclusion',
-	'author'         => 'Steve Sanbeg',
-	'url'            => 'https://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion',
-	'descriptionmsg' => 'lst-desc',
-);
-
-$dir = __DIR__;
-$wgAutoloadClasses['LabeledSectionTransclusion'] = $dir . '/LabeledSectionTransclusion.class.php';
-$wgParserTestFiles[] = $dir . '/lstParserTests.txt';
-$wgParserTestFiles[] = $dir . '/lstIncorrectParserTest.txt';
-$wgParserTestFiles[] = $dir . '/lsthParserTests.txt';
-$wgMessagesDirs['LabeledSectionTransclusion'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['LabeledSectionTransclusion'] = $dir . '/lst.i18n.php';
-
-$wgLstLocal = null;
+if ( function_exists( 'wfLoadExtension' ) ) {
+	wfLoadExtension( 'LabeledSectionTransclusion' );
+	// Keep i18n globals so mergeMessageFileList.php doesn't break
+	$wgMessagesDirs['LabeledSectionTransclusion'] = __DIR__ . '/i18n';
+	/*wfWarn(
+		'Deprecated PHP entry point used for LabeledSectionTransclusion extension. ' .
+		'Please use wfLoadExtension instead, ' .
+		'see https://www.mediawiki.org/wiki/Extension_registration for more details.'
+	);*/
+	return;
+} else {
+	die( 'This version of the LabeledSectionTransclusion extension requires MediaWiki 1.25+' );
+}

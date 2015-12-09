@@ -1,0 +1,32 @@
+{
+	"name": "LabeledSectionTransclusion",
+	"author": "Steve Sanbeg",
+	"url": "https://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion",
+	"descriptionmsg": "lst-desc",
+	"type": "parserhook",
+	"MessagesDirs": {
+		"LabeledSectionTransclusion": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"LabeledSectionTransclusion": "LabeledSectionTransclusion.class.php"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": [
+			"LabeledSectionTransclusion::setup"
+		],
+		"LanguageGetMagic": [
+			"LabeledSectionTransclusion::setupMagic"
+		]
+	},
+	"ParserTestFiles": [
+		"lstParserTests.txt",
+		"lstIncorrectParserTest.txt",
+		"lsthParserTests.txt"
+	],
+	"config": {
+		"LstLocal": null
+	},
+	"manifest_version": 1
+}
