@@ -21,7 +21,7 @@ lsth
 
 # Standard articles
 !! article
-Sections
+SectionsDuplicates
 !! text
 1 <section begin=1/>sec 1<section end=1/>
 
@@ -35,7 +35,7 @@ a <section begin=a/>sec a<section end=a/>
 !! endarticle
 
 !! article
-LsthSections
+LsthSectionsNotASection
 !! text
 this is the intro
 ==1==

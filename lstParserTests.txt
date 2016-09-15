@@ -175,36 +175,38 @@ LST: Replace a range
 !!end
 
 !!article
-template:sub
+template:lst-sub
 !!text
 <<includeonly>section {{{1}}}=test</includeonly>/>
 !!endarticle
+
 !!test
 LST: Substitute a tag from a template
 !!options
 pst noxml
 !!input
-{{subst:sub|begin}}
+{{subst:lst-sub|begin}}
 !!result
 <section begin=test/>
 !!end
 
 !!article
-sub
+lst-sub
 !!text
-begin {{subst:sub|begin}}middle{{subst:sub|end}} end
+begin {{subst:lst-sub|begin}}middle{{subst:lst-sub|end}} end
 !!endarticle
+
 !!test
 LST: Indirect substitution
 !!input
-{{#lst:sub|test}}
+{{#lst:lst-sub|test}}
 !!result
 <p>middle
 </p>
 !!end
 
 !!article
-nest
+lst-nest
 !!text
 <section begin=outer/>
 I am outer
@@ -213,10 +215,11 @@ inner
 <section end=inner/>
 <section end=outer/>
 !!endarticle
+
 !!test
 LST: Nested sections - inner section marks removed by tag hook.
 !!input
-{{#lst:nest|outer}}
+{{#lst:lst-nest|outer}}
 !!result
 <p>I am outer
 </p><p>inner
@@ -310,6 +313,7 @@ lst_javascript
 <script>alert("Ownage!");</script>
 <section end=ownage />
 !!endarticle
+
 !!test
 LST: javascript
 !!input
@@ -320,14 +324,15 @@ LST: javascript
 !!end
 
 !!article
-slash
+lst-slash
 !!text
 <section begin="/"/>slash<section end="/"/>
 !!endarticle
+
 !!test
 LST: regexp special chars in section name
 !!input
-{{#lst:Slash|/}}
+{{#lst:lst-slash|/}}
 !!result
 <p>slash
 </p>
@@ -337,17 +342,18 @@ LST: regexp special chars in section name
 # from a regression test (bug 8158).  This test will segv if the cycle
 # detection code in the extension fails.
 !!article
-cycle
+lst-cycle
 !!text
-<section begin=cycle/>{{#lst:cycle|cycle}}<section end=cycle/>
+<section begin=cycle/>{{#lst:lst-cycle|cycle}}<section end=cycle/>
 !!endarticle
+
 !!test
 LST: cycle detection
 !!options
 !!input
-{{#lst:cycle|cycle}}
+{{#lst:lst-cycle|cycle}}
 !!result
-<p><span class="error">Template loop detected: <a href="/wiki/Cycle" title="Cycle">Cycle</a></span>
+<p><span class="error">Template loop detected: <a href="/wiki/Lst-cycle" title="Lst-cycle">Lst-cycle</a></span>
 </p>
 !!end
 
@@ -384,6 +390,7 @@ LST: alternate caps
 <p>caps
 </p>
 !!end
+
 !!test
 LST: useless options
 !!input
@@ -394,7 +401,7 @@ LST: useless options
 !!end
 
 !!article
-fromsection
+lst-fromsection
 !!text
 Before...
 <section begin="A"/>SectionA<section end="A"/>
@@ -402,11 +409,12 @@ Before...
 <section begin="C"/>SectionC<section end="C"/>
 ...After
 !!endarticle
+
 !!test
 LST: inclusion starting at a specified section till the end of article
 !!options
 !!input
-{{#lst:fromsection|B|}}
+{{#lst:lst-fromsection|B|}}
 !!result
 <p>SectionB
 SectionC
@@ -415,7 +423,7 @@ SectionC
 !!end
 
 !!article
-tosection
+lst-tosection
 !!text
 Before...
 <section begin="A"/>SectionA<section end="A"/>
@@ -423,11 +431,12 @@ Before...
 <section begin="C"/>SectionC<section end="C"/>
 ...After
 !!endarticle
+
 !!test
 LST: inclusion from beginning of article to a specified section
 !!options
 !!input
-{{#lst:tosection||B}}
+{{#lst:lst-tosection||B}}
 !!result
 <p>Before...
 SectionA
@@ -436,7 +445,7 @@ SectionB
 !!end
 
 !! article
-status
+lst-status
 !! text
 <section begin="latest" />c<section end="latest" />
 <section begin="a" />sec a<section end="a" />
@@ -447,28 +456,28 @@ status
 !!test
 LST: Allow subtransclusion in lst argument (bug 42481)
 !!input
-{{#lst:status|latest}}: {{#lst:status|{{#lst:status|latest}}}}
+{{#lst:lst-status|latest}}: {{#lst:lst-status|{{#lst:lst-status|latest}}}}
 !!result
 <p>c: sec c
 </p>
 !!end
 
 !!article
-selfinclusion1
+lst-selfinclusion1
 !!text
 <section begin="A"/>
 Section A begin
-{{#lst:selfinclusion2|B}}
+{{#lst:lst-selfinclusion2|B}}
 Section A end
 <section end="A"/>
 !!endarticle
 
 !!article
-selfinclusion2
+lst-selfinclusion2
 !!text
 <section begin="B"/>
 Section B begin
-{{#lst:selfinclusion1|A}}
+{{#lst:lst-selfinclusion1|A}}
 Section B end
 <section end="B"/>
 !!endarticle
@@ -477,18 +486,18 @@ Section B end
 LST: verify self-inclusion fails
 !!options
 !!input
-{{#lst:selfinclusion1|A}}
+{{#lst:lst-selfinclusion1|A}}
 !!result
 <p>Section A begin
 </p><p>Section B begin
-<span class="error">Template loop detected: <a href="/wiki/Selfinclusion1" title="Selfinclusion1">Selfinclusion1</a></span>
+<span class="error">Template loop detected: <a href="/wiki/Lst-selfinclusion1" title="Lst-selfinclusion1">Lst-selfinclusion1</a></span>
 Section B end
 </p><p>Section A end
 </p>
 !!end
 
 !!article
-redirected
+lst-redirected
 !!text
 #REDIRECT[[Sections]]
 !!endarticle
@@ -496,14 +505,14 @@ redirected
 !!test
 LST: Transclude a section via a redirect
 !!input
-{{#lst:redirected|1}}
+{{#lst:lst-redirected|1}}
 !!result
 <p>sec 1
 </p>
 !!end
 
 !!article
-noinclude
+lst-noinclude
 !!text
 <noinclude>before</noinclude>
 <section begin="a" />sec a<section end="a" />
@@ -513,7 +522,7 @@ noinclude
 !!test
 LST: Noinclude tags should not be included - start at section
 !!input
-{{#lst:noinclude|a|}}
+{{#lst:lst-noinclude|a|}}
 !!result
 <p>sec a
 </p>
@@ -522,7 +531,7 @@ LST: Noinclude tags should not be included - start at section
 !!test
 LST: Noinclude tags should not be included - end at section
 !!input
-{{#lst:noinclude||a}}
+{{#lst:lst-noinclude||a}}
 !!result
 <p>sec a
 </p>
