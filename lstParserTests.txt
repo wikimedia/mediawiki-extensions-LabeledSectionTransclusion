@@ -191,21 +191,6 @@ pst noxml
 !!end
 
 !!article
-lst-sub
-!!text
-begin {{subst:lst-sub|begin}}middle{{subst:lst-sub|end}} end
-!!endarticle
-
-!!test
-LST: Indirect substitution
-!!input
-{{#lst:lst-sub|test}}
-!!result
-<p>middle
-</p>
-!!end
-
-!!article
 lst-nest
 !!text
 <section begin=outer/>
