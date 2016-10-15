@@ -6,5 +6,5 @@
 			"Malafaya"
 		]
 	},
-	"lst-desc": "Adiciona as funções <code>#lst</code> e <code>#lstx</code>, e o elemento &lt;section&gt;; permite a transclusão das seções de texto marcadas"
+	"lst-desc": "Adiciona as funções <code>#lst</code> e <code>#lstx</code>, e o elemento <code>&lt;section&gt;</code>; permite a transclusão das seções de texto marcadas"
 }
