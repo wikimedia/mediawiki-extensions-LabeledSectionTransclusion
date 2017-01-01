@@ -2,8 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Raimond Spekking",
-			"Raymond"
+			"Raymond",
+			"Umherirrender"
 		]
 	},
-	"lst-desc": "Extension description displayed on [[Special:Version]]"
+	"lst-desc": "{{desc|name=Labeled Section Transclusion|url=https://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion}}"
 }
