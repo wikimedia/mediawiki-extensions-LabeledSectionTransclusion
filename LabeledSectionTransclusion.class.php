@@ -2,17 +2,17 @@
 
 class LabeledSectionTransclusion {
 
-	private static $loopCheck = array();
+	private static $loopCheck = [];
 
 	/**
 	 * @param $parser Parser
 	 * @return bool
 	 */
 	static function setup( $parser ) {
-		$parser->setHook( 'section', array( __CLASS__, 'noop' ) );
-		$parser->setFunctionHook( 'lst', array( __CLASS__, 'pfuncIncludeObj' ), Parser::SFH_OBJECT_ARGS );
-		$parser->setFunctionHook( 'lstx', array( __CLASS__, 'pfuncExcludeObj' ), Parser::SFH_OBJECT_ARGS );
-		$parser->setFunctionHook( 'lsth', array( __CLASS__, 'pfuncIncludeHeading' ) );
+		$parser->setHook( 'section', [ __CLASS__, 'noop' ] );
+		$parser->setFunctionHook( 'lst', [ __CLASS__, 'pfuncIncludeObj' ], Parser::SFH_OBJECT_ARGS );
+		$parser->setFunctionHook( 'lstx', [ __CLASS__, 'pfuncExcludeObj' ], Parser::SFH_OBJECT_ARGS );
+		$parser->setFunctionHook( 'lsth', [ __CLASS__, 'pfuncIncludeHeading' ] );
 
 		return true;
 	}
@@ -27,42 +27,42 @@ class LabeledSectionTransclusion {
 	static function setupMagic( &$magicWords, $langCode ) {
 		global $wgParser, $wgLstLocal;
 
-		switch( $langCode ) {
+		switch ( $langCode ) {
 			case 'de':
 				$include = 'Abschnitt';
 				$exclude = 'Abschnitt-x';
-				$wgLstLocal = array( 'section' => 'Abschnitt', 'begin' => 'Anfang', 'end' => 'Ende' ) ;
+				$wgLstLocal = [ 'section' => 'Abschnitt', 'begin' => 'Anfang', 'end' => 'Ende' ];
 				break;
 			case 'he':
 				$include = 'קטע';
 				$exclude = 'בלי קטע';
-				$wgLstLocal = array( 'section' => 'קטע', 'begin' => 'התחלה', 'end' => 'סוף' ) ;
+				$wgLstLocal = [ 'section' => 'קטע', 'begin' => 'התחלה', 'end' => 'סוף' ];
 				break;
 			case 'pt':
 				$include = 'trecho';
 				$exclude = 'trecho-x';
-				$wgLstLocal = array( 'section' => 'trecho', 'begin' => 'começo', 'end' => 'fim' );
+				$wgLstLocal = [ 'section' => 'trecho', 'begin' => 'começo', 'end' => 'fim' ];
 				break;
 		}
 
 		if ( isset( $include ) && isset( $exclude ) ) {
-			$magicWords['lst'] = array( 0, 'lst', 'section', $include );
-			$magicWords['lstx'] = array( 0, 'lstx', 'section-x', $exclude );
-			$wgParser->setHook( $include, array( __CLASS__, 'noop' ) );
+			$magicWords['lst'] = [ 0, 'lst', 'section', $include ];
+			$magicWords['lstx'] = [ 0, 'lstx', 'section-x', $exclude ];
+			$wgParser->setHook( $include, [ __CLASS__, 'noop' ] );
 		} else {
-			$magicWords['lst'] = array( 0, 'lst', 'section' );
-			$magicWords['lstx'] = array( 0, 'lstx', 'section-x' );
+			$magicWords['lst'] = [ 0, 'lst', 'section' ];
+			$magicWords['lstx'] = [ 0, 'lstx', 'section-x' ];
 		}
 
-		$magicWords['lsth'] = array( 0, 'lsth', 'section-h' );
+		$magicWords['lsth'] = [ 0, 'lsth', 'section-h' ];
 
 		return true;
 	}
 
-	##############################################################
-	# To do transclusion from an extension, we need to interact with the parser
-	# at a low level. This is the general transclusion functionality
-	##############################################################
+	/*
+	 * To do transclusion from an extension, we need to interact with the parser
+	 * at a low level. This is the general transclusion functionality
+	 */
 
 	/**
 	 * Register what we're working on in the parser, so we don't fall into a trap.
@@ -116,8 +116,8 @@ class LabeledSectionTransclusion {
 
 		if ( self::open_( $parser, $part1 ) ) {
 			// Try to get edit sections correct by munging around the parser's guts.
-			return array( $text, 'title' => $title, 'replaceHeadings' => true,
-				'headingOffset' => $skiphead, 'noparse' => false, 'noargs' => false );
+			return [ $text, 'title' => $title, 'replaceHeadings' => true,
+				'headingOffset' => $skiphead, 'noparse' => false, 'noargs' => false ];
 		} else {
 			return "[[" . $title->getPrefixedText() . "]]" .
 				"<!-- WARNING: LST loop detected -->";
@@ -125,9 +125,9 @@ class LabeledSectionTransclusion {
 
 	}
 
-	##############################################################
-	# And now, the labeled section transclusion
-	##############################################################
+	/*
+	 * And now, the labeled section transclusion
+	 */
 
 	/**
 	 * Parser tag hook for <section>.
@@ -138,7 +138,7 @@ class LabeledSectionTransclusion {
 	 * @param Parser $parser
 	 * @return string HTML output
 	 */
-	static function noop( $in, $assocArgs = array(), $parser = null ) {
+	static function noop( $in, $assocArgs = [], $parser = null ) {
 		return '';
 	}
 
@@ -212,7 +212,7 @@ class LabeledSectionTransclusion {
 
 		$count = 0;
 		$offset = 0;
-		$m = array();
+		$m = [];
 		while ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $offset ) ) {
 			if ( $m[2][1] > $limit ) {
 				break;
@@ -236,7 +236,7 @@ class LabeledSectionTransclusion {
 	 * @return string bool true if returning text, false if target not found
 	 * @private
 	 */
-	static function getTemplateText_( $parser, $page, &$title, &$text )	{
+	static function getTemplateText_( $parser, $page, &$title, &$text ) {
 		$title = Title::newFromText( $page );
 
 		if ( is_null( $title ) ) {
@@ -278,7 +278,8 @@ class LabeledSectionTransclusion {
 		}
 		if ( !$frame->loopCheck( $title ) ) {
 			return '<span class="error">'
-				. wfMessage( 'parser-template-loop-warning', $title->getPrefixedText() )->inContentLanguage()->text()
+				. wfMessage( 'parser-template-loop-warning', $title->getPrefixedText() )
+					->inContentLanguage()->text()
 				. '</span>';
 		}
 
@@ -369,6 +370,7 @@ class LabeledSectionTransclusion {
 
 		$text = '';
 		$node = $root->getFirstChild();
+		// @codingStandardsIgnoreStart
 		while ( $node ) {
 			// If the name of the begin node was specified, find it.
 			// Otherwise transclude everything from the beginning of the page.
@@ -380,7 +382,7 @@ class LabeledSectionTransclusion {
 						continue;
 					}
 					$parts = $node->splitExt();
-					$parts = array_map( array( $newFrame, 'expand' ), $parts );
+					$parts = array_map( [ $newFrame, 'expand' ], $parts );
 					if ( self::isSection( $parts['name'] ) ) {
 						if ( preg_match( $beginRegex, $parts['attr'] ) ) {
 							$found = true;
@@ -398,7 +400,7 @@ class LabeledSectionTransclusion {
 			for ( ; $node; $node = $node->getNextSibling() ) {
 				if ( $node->getName() === 'ext' ) {
 					$parts = $node->splitExt();
-					$parts = array_map( array( $newFrame, 'expand' ), $parts );
+					$parts = array_map( [ $newFrame, 'expand' ], $parts );
 					if ( self::isSection( $parts['name'] ) ) {
 						if ( preg_match( $endRegex, $parts['attr'] ) ) {
 							$found = true;
@@ -415,13 +417,14 @@ class LabeledSectionTransclusion {
 			if ( !$found ) {
 				break;
 			} elseif ( $begin == '' ) {
-				// When the end node was found and text is transcluded from 
+				// When the end node was found and text is transcluded from
 				// the beginning of the page, finish the transclusion
 				break;
 			}
 
 			$node = $node->getNextSibling();
 		}
+		// @codingStandardsIgnoreEnd
 		return $text;
 	}
 
@@ -450,13 +453,14 @@ class LabeledSectionTransclusion {
 		$repl = $setup['repl'];
 
 		$text = '';
+		// @codingStandardsIgnoreStart
 		for ( $node = $root->getFirstChild(); $node; $node = $node ? $node->getNextSibling() : false ) {
 			// Search for the start tag
 			$found = false;
 			for ( ; $node; $node = $node->getNextSibling() ) {
 				if ( $node->getName() == 'ext' ) {
 					$parts = $node->splitExt();
-					$parts = array_map( array( $newFrame, 'expand' ), $parts );
+					$parts = array_map( [ $newFrame, 'expand' ], $parts );
 					if ( self::isSection( $parts['name'] ) ) {
 						if ( preg_match( $beginRegex, $parts['attr'] ) ) {
 							$found = true;
@@ -482,7 +486,7 @@ class LabeledSectionTransclusion {
 			for ( ; $node; $node = $node->getNextSibling() ) {
 				if ( $node->getName() == 'ext' ) {
 					$parts = $node->splitExt( $node );
-					$parts = array_map( array( $newFrame, 'expand' ), $parts );
+					$parts = array_map( [ $newFrame, 'expand' ], $parts );
 					if ( self::isSection( $parts['name'] ) ) {
 						if ( preg_match( $endRegex, $parts['attr'] ) ) {
 							$text .= self::expandSectionNode( $parser, $newFrame, $parts );
@@ -492,6 +496,7 @@ class LabeledSectionTransclusion {
 				}
 			}
 		}
+		// @codingStandardsIgnoreEnd
 		return $text;
 	}
 
@@ -520,7 +525,7 @@ class LabeledSectionTransclusion {
 			$begin_off = 0;
 			$head_len = 6;
 		} else {
-			$pat = '^(={1,6})\s*' . preg_quote( $sec, '/' ) . '\s*\1\s*($)' ;
+			$pat = '^(={1,6})\s*' . preg_quote( $sec, '/' ) . '\s*\1\s*($)';
 			if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE ) ) {
 				$begin_off = $m[2][1];
 				$head_len = strlen( $m[1][0] );

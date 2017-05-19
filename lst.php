@@ -1,7 +1,7 @@
 <?php
-# Holdover entry point
-if( !defined('MEDIAWIKI') ) {
+// Holdover entry point
+if ( !defined( 'MEDIAWIKI' ) ) {
 	die();
 }
 
-require_once( 'LabeledSectionTransclusion.php'  );
+require_once 'LabeledSectionTransclusion.php';
