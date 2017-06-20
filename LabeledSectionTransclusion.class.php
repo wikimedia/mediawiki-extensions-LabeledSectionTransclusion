@@ -79,7 +79,6 @@ class LabeledSectionTransclusion {
 			$parser->mTemplatePath[$part1] = 1;
 			return true;
 		}
-
 	}
 
 	/**
@@ -122,7 +121,6 @@ class LabeledSectionTransclusion {
 			return "[[" . $title->getPrefixedText() . "]]" .
 				"<!-- WARNING: LST loop detected -->";
 		}
-
 	}
 
 	/*
@@ -568,4 +566,3 @@ class LabeledSectionTransclusion {
 		return self::parse_( $parser, $title, $result, "#lsth:${page}|${sec}", $nhead );
 	}
 }
-
