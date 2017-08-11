@@ -538,14 +538,14 @@ class LabeledSectionTransclusion {
 			// ignore it.
 			$pat = '^(={1,6})\s*' . preg_quote( $to, '/' ) . '\s*\1\s*$';
 			if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off ) ) {
-				$end_off = $m[0][1] -1;
+				$end_off = $m[0][1] - 1;
 			}
 		}
 
 		if ( !isset( $end_off ) ) {
 			$pat = '^(={1,' . $head_len . '})(?!=).*?\1\s*$';
 			if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off ) ) {
-				$end_off = $m[0][1] -1;
+				$end_off = $m[0][1] - 1;
 			}
 		}
 
