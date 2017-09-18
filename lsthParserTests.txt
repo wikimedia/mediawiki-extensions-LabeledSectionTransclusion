@@ -91,3 +91,25 @@ transclude nonesistent section
 {{#lsth:LsthSections|9999}}
 !!result
 !!end
+
+!! article
+LsthNoInclude
+!! text
+This sentence is outside noinclude tags.
+<noinclude>This sentence is within noinclude tags.</noinclude>
+<noinclude>This sentence is
+
+within noinclude tags.</noinclude>
+<noinclude>This sentence is within</noinclude>broken noinclude tags.</noinclude>
+!! endarticle
+
+!!test
+don't transclude content within noinclude tags
+!!input
+{{#lsth:LsthNoInclude}}
+!!result
+<p>This sentence is outside noinclude tags.
+</p><p><br />
+broken noinclude tags.
+</p>
+!!end
