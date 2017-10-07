@@ -5,7 +5,7 @@ class LabeledSectionTransclusion {
 	private static $loopCheck = [];
 
 	/**
-	 * @param $parser Parser
+	 * @param Parser $parser
 	 * @return bool
 	 */
 	static function setup( $parser ) {
@@ -20,8 +20,8 @@ class LabeledSectionTransclusion {
 	/**
 	 * Add the magic words - possibly with more readable aliases
 	 *
-	 * @param $magicWords array
-	 * @param $langCode string
+	 * @param array &$magicWords
+	 * @param string $langCode
 	 * @return bool
 	 */
 	static function setupMagic( &$magicWords, $langCode ) {
@@ -66,8 +66,8 @@ class LabeledSectionTransclusion {
 
 	/**
 	 * Register what we're working on in the parser, so we don't fall into a trap.
-	 * @param $parser Parser
-	 * @param $part1
+	 * @param Parser $parser
+	 * @param string $part1
 	 * @return bool
 	 */
 	static function open_( $parser, $part1 ) {
@@ -83,8 +83,8 @@ class LabeledSectionTransclusion {
 
 	/**
 	 * Finish processing the function.
-	 * @param $parser Parser
-	 * @param $part1
+	 * @param Parser $parser
+	 * @param string $part1
 	 * @return bool
 	 */
 	static function close_( $parser, $part1 ) {
@@ -229,8 +229,8 @@ class LabeledSectionTransclusion {
 	 *
 	 * @param Parser $parser
 	 * @param string $page title text of target page
-	 * @param (out) Title $title normalized title object
-	 * @param (out) string $text wikitext output
+	 * @param Title &$title normalized title object
+	 * @param string &$text wikitext output
 	 * @return string bool true if returning text, false if target not found
 	 * @private
 	 */
@@ -259,10 +259,10 @@ class LabeledSectionTransclusion {
 
 	/**
 	 * Set up some variables for MW-1.12 parser functions
-	 * @param $parser Parser
-	 * @param $frame PPFrame
-	 * @param $args array
-	 * @param $func string
+	 * @param Parser $parser
+	 * @param PPFrame $frame
+	 * @param array $args
+	 * @param string $func
 	 * @return array|string
 	 */
 	static function setupPfunc12( $parser, $frame, $args, $func = 'lst' ) {
@@ -319,6 +319,8 @@ class LabeledSectionTransclusion {
 
 	/**
 	 * Returns true if the given extension name is "section"
+	 * @param string $name
+	 * @return bool
 	 */
 	static function isSection( $name ) {
 		global $wgLstLocal;
@@ -329,9 +331,9 @@ class LabeledSectionTransclusion {
 
 	/**
 	 * Returns the text for the inside of a split <section> node
-	 * @param $parser Parser
-	 * @param $frame PPFrame
-	 * @param $parts array
+	 * @param Parser $parser
+	 * @param PPFrame $frame
+	 * @param array $parts
 	 * @return string
 	 */
 	static function expandSectionNode( $parser, $frame, $parts ) {
@@ -343,9 +345,9 @@ class LabeledSectionTransclusion {
 	}
 
 	/**
-	 * @param $parser Parser
-	 * @param $frame PPFrame
-	 * @param $args array
+	 * @param Parser $parser
+	 * @param PPFrame $frame
+	 * @param array $args
 	 * @return array|string
 	 */
 	static function pfuncIncludeObj( $parser, $frame, $args ) {
@@ -427,9 +429,9 @@ class LabeledSectionTransclusion {
 	}
 
 	/**
-	 * @param $parser Parser
-	 * @param $frame PPFrame
-	 * @param $args array
+	 * @param Parser $parser
+	 * @param PPFrame $frame
+	 * @param array $args
 	 * @return array|string
 	 */
 	static function pfuncExcludeObj( $parser, $frame, $args ) {
@@ -506,10 +508,10 @@ class LabeledSectionTransclusion {
 	 *
 	 * @todo: MW 1.12 version, as per #lst/#lstx
 	 *
-	 * @param $parser Parser
-	 * @param $page string
-	 * @param $sec string
-	 * @param $to string
+	 * @param Parser $parser
+	 * @param string $page
+	 * @param string $sec
+	 * @param string $to
 	 * @return mixed|string
 	 */
 	static function pfuncIncludeHeading( $parser, $page = '', $sec = '', $to = '' ) {
