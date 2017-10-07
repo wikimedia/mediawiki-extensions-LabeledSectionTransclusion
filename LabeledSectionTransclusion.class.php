@@ -559,7 +559,7 @@ class LabeledSectionTransclusion {
 
 		if ( method_exists( $parser, 'getPreprocessor' ) ) {
 			$frame = $parser->getPreprocessor()->newFrame();
-			$dom = $parser->preprocessToDom( $result );
+			$dom = $parser->preprocessToDom( $result, Parser::PTD_FOR_INCLUSION );
 			$result = $frame->expand( $dom );
 		}
 
