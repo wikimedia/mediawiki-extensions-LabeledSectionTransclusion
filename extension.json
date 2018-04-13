@@ -21,11 +21,6 @@
 			"LabeledSectionTransclusion::setupMagic"
 		]
 	},
-	"ParserTestFiles": [
-		"lstParserTests.txt",
-		"lstIncorrectParserTest.txt",
-		"lsthParserTests.txt"
-	],
 	"config": {
 		"LstLocal": null
 	},
