@@ -133,7 +133,7 @@ class LabeledSectionTransclusion {
 	 *
 	 * @param string $in
 	 * @param array $assocArgs
-	 * @param Parser $parser
+	 * @param Parser|null $parser
 	 * @return string HTML output
 	 */
 	static function noop( $in, $assocArgs = [], $parser = null ) {
