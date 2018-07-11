@@ -23,6 +23,20 @@ a <section begin=a/>sec a<section end=a/>
 <section begin=a/>...<section end=a/>
 !! endarticle
 
+!! article
+Sections in German
+!! text
+1 <Abschnitt Anfang=1/>sec 1<Abschnitt Ende=1/>
+
+2 <Abschnitt Anfang="2"/>sec 2<Abschnitt Ende='2'/>
+
+3 <Abschnitt Anfang="3" />sec 3<Abschnitt Ende="3" />
+
+a <Abschnitt Anfang=a/>sec a<Abschnitt Ende=a/>
+
+<Abschnitt Anfang=a/>...<Abschnitt Ende=a/>
+!! endarticle
+
 #test to see what happens when we don't use LST.
 !!test
 LST: Normal rendering
@@ -50,6 +64,17 @@ LST: Normal (non-labelled) transclusion
 LST: Transclude a section (#lst)
 !!input
 {{#lst:sections|1}}
+!!result
+<p>sec 1
+</p>
+!!end
+
+!!test
+LST: Transclude a section in German (#lst)
+!!options
+language=de
+!!input
+{{#lst:sections in German|1}}
 !!result
 <p>sec 1
 </p>

@@ -2,6 +2,43 @@
 
 class LabeledSectionTransclusion {
 
+	/**
+	 * MediaWiki supports localisation for the three kinds of magic words,
+	 * such as variable {{NAME}}, behaviours __NAME__, and parser functions
+	 * {{#name}}, but it does not support localisation of tag hooks, such
+	 * as <name>. Work around that limitation by performing the localisation
+	 * at run-time when calling Parser::setHook().
+	 */
+	private static $hookTranslation = [
+		'de' => [
+			// Tag name
+			'section' => 'Abschnitt',
+			// Tag attributes
+			'begin' => 'Anfang',
+			'end' => 'Ende',
+		],
+		'he' => [
+			'section' => 'קטע',
+			'begin' => 'התחלה',
+			'end' => 'סוף',
+		],
+		'pt' => [
+			'section' => 'trecho',
+			'begin' => 'começo',
+			'end' => 'fim',
+		],
+	];
+
+	/**
+	 * Get local name for tag or tag attribute (based on content language)
+	 * @param string $key
+	 * @return string|null
+	 */
+	private static function getLocalName( $key ) {
+		global $wgLanguageCode;
+		return self::$hookTranslation[$wgLanguageCode][$key] ?? null;
+	}
+
 	private static $loopCheck = [];
 
 	/**
@@ -10,51 +47,14 @@ class LabeledSectionTransclusion {
 	 */
 	static function setup( $parser ) {
 		$parser->setHook( 'section', [ __CLASS__, 'noop' ] );
+		// Register the localized version of <section> as a noop as well
+		$localName = self::getLocalName( 'section' );
+		if ( $localName !== null ) {
+			$parser->setHook( $localName, [ __CLASS__, 'noop' ] );
+		}
 		$parser->setFunctionHook( 'lst', [ __CLASS__, 'pfuncIncludeObj' ], Parser::SFH_OBJECT_ARGS );
 		$parser->setFunctionHook( 'lstx', [ __CLASS__, 'pfuncExcludeObj' ], Parser::SFH_OBJECT_ARGS );
 		$parser->setFunctionHook( 'lsth', [ __CLASS__, 'pfuncIncludeHeading' ] );
-
-		return true;
-	}
-
-	/**
-	 * Add the magic words - possibly with more readable aliases
-	 *
-	 * @param array &$magicWords
-	 * @param string $langCode
-	 * @return bool
-	 */
-	static function setupMagic( &$magicWords, $langCode ) {
-		global $wgParser, $wgLstLocal;
-
-		switch ( $langCode ) {
-			case 'de':
-				$include = 'Abschnitt';
-				$exclude = 'Abschnitt-x';
-				$wgLstLocal = [ 'section' => 'Abschnitt', 'begin' => 'Anfang', 'end' => 'Ende' ];
-				break;
-			case 'he':
-				$include = 'קטע';
-				$exclude = 'בלי קטע';
-				$wgLstLocal = [ 'section' => 'קטע', 'begin' => 'התחלה', 'end' => 'סוף' ];
-				break;
-			case 'pt':
-				$include = 'trecho';
-				$exclude = 'trecho-x';
-				$wgLstLocal = [ 'section' => 'trecho', 'begin' => 'começo', 'end' => 'fim' ];
-				break;
-		}
-
-		if ( isset( $include ) && isset( $exclude ) ) {
-			$magicWords['lst'] = [ 0, 'lst', 'section', $include ];
-			$magicWords['lstx'] = [ 0, 'lstx', 'section-x', $exclude ];
-			$wgParser->setHook( $include, [ __CLASS__, 'noop' ] );
-		} else {
-			$magicWords['lst'] = [ 0, 'lst', 'section' ];
-			$magicWords['lstx'] = [ 0, 'lstx', 'section-x' ];
-		}
-
-		$magicWords['lsth'] = [ 0, 'lsth', 'section-h' ];
 
 		return true;
 	}
@@ -150,8 +150,6 @@ class LabeledSectionTransclusion {
 	 * @private
 	 */
 	static function getPattern_( $sec, $to ) {
-		global $wgLstLocal;
-
 		$beginAttr = self::getAttrPattern_( $sec, 'begin' );
 		if ( $to == '' ) {
 			$endAttr = self::getAttrPattern_( $sec, 'end' );
@@ -159,11 +157,12 @@ class LabeledSectionTransclusion {
 			$endAttr = self::getAttrPattern_( $to, 'end' );
 		}
 
-		if ( isset( $wgLstLocal ) ) {
-			$section_re = "(?i:section|$wgLstLocal[section])";
-		} else {
-			$section_re = "(?i:section)";
+		$sections = [ 'section' ];
+		$localName = self::getLocalName( 'section' );
+		if ( $localName !== null ) {
+			$sections[] = $localName;
 		}
+		$section_re = '(?i:' . implode( '|', $sections ) . ')';
 
 		return "/<$section_re$beginAttr\/?>(.*?)\n?<$section_re$endAttr\/?>/s";
 	}
@@ -175,22 +174,14 @@ class LabeledSectionTransclusion {
 	 * @return string
 	 */
 	static function getAttrPattern_( $sec, $type ) {
-		global $wgLstLocal;
 		$sec = preg_quote( $sec, '/' );
 		$ws = "(?:\s+[^>]*)?"; // was like $ws="\s*"
-		if ( isset( $wgLstLocal ) ) {
-			if ( $type == 'begin' ) {
-				$attrName = "(?i:begin|{$wgLstLocal['begin']})";
-			} else {
-				$attrName = "(?i:end|{$wgLstLocal['end']})";
-			}
-		} else {
-			if ( $type == 'begin' ) {
-				$attrName = "(?i:begin)";
-			} else {
-				$attrName = "(?i:end)";
-			}
+		$attrs = [ $type ];
+		$localName = self::getLocalName( $type );
+		if ( $localName !== null ) {
+			$attrs[] = $localName;
 		}
+		$attrName = '(?i:' . implode( '|', $attrs ) . ')';
 		return "$ws\s+$attrName=(?:$sec|\"$sec\"|'$sec')$ws";
 	}
 
@@ -323,10 +314,12 @@ class LabeledSectionTransclusion {
 	 * @return bool
 	 */
 	static function isSection( $name ) {
-		global $wgLstLocal;
 		$name = strtolower( $name );
-		return $name == 'section'
-			|| ( isset( $wgLstLocal['section'] ) && strtolower( $wgLstLocal['section'] ) == $name );
+		$sectionLocal = self::getLocalName( 'section' );
+		return (
+			$name === 'section'
+			|| ( $sectionLocal !== null && $name === strtolower( $sectionLocal ) )
+		);
 	}
 
 	/**

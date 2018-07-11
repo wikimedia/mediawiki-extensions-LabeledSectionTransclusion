@@ -10,19 +10,16 @@
 			"i18n"
 		]
 	},
+	"ExtensionMessagesFiles": {
+		"LabeledSectionTransclusionMagic": "LabeledSectionTransclusion.i18n.magic.php"
+	},
 	"AutoloadClasses": {
 		"LabeledSectionTransclusion": "LabeledSectionTransclusion.class.php"
 	},
 	"Hooks": {
 		"ParserFirstCallInit": [
 			"LabeledSectionTransclusion::setup"
-		],
-		"LanguageGetMagic": [
-			"LabeledSectionTransclusion::setupMagic"
 		]
-	},
-	"config": {
-		"LstLocal": null
 	},
 	"manifest_version": 1
 }
