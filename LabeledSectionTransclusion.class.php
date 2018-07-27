@@ -506,7 +506,7 @@ class LabeledSectionTransclusion {
 	 * A parser extension that further extends labeled section transclusion,
 	 * adding a function, #lsth for transcluding marked sections of text,
 	 *
-	 * @todo: MW 1.12 version, as per #lst/#lstx
+	 * @todo MW 1.12 version, as per #lst/#lstx
 	 *
 	 * @param Parser $parser
 	 * @param string $page
