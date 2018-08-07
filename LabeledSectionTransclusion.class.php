@@ -85,7 +85,6 @@ class LabeledSectionTransclusion {
 	 * Finish processing the function.
 	 * @param Parser $parser
 	 * @param string $part1
-	 * @return bool
 	 */
 	static function close_( $parser, $part1 ) {
 		// Infinite loop test
