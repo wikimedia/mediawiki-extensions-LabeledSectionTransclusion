@@ -45,7 +45,7 @@ class LabeledSectionTransclusion {
 	 * @param Parser $parser
 	 * @return bool
 	 */
-	static function setup( $parser ) {
+	public static function setup( $parser ) {
 		$parser->setHook( 'section', [ __CLASS__, 'noop' ] );
 		// Register the localized version of <section> as a noop as well
 		$localName = self::getLocalName( 'section' );
@@ -70,7 +70,7 @@ class LabeledSectionTransclusion {
 	 * @param string $part1
 	 * @return bool
 	 */
-	static function open_( $parser, $part1 ) {
+	private static function open_( $parser, $part1 ) {
 		// Infinite loop test
 		if ( isset( $parser->mTemplatePath[$part1] ) ) {
 			wfDebug( __METHOD__ . ": template loop broken at '$part1'\n" );
@@ -86,7 +86,7 @@ class LabeledSectionTransclusion {
 	 * @param Parser $parser
 	 * @param string $part1
 	 */
-	static function close_( $parser, $part1 ) {
+	private static function close_( $parser, $part1 ) {
 		// Infinite loop test
 		if ( isset( $parser->mTemplatePath[$part1] ) ) {
 			unset( $parser->mTemplatePath[$part1] );
@@ -105,9 +105,8 @@ class LabeledSectionTransclusion {
 	 * @param int $skiphead Number of source string headers to skip for numbering
 	 * @return mixed string or magic array of bits
 	 * @todo handle mixed-case </section>
-	 * @private
 	 */
-	static function parse_( $parser, $title, $text, $part1, $skiphead = 0 ) {
+	private static function parse_( $parser, $title, $text, $part1, $skiphead = 0 ) {
 		// if someone tries something like<section begin=blah>lst only</section>
 		// text, may as well do the right thing.
 		$text = str_replace( '</section>', '', $text );
@@ -135,7 +134,7 @@ class LabeledSectionTransclusion {
 	 * @param Parser|null $parser
 	 * @return string HTML output
 	 */
-	static function noop( $in, $assocArgs = [], $parser = null ) {
+	public static function noop( $in, $assocArgs = [], $parser = null ) {
 		return '';
 	}
 
@@ -146,9 +145,8 @@ class LabeledSectionTransclusion {
 	 *                   multiple sections in sequence. If blank, will assume
 	 *                   same section name as started with.
 	 * @return string regex
-	 * @private
 	 */
-	static function getPattern_( $sec, $to ) {
+	private static function getPattern_( $sec, $to ) {
 		$beginAttr = self::getAttrPattern_( $sec, 'begin' );
 		if ( $to == '' ) {
 			$endAttr = self::getAttrPattern_( $sec, 'end' );
@@ -172,7 +170,7 @@ class LabeledSectionTransclusion {
 	 * @param string $type Either "begin" or "end" depending on the type of section tag to be matched
 	 * @return string
 	 */
-	static function getAttrPattern_( $sec, $type ) {
+	private static function getAttrPattern_( $sec, $type ) {
 		$sec = preg_quote( $sec, '/' );
 		$ws = "(?:\s+[^>]*)?"; // was like $ws="\s*"
 		$attrs = [ $type ];
@@ -193,9 +191,8 @@ class LabeledSectionTransclusion {
 	 * @param string $text
 	 * @param int $limit Cutoff point in the text to stop searching
 	 * @return int Number of matches
-	 * @private
 	 */
-	static function countHeadings_( $text, $limit ) {
+	private static function countHeadings_( $text, $limit ) {
 		$pat = '^(={1,6}).+\1\s*$()';
 
 		$count = 0;
@@ -222,9 +219,8 @@ class LabeledSectionTransclusion {
 	 * @param Title &$title normalized title object
 	 * @param string &$text wikitext output
 	 * @return string bool true if returning text, false if target not found
-	 * @private
 	 */
-	static function getTemplateText_( $parser, $page, &$title, &$text ) {
+	private static function getTemplateText_( $parser, $page, &$title, &$text ) {
 		$title = Title::newFromText( $page );
 
 		if ( is_null( $title ) ) {
@@ -255,7 +251,7 @@ class LabeledSectionTransclusion {
 	 * @param string $func
 	 * @return array|string
 	 */
-	static function setupPfunc12( $parser, $frame, $args, $func = 'lst' ) {
+	private static function setupPfunc12( $parser, $frame, $args, $func = 'lst' ) {
 		if ( !count( $args ) ) {
 			return '';
 		}
@@ -312,7 +308,7 @@ class LabeledSectionTransclusion {
 	 * @param string $name
 	 * @return bool
 	 */
-	static function isSection( $name ) {
+	private static function isSection( $name ) {
 		$name = strtolower( $name );
 		$sectionLocal = self::getLocalName( 'section' );
 		return (
@@ -328,7 +324,7 @@ class LabeledSectionTransclusion {
 	 * @param array $parts
 	 * @return string
 	 */
-	static function expandSectionNode( $parser, $frame, $parts ) {
+	private static function expandSectionNode( $parser, $frame, $parts ) {
 		if ( isset( $parts['inner'] ) ) {
 			return $parser->replaceVariables( $parts['inner'], $frame );
 		} else {
@@ -342,7 +338,7 @@ class LabeledSectionTransclusion {
 	 * @param array $args
 	 * @return array|string
 	 */
-	static function pfuncIncludeObj( $parser, $frame, $args ) {
+	public static function pfuncIncludeObj( $parser, $frame, $args ) {
 		$setup = self::setupPfunc12( $parser, $frame, $args, 'lst' );
 		if ( !is_array( $setup ) ) {
 			return $setup;
@@ -426,7 +422,7 @@ class LabeledSectionTransclusion {
 	 * @param array $args
 	 * @return array|string
 	 */
-	static function pfuncExcludeObj( $parser, $frame, $args ) {
+	public static function pfuncExcludeObj( $parser, $frame, $args ) {
 		$setup = self::setupPfunc12( $parser, $frame, $args, 'lstx' );
 		if ( !is_array( $setup ) ) {
 			return $setup;
@@ -506,7 +502,7 @@ class LabeledSectionTransclusion {
 	 * @param string $to
 	 * @return mixed|string
 	 */
-	static function pfuncIncludeHeading( $parser, $page = '', $sec = '', $to = '' ) {
+	public static function pfuncIncludeHeading( $parser, $page = '', $sec = '', $to = '' ) {
 		if ( self::getTemplateText_( $parser, $page, $title, $text ) == false ) {
 			return $text;
 		}
