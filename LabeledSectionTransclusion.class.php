@@ -281,6 +281,7 @@ class LabeledSectionTransclusion {
 
 		$begin = trim( $frame->expand( array_shift( $args ) ) );
 
+		$repl = null;
 		if ( $func == 'lstx' ) {
 			if ( !count( $args ) ) {
 				$repl = '';
@@ -300,7 +301,7 @@ class LabeledSectionTransclusion {
 		$endAttr = self::getAttrPattern_( $end, 'end' );
 		$endRegex = "/^$endAttr$/s";
 
-		return compact( 'dom', 'root', 'newFrame', 'repl', 'beginRegex', 'begin', 'endRegex' );
+		return compact( 'root', 'newFrame', 'repl', 'beginRegex', 'begin', 'endRegex' );
 	}
 
 	/**
