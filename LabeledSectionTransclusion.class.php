@@ -70,7 +70,7 @@ class LabeledSectionTransclusion {
 	 * @param string $part1
 	 * @return bool
 	 */
-	private static function open_( $parser, $part1 ) {
+	private static function open( $parser, $part1 ) {
 		// Infinite loop test
 		if ( isset( $parser->mTemplatePath[$part1] ) ) {
 			wfDebug( __METHOD__ . ": template loop broken at '$part1'\n" );
@@ -78,20 +78,6 @@ class LabeledSectionTransclusion {
 		} else {
 			$parser->mTemplatePath[$part1] = 1;
 			return true;
-		}
-	}
-
-	/**
-	 * Finish processing the function.
-	 * @param Parser $parser
-	 * @param string $part1
-	 */
-	private static function close_( $parser, $part1 ) {
-		// Infinite loop test
-		if ( isset( $parser->mTemplatePath[$part1] ) ) {
-			unset( $parser->mTemplatePath[$part1] );
-		} else {
-			wfDebug( __METHOD__ . ": close unopened template loop at '$part1'\n" );
 		}
 	}
 
@@ -106,12 +92,12 @@ class LabeledSectionTransclusion {
 	 * @return mixed string or magic array of bits
 	 * @todo handle mixed-case </section>
 	 */
-	private static function parse_( $parser, $title, $text, $part1, $skiphead = 0 ) {
+	private static function parse( $parser, $title, $text, $part1, $skiphead = 0 ) {
 		// if someone tries something like<section begin=blah>lst only</section>
 		// text, may as well do the right thing.
 		$text = str_replace( '</section>', '', $text );
 
-		if ( self::open_( $parser, $part1 ) ) {
+		if ( self::open( $parser, $part1 ) ) {
 			// Try to get edit sections correct by munging around the parser's guts.
 			return [ $text, 'title' => $title, 'replaceHeadings' => true,
 				'headingOffset' => $skiphead, 'noparse' => false, 'noargs' => false ];
@@ -139,38 +125,12 @@ class LabeledSectionTransclusion {
 	}
 
 	/**
-	 * Generate a regex to match the section(s) we're interested in.
-	 * @param string $sec Name of target section
-	 * @param string $to Optional name of section to end with, if transcluding
-	 *                   multiple sections in sequence. If blank, will assume
-	 *                   same section name as started with.
-	 * @return string regex
-	 */
-	private static function getPattern_( $sec, $to ) {
-		$beginAttr = self::getAttrPattern_( $sec, 'begin' );
-		if ( $to == '' ) {
-			$endAttr = self::getAttrPattern_( $sec, 'end' );
-		} else {
-			$endAttr = self::getAttrPattern_( $to, 'end' );
-		}
-
-		$sections = [ 'section' ];
-		$localName = self::getLocalName( 'section' );
-		if ( $localName !== null ) {
-			$sections[] = $localName;
-		}
-		$section_re = '(?i:' . implode( '|', $sections ) . ')';
-
-		return "/<$section_re$beginAttr\/?>(.*?)\n?<$section_re$endAttr\/?>/s";
-	}
-
-	/**
 	 * Generate a regex fragment matching the attribute portion of a section tag
 	 * @param string $sec Name of the target section
 	 * @param string $type Either "begin" or "end" depending on the type of section tag to be matched
 	 * @return string
 	 */
-	private static function getAttrPattern_( $sec, $type ) {
+	private static function getAttrPattern( $sec, $type ) {
 		$sec = preg_quote( $sec, '/' );
 		$ws = "(?:\s+[^>]*)?"; // was like $ws="\s*"
 		$attrs = [ $type ];
@@ -192,7 +152,7 @@ class LabeledSectionTransclusion {
 	 * @param int $limit Cutoff point in the text to stop searching
 	 * @return int Number of matches
 	 */
-	private static function countHeadings_( $text, $limit ) {
+	private static function countHeadings( $text, $limit ) {
 		$pat = '^(={1,6}).+\1\s*$()';
 
 		$count = 0;
@@ -220,10 +180,10 @@ class LabeledSectionTransclusion {
 	 * @param string &$text wikitext output
 	 * @return string bool true if returning text, false if target not found
 	 */
-	private static function getTemplateText_( $parser, $page, &$title, &$text ) {
+	private static function getTemplateText( $parser, $page, &$title, &$text ) {
 		$title = Title::newFromText( $page );
 
-		if ( is_null( $title ) ) {
+		if ( $title === null ) {
 			$text = '';
 			return true;
 		} else {
@@ -235,7 +195,7 @@ class LabeledSectionTransclusion {
 		}
 
 		// if article doesn't exist, return a red link.
-		if ( $text == false ) {
+		if ( $text === false ) {
 			$text = "[[" . $title->getPrefixedText() . "]]";
 			return false;
 		} else {
@@ -296,9 +256,9 @@ class LabeledSectionTransclusion {
 			$end = trim( $frame->expand( array_shift( $args ) ) );
 		}
 
-		$beginAttr = self::getAttrPattern_( $begin, 'begin' );
+		$beginAttr = self::getAttrPattern( $begin, 'begin' );
 		$beginRegex = "/^$beginAttr$/s";
-		$endAttr = self::getAttrPattern_( $end, 'end' );
+		$endAttr = self::getAttrPattern( $end, 'end' );
 		$endRegex = "/^$endAttr$/s";
 
 		return compact( 'root', 'newFrame', 'repl', 'beginRegex', 'begin', 'endRegex' );
@@ -367,7 +327,7 @@ class LabeledSectionTransclusion {
 				// Find the begin node
 				$found = false;
 				for ( ; $node; $node = $node->getNextSibling() ) {
-					if ( $node->getName() != 'ext' ) {
+					if ( $node->getName() !== 'ext' ) {
 						continue;
 					}
 					$parts = $node->splitExt();
@@ -504,7 +464,7 @@ class LabeledSectionTransclusion {
 	 * @return mixed|string
 	 */
 	public static function pfuncIncludeHeading( $parser, $page = '', $sec = '', $to = '' ) {
-		if ( self::getTemplateText_( $parser, $page, $title, $text ) == false ) {
+		if ( self::getTemplateText( $parser, $page, $title, $text ) == false ) {
 			return $text;
 		}
 
@@ -540,7 +500,7 @@ class LabeledSectionTransclusion {
 			}
 		}
 
-		$nhead = self::countHeadings_( $text, $begin_off );
+		$nhead = self::countHeadings( $text, $begin_off );
 
 		if ( isset( $end_off ) ) {
 			$result = substr( $text, $begin_off, $end_off - $begin_off );
@@ -554,6 +514,6 @@ class LabeledSectionTransclusion {
 			$result = $frame->expand( $dom );
 		}
 
-		return self::parse_( $parser, $title, $result, "#lsth:${page}|${sec}", $nhead );
+		return self::parse( $parser, $title, $result, "#lsth:${page}|${sec}", $nhead );
 	}
 }
