@@ -14,7 +14,7 @@
 		"LabeledSectionTransclusionMagic": "LabeledSectionTransclusion.i18n.magic.php"
 	},
 	"AutoloadClasses": {
-		"LabeledSectionTransclusion": "LabeledSectionTransclusion.class.php"
+		"LabeledSectionTransclusion": "includes/LabeledSectionTransclusion.php"
 	},
 	"Hooks": {
 		"ParserFirstCallInit": [
