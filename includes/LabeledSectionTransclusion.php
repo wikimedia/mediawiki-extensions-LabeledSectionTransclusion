@@ -69,6 +69,7 @@ class LabeledSectionTransclusion {
 	 * @param Parser $parser
 	 * @param string $part1
 	 * @return bool
+	 * @suppress PhanUndeclaredProperty Use of Parser->mTemplatePath
 	 */
 	private static function open( $parser, $part1 ) {
 		// Infinite loop test
