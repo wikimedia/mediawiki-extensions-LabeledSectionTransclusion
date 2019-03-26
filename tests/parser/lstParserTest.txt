@@ -303,7 +303,6 @@ LST: more sensitive test for heading count boundaries.
 <p>hi
 </p>
 <h1><span class="mw-headline" id="4">4</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=T-4" title="Lst head bounds">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
-
 !!end
 
 
