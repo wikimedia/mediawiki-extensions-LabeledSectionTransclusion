@@ -179,7 +179,7 @@ class LabeledSectionTransclusion {
 	 * @param string $page title text of target page
 	 * @param Title &$title normalized title object
 	 * @param string &$text wikitext output
-	 * @return string bool true if returning text, false if target not found
+	 * @return bool true if returning text, false if target not found
 	 */
 	private static function getTemplateText( $parser, $page, &$title, &$text ) {
 		$title = Title::newFromText( $page );
