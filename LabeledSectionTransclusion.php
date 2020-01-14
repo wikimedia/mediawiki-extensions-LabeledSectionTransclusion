@@ -1,6 +1,6 @@
 <?php
 
-/**#@+
+/** #@+
  * A parser extension that adds two functions, #lst and #lstx, and the
  * <section> tag, for transcluding marked sections of text.
  *
