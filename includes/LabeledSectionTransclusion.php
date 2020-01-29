@@ -188,11 +188,7 @@ class LabeledSectionTransclusion {
 			$text = '';
 			return true;
 		} else {
-			if ( method_exists( $parser, 'fetchTemplateAndTitle' ) ) {
-				list( $text, $title ) = $parser->fetchTemplateAndTitle( $title );
-			} else {
-				$text = $parser->fetchTemplate( $title );
-			}
+			list( $text, $title ) = $parser->fetchTemplateAndTitle( $title );
 		}
 
 		// if article doesn't exist, return a red link.
