@@ -17,9 +17,7 @@
 		"LabeledSectionTransclusion": "includes/LabeledSectionTransclusion.php"
 	},
 	"Hooks": {
-		"ParserFirstCallInit": [
-			"LabeledSectionTransclusion::setup"
-		]
+		"ParserFirstCallInit": "LabeledSectionTransclusion::setup"
 	},
 	"manifest_version": 1
 }
