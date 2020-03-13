@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Joseph"
+			"Joseph",
+			"BaRaN6161 TURK"
 		]
 	},
-	"lst-desc": "<code>#lst</code> ve <code>#lstx</code> fonksiyonlarını ve <code>&lt;section&gt;</code> etiketini ekler, çapraz eklenecek metnin işaretli bölümlerini etkinleştirir"
+	"lst-desc": "<code>#lst</code> ve <code>#lstx</code> işlevlerini ve <code>&lt;section&gt;</code> etiketini ekler, çapraz eklenecek metnin işaretli bölümlerini etkinleştirir"
 }
