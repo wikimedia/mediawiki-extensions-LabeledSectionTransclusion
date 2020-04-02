@@ -1,3 +1,5 @@
+!! Version 2
+
 #
 # This parser test file documents known *incorrect* behavior, for which
 # a bug has been opened on bugzilla. The goal of these tests is to prevent
@@ -17,7 +19,7 @@ section
 lst
 lstx
 lsth
-!!endfunctionhooks
+!! endfunctionhooks
 
 # Standard articles
 !! article
@@ -68,47 +70,47 @@ this is ==not== a section
 # https://bugzilla.wikimedia.org/show_bug.cgi?id=42477
 ####################################################################
 
-!!article
+!! article
 redirected-does-not-exist
-!!text
+!! text
 #REDIRECT[[no such article]]
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: Transclude redirect to nonexistent article (bug 42477)
-!!input
+!! wikitext
 {{#lst:redirected-does-not-exist|anything}}
-!!result
-!!end
+!! html
+!! end
 
-!!article
+!! article
 double-redirect-1
-!!text
+!! text
 #REDIRECT[[Sections]]
-!!endarticle
+!! endarticle
 
-!!article
+!! article
 double-redirect-2
-!!text
+!! text
 #REDIRECT[[double-redirect-1]]
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: Transclude double redirect (bug 42477)
-!!input
+!! wikitext
 {{#lst:double-redirect-2|1}}
-!!result
-!!end
+!! html
+!! end
 
-!!article
+!! article
 redirect-loop
-!!text
+!! text
 #REDIRECT[[redirect-loop]]
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: Transclude redirect loop (bug 42477)
-!!input
+!! wikitext
 {{#lst:redirect-loop|1}}
-!!result
-!!end
+!! html
+!! end

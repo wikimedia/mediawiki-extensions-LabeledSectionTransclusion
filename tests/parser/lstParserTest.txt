@@ -1,3 +1,5 @@
+!! Version 2
+
 # Force the test runner to ensure the extension is loaded
 !! hooks
 section
@@ -6,7 +8,7 @@ section
 !! functionhooks
 lst
 lstx
-!!endfunctionhooks
+!! endfunctionhooks
 
 # This is the standard article assumed to exist.
 !! article
@@ -38,219 +40,219 @@ a <Abschnitt Anfang=a/>sec a<Abschnitt Ende=a/>
 !! endarticle
 
 #test to see what happens when we don't use LST.
-!!test
+!! test
 LST: Normal rendering
-!!input
+!! wikitext
 begin <section begin=test/>middle<section end=test/> end
-!!result
+!! html
 <p>begin middle end
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: Normal (non-labelled) transclusion
-!!input
+!! wikitext
 {{:sections}}
-!!result
+!! html
 <p>1 sec 1
 </p><p>2 sec 2
 </p><p>3 sec 3
 </p><p>a sec a
 </p><p>...
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: Transclude a section (#lst)
-!!input
+!! wikitext
 {{#lst:sections|1}}
-!!result
+!! html
 <p>sec 1
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: Transclude a section in German (#lst)
-!!options
+!! options
 language=de
-!!input
+!! wikitext
 {{#lst:sections in German|1}}
-!!result
+!! html
 <p>sec 1
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: Transclude a section (#section)
-!!input
+!! wikitext
 {{#section:sections|1}}
-!!result
+!! html
 <p>sec 1
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: Substitute a section
-!!options
+!! options
 pst
-!!input
+!! wikitext
 {{subst:#lst:sections|1}}
-!!result
+!! html
 sec 1
-!!end
+!! end
 
 
-!!test
+!! test
 LST: Substitute a section with quoted attributes
-!!input
+!! wikitext
 {{#lst:sections|2}}
-!!result
+!! html
 <p>sec 2
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: Substitute a section with an optional /
-!!input
+!! wikitext
 {{#lst:sections|3}}
-!!result
+!! html
 <p>sec 3
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: multiple sections with the same name
-!!input
+!! wikitext
 {{#lst:sections|a}}
-!!result
+!! html
 <p>sec a...
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: Transclude range of sections
-!!input
+!! wikitext
 {{#lst:sections|1|3}}
-!!result
+!! html
 <p>sec 1
 </p><p>2 sec 2
 </p><p>3 sec 3
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: Exclude a section
-!!input
+!! wikitext
 {{#lstx:sections|1}}
-!!result
+!! html
 <p>1 
 </p><p>2 sec 2
 </p><p>3 sec 3
 </p><p>a sec a
 </p><p>...
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: Exclude a range
-!!input
+!! wikitext
 {{#lstx:sections|1||3}}
-!!result
+!! html
 <p>1 
 </p><p>a sec a
 </p><p>...
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: Replace a section
-!!input
+!! wikitext
 {{#lstx:sections|1|one}}
-!!result
+!! html
 <p>1 one
 </p><p>2 sec 2
 </p><p>3 sec 3
 </p><p>a sec a
 </p><p>...
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: Replace multiple sections
-!!input
+!! wikitext
 {{#lstx:sections|a|A}}
-!!result
+!! html
 <p>1 sec 1
 </p><p>2 sec 2
 </p><p>3 sec 3
 </p><p>a A
 </p><p>A
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: Replace a range
-!!input
+!! wikitext
 {{#lstx:sections|1|test|3}}
-!!result
+!! html
 <p>1 test
 </p><p>a sec a
 </p><p>...
 </p>
-!!end
+!! end
 
-!!article
+!! article
 template:lst-sub
-!!text
+!! text
 <<includeonly>section {{{1}}}=test</includeonly>/>
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: Substitute a tag from a template
-!!options
+!! options
 pst noxml
-!!input
+!! wikitext
 {{subst:lst-sub|begin}}
-!!result
+!! html
 <section begin=test/>
-!!end
+!! end
 
-!!article
+!! article
 lst-nest
-!!text
+!! text
 <section begin=outer/>
 I am outer
 <section begin=inner/>
 inner
 <section end=inner/>
 <section end=outer/>
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: Nested sections - inner section marks removed by tag hook.
-!!input
+!! wikitext
 {{#lst:lst-nest|outer}}
-!!result
+!! html
 <p>I am outer
 </p><p>inner
 </p><p><br />
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: red link from nonexistent article
-!!input
+!! wikitext
 {{#lst:no such article|anything}}
-!!result
+!! html
 <p><a href="/index.php?title=No_such_article&amp;action=edit&amp;redlink=1" class="new" title="No such article (page does not exist)">No such article</a>
 </p>
-!!end
+!! end
 
 # Note: MW <= 1.8 uses a different section header format. In these versions, the header out will look like this instead:
 # <div class="editsection" style="float:right;margin-left:5px;">[<a href="/index.php?title=Headings&amp;action=edit&amp;section=T-1" title="Headings">edit</a>]</div><a name="section"></a><h2>section</h2>
-!!article
+!! article
 headings
-!!text
+!! text
 <section begin=head/>
 ==section==
 blah
@@ -259,31 +261,31 @@ blah
 ==section2==
 blah
 <section end=head2/>
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: Transcluded section headings create edit link to template
-!!input
+!! wikitext
 {{#lst:headings|head}}
-!!result
-<h2><span class="mw-headline" id="section">section</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Headings&amp;action=edit&amp;section=T-1" title="Headings">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+!! html
+<h2><span class="mw-headline" id="section">section</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Headings&amp;action=edit&amp;section=T-1" title="Edit section: ">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
 <p>blah
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: Transcluded section headings create edit link to right section (mw 1.9r18218)
-!!input
+!! wikitext
 {{#lst:headings|head2}}
-!!result
-<h2><span class="mw-headline" id="section2">section2</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Headings&amp;action=edit&amp;section=T-2" title="Headings">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+!! html
+<h2><span class="mw-headline" id="section2">section2</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Headings&amp;action=edit&amp;section=T-2" title="Edit section: ">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
 <p>blah
 </p>
-!!end
+!! end
 
-!!article
+!! article
 lst_head_bounds
-!!text
+!! text
 ===
 =2=
 <section begin=s/>
@@ -292,166 +294,166 @@ hi
 =4=
 <section end=s/>
 =head4=
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: more sensitive test for heading count boundaries.
-!!input
+!! wikitext
 {{#lst:lst_head_bounds|s}}
-!!result
-<h1><span class="mw-headline" id="3">3</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=T-3" title="Lst head bounds">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+!! html
+<h1><span class="mw-headline" id="3">3</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=T-3" title="Edit section: ">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
 <p>hi
 </p>
-<h1><span class="mw-headline" id="4">4</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=T-4" title="Lst head bounds">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
-!!end
+<h1><span class="mw-headline" id="4">4</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=T-4" title="Edit section: ">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+!! end
 
 
-!!test
+!! test
 LST: Nick's bogus input
-!!input
+!! wikitext
 {{#lstx:</
 includeonly>
 {|}}
-!!result
-!!end
+!! html
+!! end
 
-!!article
+!! article
 lst_javascript
-!!text
+!! text
 <section begin=ownage />
 <script>alert("Ownage!");</script>
 <section end=ownage />
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: javascript
-!!input
+!! wikitext
 {{#lst:lst javascript|ownage}}
-!!result
+!! html
 <p>&lt;script&gt;alert("Ownage!");&lt;/script&gt;
 </p>
-!!end
+!! end
 
-!!article
+!! article
 lst-slash
-!!text
+!! text
 <section begin="/"/>slash<section end="/"/>
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: regexp special chars in section name
-!!input
+!! wikitext
 {{#lst:lst-slash|/}}
-!!result
+!! html
 <p>slash
 </p>
-!!end
+!! end
 
 # We can't use the simplest case where the article transcludes itself
 # from a regression test (bug 8158).  This test will segv if the cycle
 # detection code in the extension fails.
-!!article
+!! article
 lst-cycle
-!!text
+!! text
 <section begin=cycle/>{{#lst:lst-cycle|cycle}}<section end=cycle/>
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: cycle detection
-!!options
-!!input
+!! options
+!! wikitext
 {{#lst:lst-cycle|cycle}}
-!!result
+!! html
 <p><span class="error">Template loop detected: <a href="/wiki/Lst-cycle" title="Lst-cycle">Lst-cycle</a></span>
 </p>
-!!end
+!! end
 
 #make sure we can still multiply-transclude (that is, path is cleared)
-!!test
+!! test
 LST: multiple transclude
-!!input
+!! wikitext
 {{#lst:sections|1}}
 {{#lst:sections|1}}
-!!result
+!! html
 <p>sec 1
 sec 1
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: transclude nonexistent section
-!!input
+!! wikitext
 {{#lst:sections|9999}}
-!!result
-!!end
+!! html
+!! end
 
-!!article
+!! article
 LST-alt
-!!text
+!! text
 <section Begin=1/>caps<section END=1/>
 <section com=test begin=2 ent=test />junk<section x=y end=2 boo=hoo/>
-!!endarticle
-!!test
+!! endarticle
+!! test
 LST: alternate caps
-!!input
+!! wikitext
 {{#section:LST-alt|1}}
-!!result
+!! html
 <p>caps
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: useless options
-!!input
+!! wikitext
 {{#section:LST-alt|2}}
-!!result
+!! html
 <p>junk
 </p>
-!!end
+!! end
 
-!!article
+!! article
 lst-fromsection
-!!text
+!! text
 Before...
 <section begin="A"/>SectionA<section end="A"/>
 <section begin="B"/>SectionB<section end="B"/>
 <section begin="C"/>SectionC<section end="C"/>
 ...After
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: inclusion starting at a specified section till the end of article
-!!options
-!!input
+!! options
+!! wikitext
 {{#lst:lst-fromsection|B|}}
-!!result
+!! html
 <p>SectionB
 SectionC
 ...After
 </p>
-!!end
+!! end
 
-!!article
+!! article
 lst-tosection
-!!text
+!! text
 Before...
 <section begin="A"/>SectionA<section end="A"/>
 <section begin="B"/>SectionB<section end="B"/>
 <section begin="C"/>SectionC<section end="C"/>
 ...After
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: inclusion from beginning of article to a specified section
-!!options
-!!input
+!! options
+!! wikitext
 {{#lst:lst-tosection||B}}
-!!result
+!! html
 <p>Before...
 SectionA
 SectionB
 </p>
-!!end
+!! end
 
 !! article
 lst-status
@@ -462,101 +464,101 @@ lst-status
 <section begin="c" />sec c<section end="c" />
 !! endarticle
 
-!!test
+!! test
 LST: Allow subtransclusion in lst argument (bug 42481)
-!!input
+!! wikitext
 {{#lst:lst-status|latest}}: {{#lst:lst-status|{{#lst:lst-status|latest}}}}
-!!result
+!! html
 <p>c: sec c
 </p>
-!!end
+!! end
 
-!!article
+!! article
 lst-selfinclusion1
-!!text
+!! text
 <section begin="A"/>
 Section A begin
 {{#lst:lst-selfinclusion2|B}}
 Section A end
 <section end="A"/>
-!!endarticle
+!! endarticle
 
-!!article
+!! article
 lst-selfinclusion2
-!!text
+!! text
 <section begin="B"/>
 Section B begin
 {{#lst:lst-selfinclusion1|A}}
 Section B end
 <section end="B"/>
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: verify self-inclusion fails
-!!options
-!!input
+!! options
+!! wikitext
 {{#lst:lst-selfinclusion1|A}}
-!!result
+!! html
 <p>Section A begin
 </p><p>Section B begin
 <span class="error">Template loop detected: <a href="/wiki/Lst-selfinclusion1" title="Lst-selfinclusion1">Lst-selfinclusion1</a></span>
 Section B end
 </p><p>Section A end
 </p>
-!!end
+!! end
 
-!!article
+!! article
 lst-redirected
-!!text
+!! text
 #REDIRECT[[Sections]]
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: Transclude a section via a redirect
-!!input
+!! wikitext
 {{#lst:lst-redirected|1}}
-!!result
+!! html
 <p>sec 1
 </p>
-!!end
+!! end
 
-!!article
+!! article
 lst-noinclude
-!!text
+!! text
 <noinclude>before</noinclude>
 <section begin="a" />sec a<section end="a" />
 <noinclude>after</noinclude>
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: Noinclude tags should not be included - start at section
-!!input
+!! wikitext
 {{#lst:lst-noinclude|a|}}
-!!result
+!! html
 <p>sec a
 </p>
-!!end
+!! end
 
-!!test
+!! test
 LST: Noinclude tags should not be included - end at section
-!!input
+!! wikitext
 {{#lst:lst-noinclude||a}}
-!!result
+!! html
 <p>sec a
 </p>
-!!end
+!! end
 
-!!article
+!! article
 User:DifferentNamespace/subpage
-!!text
+!! text
 <section begin="a" />sec a<section end="a" />
-!!endarticle
+!! endarticle
 
-!!test
+!! test
 LST: Transclusion from subpage in a non-standard namespace
-!!input
+!! wikitext
 {{#lst:User:DifferentNamespace/subpage|a}}
-!!result
+!! html
 <p>sec a
 </p>
-!!end
+!! end
