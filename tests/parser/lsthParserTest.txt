@@ -60,7 +60,7 @@ transclude the intro
 
 
 !! test
-transclude a heading
+transclude a section with invalid heading
 !! wikitext
 {{#lsth:LsthSections|b}}
 !! html
@@ -69,7 +69,7 @@ transclude a heading
 !! end
 
 !! test
-transclude a heading
+transclude a invalid heading
 !! wikitext
 {{#lsth:LsthSections|not}}
 !! html
