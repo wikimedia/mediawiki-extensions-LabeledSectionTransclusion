@@ -258,7 +258,14 @@ class LabeledSectionTransclusion {
 		$endAttr = self::getAttrPattern( $end, 'end' );
 		$endRegex = "/^$endAttr$/s";
 
-		return compact( 'root', 'newFrame', 'repl', 'beginRegex', 'begin', 'endRegex' );
+		return [
+			'root' => $root,
+			'newFrame' => $newFrame,
+			'repl' => $repl,
+			'beginRegex' => $beginRegex,
+			'begin' => $begin,
+			'endRegex' => $endRegex,
+		];
 	}
 
 	/**
