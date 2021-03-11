@@ -431,7 +431,7 @@ class LabeledSectionTransclusion {
 			// Search for the end tag
 			for ( ; $node; $node = $node->getNextSibling() ) {
 				if ( $node->getName() == 'ext' ) {
-					$parts = $node->splitExt( $node );
+					$parts = $node->splitExt();
 					$parts = array_map( [ $newFrame, 'expand' ], $parts );
 					if ( self::isSection( $parts['name'] ) ) {
 						if ( preg_match( $endRegex, $parts['attr'] ) ) {
