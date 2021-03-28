@@ -17,10 +17,16 @@
 		"LabeledSectionTransclusionMagic": "LabeledSectionTransclusion.i18n.magic.php"
 	},
 	"AutoloadClasses": {
-		"LabeledSectionTransclusion": "includes/LabeledSectionTransclusion.php"
+		"LabeledSectionTransclusion": "includes/LabeledSectionTransclusion.php",
+		"LabeledSectionTransclusionHooks": "includes/LabeledSectionTransclusionHooks.php"
 	},
 	"Hooks": {
-		"ParserFirstCallInit": "LabeledSectionTransclusion::setup"
+		"ParserFirstCallInit": "LabeledSectionTransclusionHookHandler"
+	},
+	"HookHandlers": {
+		"LabeledSectionTransclusionHookHandler": {
+			"class": "LabeledSectionTransclusionHooks"
+		}
 	},
 	"manifest_version": 2
 }
