@@ -272,7 +272,6 @@ class LabeledSectionTransclusion {
 		$lang = $parser->getContentLanguage()->getCode();
 		$text = '';
 		$node = $root->getFirstChild();
-		// @codingStandardsIgnoreStart
 		while ( $node ) {
 			// If the name of the begin node was specified, find it.
 			// Otherwise transclude everything from the beginning of the page.
@@ -326,7 +325,6 @@ class LabeledSectionTransclusion {
 
 			$node = $node->getNextSibling();
 		}
-		// @codingStandardsIgnoreEnd
 		return $text;
 	}
 
@@ -356,7 +354,7 @@ class LabeledSectionTransclusion {
 
 		$lang = $parser->getContentLanguage()->getCode();
 		$text = '';
-		// @codingStandardsIgnoreStart
+		// phpcs:ignore Generic.CodeAnalysis.JumbledIncrementer.Found
 		for ( $node = $root->getFirstChild(); $node; $node = $node ? $node->getNextSibling() : false ) {
 			// Search for the start tag
 			$found = false;
@@ -399,7 +397,6 @@ class LabeledSectionTransclusion {
 				}
 			}
 		}
-		// @codingStandardsIgnoreEnd
 		return $text;
 	}
 
