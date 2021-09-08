@@ -288,6 +288,7 @@ class LabeledSectionTransclusion {
 					$parts = $node->splitExt();
 					$parts = array_map( [ $newFrame, 'expand' ], $parts );
 					if ( self::isSection( $parts['name'], $lang ) ) {
+						// @phan-suppress-next-line SecurityCheck-ReDoS
 						if ( preg_match( $beginRegex, $parts['attr'] ) ) {
 							$found = true;
 							break;
@@ -306,6 +307,7 @@ class LabeledSectionTransclusion {
 					$parts = $node->splitExt();
 					$parts = array_map( [ $newFrame, 'expand' ], $parts );
 					if ( self::isSection( $parts['name'], $lang ) ) {
+						// @phan-suppress-next-line SecurityCheck-ReDoS
 						if ( preg_match( $endRegex, $parts['attr'] ) ) {
 							$found = true;
 							break;
@@ -366,6 +368,7 @@ class LabeledSectionTransclusion {
 					$parts = $node->splitExt();
 					$parts = array_map( [ $newFrame, 'expand' ], $parts );
 					if ( self::isSection( $parts['name'], $lang ) ) {
+						// @phan-suppress-next-line SecurityCheck-ReDoS
 						if ( preg_match( $beginRegex, $parts['attr'] ) ) {
 							$found = true;
 							break;
@@ -392,6 +395,7 @@ class LabeledSectionTransclusion {
 					$parts = $node->splitExt();
 					$parts = array_map( [ $newFrame, 'expand' ], $parts );
 					if ( self::isSection( $parts['name'], $lang ) ) {
+						// @phan-suppress-next-line SecurityCheck-ReDoS
 						if ( preg_match( $endRegex, $parts['attr'] ) ) {
 							$text .= self::expandSectionNode( $parser, $newFrame, $parts );
 							break;
