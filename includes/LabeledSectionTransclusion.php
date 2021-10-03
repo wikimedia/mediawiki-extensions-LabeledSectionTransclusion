@@ -14,6 +14,7 @@ class LabeledSectionTransclusion {
 	 * @param Parser $parser
 	 * @param string $part1
 	 * @return bool
+	 * @suppress PhanUndeclaredProperty
 	 */
 	private static function open( $parser, $part1 ) {
 		if ( !isset( $parser->mTemplatePath ) ) {
