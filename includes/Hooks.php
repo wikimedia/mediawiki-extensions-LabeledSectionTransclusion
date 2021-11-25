@@ -1,6 +1,11 @@
 <?php
 
-class LabeledSectionTransclusionHooks implements \MediaWiki\Hook\ParserFirstCallInitHook {
+namespace MediaWiki\Extension\LabeledSectionTransclusion;
+
+use MediaWiki\Hook\ParserFirstCallInitHook;
+use Parser;
+
+class Hooks implements ParserFirstCallInitHook {
 
 	/**
 	 * @param Parser $parser

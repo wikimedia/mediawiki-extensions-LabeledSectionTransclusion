@@ -1,8 +1,13 @@
 <?php
 
-class LabeledSectionTransclusion {
+namespace MediaWiki\Extension\LabeledSectionTransclusion;
 
-	private static $loopCheck = [];
+use Parser;
+use PPFrame;
+use PPNode;
+use Title;
+
+class LabeledSectionTransclusion {
 
 	/*
 	 * To do transclusion from an extension, we need to interact with the parser
@@ -85,7 +90,7 @@ class LabeledSectionTransclusion {
 		$sec = preg_quote( $sec, '/' );
 		$ws = "(?:\s+[^>]*)?"; // was like $ws="\s*"
 		$attrs = [ $type ];
-		$localName = LabeledSectionTransclusionHooks::getLocalName( $type, $lang );
+		$localName = Hooks::getLocalName( $type, $lang );
 		if ( $localName !== null ) {
 			$attrs[] = $localName;
 		}
@@ -227,7 +232,7 @@ class LabeledSectionTransclusion {
 	 */
 	private static function isSection( $name, $lang ) {
 		$name = strtolower( $name );
-		$sectionLocal = LabeledSectionTransclusionHooks::getLocalName( 'section', $lang );
+		$sectionLocal = Hooks::getLocalName( 'section', $lang );
 		return (
 			$name === 'section'
 			|| ( $sectionLocal !== null && $name === strtolower( $sectionLocal ) )
@@ -467,11 +472,9 @@ class LabeledSectionTransclusion {
 			$result = substr( $text, $begin_off );
 		}
 
-		if ( method_exists( $parser, 'getPreprocessor' ) ) {
-			$frame = $parser->getPreprocessor()->newFrame();
-			$dom = $parser->preprocessToDom( $result, Parser::PTD_FOR_INCLUSION );
-			$result = $frame->expand( $dom );
-		}
+		$frame = $parser->getPreprocessor()->newFrame();
+		$dom = $parser->preprocessToDom( $result, Parser::PTD_FOR_INCLUSION );
+		$result = $frame->expand( $dom );
 
 		return self::parse( $parser, $title, $result, "#lsth:${page}|${sec}", $nhead );
 	}

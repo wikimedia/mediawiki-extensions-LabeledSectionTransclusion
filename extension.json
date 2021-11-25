@@ -16,16 +16,15 @@
 	"ExtensionMessagesFiles": {
 		"LabeledSectionTransclusionMagic": "LabeledSectionTransclusion.i18n.magic.php"
 	},
-	"AutoloadClasses": {
-		"LabeledSectionTransclusion": "includes/LabeledSectionTransclusion.php",
-		"LabeledSectionTransclusionHooks": "includes/LabeledSectionTransclusionHooks.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\LabeledSectionTransclusion\\": "includes/"
 	},
 	"Hooks": {
 		"ParserFirstCallInit": "LabeledSectionTransclusionHookHandler"
 	},
 	"HookHandlers": {
 		"LabeledSectionTransclusionHookHandler": {
-			"class": "LabeledSectionTransclusionHooks"
+			"class": "MediaWiki\\Extension\\LabeledSectionTransclusion\\Hooks"
 		}
 	},
 	"manifest_version": 2
