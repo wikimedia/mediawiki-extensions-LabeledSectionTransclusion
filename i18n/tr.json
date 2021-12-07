@@ -2,8 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
-			"Joseph"
+			"Joseph",
+			"SaldırganSincap"
 		]
 	},
-	"lst-desc": "<code>#lst</code> ve <code>#lstx</code> işlevlerini ve <code>&lt;section&gt;</code> etiketini ekler, çapraz eklenecek metnin işaretli bölümlerini etkinleştirir"
+	"lst-desc": "<code>#lst</code> ve <code>#lstx</code> işlevlerini ve <code>&lt;section&gt;</code> etiketini ekler, metnin işaretli bölümlerinin yansıtmasına sağlar"
 }
