@@ -82,7 +82,7 @@ transclude offset section -w- subs.
 !! html
 <p>sec 2
 </p>
-<h3><span class="mw-headline" id="3">3</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=LsthSections&amp;action=edit&amp;section=T-1" title="Edit section: ">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h3><span class="mw-headline" id="3">3</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=LsthSections&amp;action=edit&amp;section=T-1" title="Edit section: 3">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
 <p>sec 3
 </p>
 !! end
