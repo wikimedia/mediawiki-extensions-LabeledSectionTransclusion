@@ -19,6 +19,7 @@ class LabeledSectionTransclusion {
 	 * @param Parser $parser
 	 * @param string $part1
 	 * @return bool
+	 * @suppress PhanUndeclaredProperty
 	 */
 	private static function open( $parser, $part1 ) {
 		if ( !isset( $parser->mTemplatePath ) ) {
@@ -94,7 +95,7 @@ class LabeledSectionTransclusion {
 			$attrs[] = $localName;
 		}
 		$attrName = '(?i:' . implode( '|', $attrs ) . ')';
-		return "$ws\s+$attrName=(?:$sec|\"$sec\"|'$sec')$ws";
+		return "$ws\s+$attrName=([\"']?)$sec\\1$ws";
 	}
 
 	/**
