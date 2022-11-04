@@ -476,6 +476,6 @@ class LabeledSectionTransclusion {
 		$dom = $parser->preprocessToDom( $result, Parser::PTD_FOR_INCLUSION );
 		$result = $frame->expand( $dom );
 
-		return self::parse( $parser, $title, $result, "#lsth:${page}|${sec}", $nhead );
+		return self::parse( $parser, $title, $result, "#lsth:{$page}|{$sec}", $nhead );
 	}
 }
