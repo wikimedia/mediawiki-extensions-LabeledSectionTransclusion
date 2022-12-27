@@ -4,5 +4,5 @@
 			"Michaello"
 		]
 	},
-	"lst-desc": "Dodaje <code>#lst</code> i <code>#lstx</code> funkcije i <code>&lt;section&gt;</code> tag, omogućuje da označeni odeljci teksta budu uključeni"
+	"lst-desc": "Dodaje funkcije <code>#lst</code> i <code>#lstx</code> i oznaku <code>&lt;section&gt;</code>, koja omogućava uključivanje označenih odeljaka teksta"
 }
