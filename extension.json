@@ -13,6 +13,9 @@
 			"i18n"
 		]
 	},
+	"TrackingCategories": [
+		"lst-invalid-section-category"
+	],
 	"ExtensionMessagesFiles": {
 		"LabeledSectionTransclusionMagic": "LabeledSectionTransclusion.i18n.magic.php"
 	},

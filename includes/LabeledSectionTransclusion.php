@@ -165,11 +165,13 @@ class LabeledSectionTransclusion {
 	 */
 	private static function setupPfunc12( $parser, $frame, $args, $func = 'lst' ) {
 		if ( !count( $args ) ) {
+			$parser->addTrackingCategory( "lst-invalid-section-category" );
 			return '';
 		}
 
 		$title = Title::newFromText( trim( $frame->expand( array_shift( $args ) ) ) );
 		if ( !$title ) {
+			$parser->addTrackingCategory( "lst-invalid-section-category" );
 			return '';
 		}
 		if ( !$frame->loopCheck( $title ) ) {
@@ -302,6 +304,7 @@ class LabeledSectionTransclusion {
 					}
 				}
 				if ( !$found || !$node ) {
+					$parser->addTrackingCategory( "lst-invalid-section-category" );
 					break;
 				}
 			}
@@ -443,6 +446,7 @@ class LabeledSectionTransclusion {
 				$begin_off = $m[2][1];
 				$head_len = strlen( $m[1][0] );
 			} else {
+				$parser->addTrackingCategory( "lst-invalid-section-category" );
 				return '';
 			}
 
