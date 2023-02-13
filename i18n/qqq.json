@@ -9,5 +9,4 @@
 	"lst-desc": "{{desc|name=Labeled Section Transclusion|url=https://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion}}",
 	"lst-invalid-section-category": "{{tracking category name}}",
 	"lst-invalid-section-category-desc": "Description on [[Special:TrackingCategories]] for the {{msg-mw|timeline-tracking-category}} tracking category"
-
 }

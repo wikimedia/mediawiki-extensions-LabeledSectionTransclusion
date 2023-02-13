@@ -4,5 +4,7 @@
 			"Bjankuloski06"
 		]
 	},
-	"lst-desc": "Ги додава фукциите <code>#lst</code> и <code>#lstx</code> и ознака <code>&lt;section&gt;</code>, што овозможува превметнување на обележаните делови од текстот"
+	"lst-desc": "Ги додава фукциите <code>#lst</code> и <code>#lstx</code> и ознака <code>&lt;section&gt;</code>, што овозможува превметнување на обележаните делови од текстот",
+	"lst-invalid-section-category": "Страници што превметнуваат непостоечки оддели",
+	"lst-invalid-section-category-desc": "Оваа страница користи разчленувачка функција #lst или #lsth која се повикува на оддел што не постои на дадената страница."
 }

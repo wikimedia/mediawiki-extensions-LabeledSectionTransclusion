@@ -5,5 +5,7 @@
 			"Rotem Liss"
 		]
 	},
-	"lst-desc": "הוספת פונקציות <code>#lst</code> ו־<code>#lstx</code> ותג <code>&lt;section&gt;</code>, המאפשרים הכללה של קטעים מסומנים של טקסט"
+	"lst-desc": "הוספת פונקציות <code>#lst</code> ו־<code>#lstx</code> ותג <code>&lt;section&gt;</code>, המאפשרים הכללה של קטעים מסומנים של טקסט",
+	"lst-invalid-section-category": "דפים שמכלילים קטעים שלא קיימים",
+	"lst-invalid-section-category-desc": "הדף משתמש בפונקציית המפענח #lst או #lsth, שמתייחסת לקטע שאינו קיים בדף הנתון."
 }
