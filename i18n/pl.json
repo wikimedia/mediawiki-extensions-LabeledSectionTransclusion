@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Rail",
 			"Sp5uhe"
 		]
 	},
-	"lst-desc": "Dodaje funkcje <code>#lst</code> i <code>#lstx</code> oraz znacznik <code>&lt;section&gt;</code> umożliwiające umieszczenie oznaczonej sekcji tekstu w treści innej strony"
+	"lst-desc": "Dodaje funkcje <code>#lst</code> i <code>#lstx</code> oraz znacznik <code>&lt;section&gt;</code> umożliwiające umieszczenie oznaczonej sekcji tekstu w treści innej strony",
+	"lst-invalid-section-category": "Strony transkludujące nieistniejące sekcje",
+	"lst-invalid-section-category-desc": "Strona wykorzystuje funkcję parsera #lst lub #lsth w odniesieniu do sekcji, która nie istnieje na podanej stronie."
 }

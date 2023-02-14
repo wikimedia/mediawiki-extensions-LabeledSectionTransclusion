@@ -4,5 +4,7 @@
 			"McDutchie"
 		]
 	},
-	"lst-desc": "Adde le functiones <code>#lst</code> e <code>#lstx</code> e le etiquetta <code>&lt;section&gt;</code>, permittente le transclusion de sectiones marcate de texto"
+	"lst-desc": "Adde le functiones <code>#lst</code> e <code>#lstx</code> e le etiquetta <code>&lt;section&gt;</code>, permittente le transclusion de sectiones marcate de texto",
+	"lst-invalid-section-category": "Paginas que transclude sectiones inexistente",
+	"lst-invalid-section-category-desc": "Le pagina usa un function del analysator syntactic #lst o #lsth que face referentia a un section que non existe sur le pagina indicate."
 }

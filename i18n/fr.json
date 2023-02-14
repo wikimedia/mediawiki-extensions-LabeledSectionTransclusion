@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Gomoko",
 			"Grondin",
 			"Verdy p"
 		]
 	},
-	"lst-desc": "Ajoute les fonctions <code>#lst</code> et <code>#lstx</code> ainsi que la balise <code>&lt;section&gt;</code>, active le marquage de sections du texte pouvant être transcluses."
+	"lst-desc": "Ajoute les fonctions <code>#lst</code> et <code>#lstx</code> ainsi que la balise <code>&lt;section&gt;</code>, active le marquage de sections du texte pouvant être transcluses.",
+	"lst-invalid-section-category": "Pages incluant des sections inexistantes",
+	"lst-invalid-section-category-desc": "La page utilise une fonction #lst ou #lsth de l’analyseur qui fait référence à une section qui n’existe pas sur la page donnée."
 }

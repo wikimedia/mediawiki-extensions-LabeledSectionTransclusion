@@ -5,5 +5,7 @@
 			"Eleassar"
 		]
 	},
-	"lst-desc": "Doda funkciji <code>#lst</code> in <code>#lstx</code> ter značko <code>&lt;section&gt;</code>, kar omogoči vključevanje označenih delov besedila"
+	"lst-desc": "Doda funkciji <code>#lst</code> in <code>#lstx</code> ter značko <code>&lt;section&gt;</code>, kar omogoči vključevanje označenih delov besedila",
+	"lst-invalid-section-category": "Strani, ki prevključujejo neobstoječe razdelke",
+	"lst-invalid-section-category-desc": "Stran uporablja funkcijo razčlenjevalnika #lst ali #lsth, ki se sklicuje na razdelek, ki na dani strani ne obstaja."
 }
