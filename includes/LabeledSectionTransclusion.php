@@ -283,10 +283,11 @@ class LabeledSectionTransclusion {
 		$lang = $parser->getContentLanguage()->getCode();
 		$text = '';
 		$node = $root->getFirstChild();
+		$foundSection = false;
 		while ( $node ) {
 			// If the name of the begin node was specified, find it.
 			// Otherwise transclude everything from the beginning of the page.
-			if ( $begin != '' ) {
+			if ( $begin !== '' ) {
 				// Find the begin node
 				$found = false;
 				for ( ; $node; $node = $node->getNextSibling() ) {
@@ -299,12 +300,12 @@ class LabeledSectionTransclusion {
 						// @phan-suppress-next-line SecurityCheck-ReDoS
 						if ( preg_match( $beginRegex, $parts['attr'] ) ) {
 							$found = true;
+							$foundSection = true;
 							break;
 						}
 					}
 				}
 				if ( !$found || !$node ) {
-					$parser->addTrackingCategory( "lst-invalid-section-category" );
 					break;
 				}
 			}
@@ -319,6 +320,7 @@ class LabeledSectionTransclusion {
 						// @phan-suppress-next-line SecurityCheck-ReDoS
 						if ( preg_match( $endRegex, $parts['attr'] ) ) {
 							$found = true;
+							$foundSection = true;
 							break;
 						}
 						$text .= self::expandSectionNode( $parser, $newFrame, $parts );
@@ -331,13 +333,16 @@ class LabeledSectionTransclusion {
 			}
 			if ( !$found ) {
 				break;
-			} elseif ( $begin == '' ) {
+			} elseif ( $begin === '' ) {
 				// When the end node was found and text is transcluded from
 				// the beginning of the page, finish the transclusion
 				break;
 			}
 
 			$node = $node->getNextSibling();
+		}
+		if ( !$foundSection ) {
+			$parser->addTrackingCategory( "lst-invalid-section-category" );
 		}
 		return $text;
 	}
