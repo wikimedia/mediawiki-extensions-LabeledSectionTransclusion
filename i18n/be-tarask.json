@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jim-by"
+			"Jim-by",
+			"Renessaince"
 		]
 	},
-	"lst-desc": "Дадае функцыі <code>#lst</code> і <code>#lstx</code> і тэг <code>&lt;section&gt;</code>, дазваляе пераносіць вызначаныя ўчасткі тэксту на іншыя старонкі"
+	"lst-desc": "Дадае функцыі <code>#lst</code> і <code>#lstx</code> і тэг <code>&lt;section&gt;</code>, дазваляе пераносіць вызначаныя ўчасткі тэксту на іншыя старонкі",
+	"lst-invalid-section-category": "Старонкі, якія ўключаюць няісныя разьдзелы",
+	"lst-invalid-section-category-desc": "Старонка выкарыстоўвае функцыі разбору тэксту #lst або #lsth у дачыненьні да разьдзелу, які на гэтай старонцы адсутнічае."
 }
