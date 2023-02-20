@@ -2,8 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Matěj Grabovský",
+			"Matěj Suchánek",
 			"Mormegil"
 		]
 	},
-	"lst-desc": "Přidává funkce <code>#lst:</code> a <code>#lstx:</code> a tag <code>&lt;section&gt;</code>, umožňuje transkluzi označených částí textu"
+	"lst-desc": "Přidává funkce <code>#lst:</code> a <code>#lstx:</code> a tag <code>&lt;section&gt;</code>, umožňuje transkluzi označených částí textu",
+	"lst-invalid-section-category": "Stránky vkládající neexistující sekce",
+	"lst-invalid-section-category-desc": "Stránka používá funkci parseru #lst nebo #lsth, která odkazuje na sekci, která na dané stránce neexistuje."
 }
