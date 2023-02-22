@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ted Masters"
+		]
+	},
+	"lst-invalid-section-category": "Страници, включващи несъществуващи сегменти или раздели",
+	"lst-invalid-section-category-desc": "Страницата използва анализиращата функция <code>#lst</code> или <code>#lsth</code>, която препраща към несъществуващ сегмент или раздел от посочената страница."
+}

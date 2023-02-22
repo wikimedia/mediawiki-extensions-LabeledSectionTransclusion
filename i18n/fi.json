@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Crt"
+			"Crt",
+			"Silvonen"
 		]
 	},
-	"lst-desc": "Lisää funktiot <code>#lst</code>, <code>#lstx</code> ja tagin <code>&lt;section&gt;</code> sekä mahdollistaa merkattujen tekstinosien sisällytyksen."
+	"lst-desc": "Lisää funktiot <code>#lst</code>, <code>#lstx</code> ja tagin <code>&lt;section&gt;</code> sekä mahdollistaa merkattujen tekstinosien sisällytyksen.",
+	"lst-invalid-section-category": "Sivut, jotka sisällyttävät olemattomia osioita"
 }
