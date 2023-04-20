@@ -2,8 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Kwj2772",
-			"아라"
+			"아라",
+			"Ykhwong"
 		]
 	},
-	"lst-desc": "특정 부분의 글을 틀처럼 포함할 수 있게 <code>#lst</code>, <code>#lstx</code> 함수와 <code>&lt;section&gt;</code> 태그를 추가합니다"
+	"lst-desc": "특정 부분의 글을 틀처럼 포함할 수 있게 <code>#lst</code>, <code>#lstx</code> 함수와 <code>&lt;section&gt;</code> 태그를 추가합니다",
+	"lst-invalid-section-category": "존재하지 않는 문단을 끼워넣은 문서",
+	"lst-invalid-section-category-desc": "이 문서는 지정된 문서에 존재하지 않는 문단을 참조하는 #lst 또는 #lsth 파서 함수를 사용합니다."
 }
