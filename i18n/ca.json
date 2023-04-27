@@ -4,5 +4,7 @@
 			"Aleator"
 		]
 	},
-	"lst-desc": "Afegeix les funcions <code>#lst</code> i <code>#lstx</code> i l'etiqueta <code>&lt;section&gt;</code>, permet transcloure seccions de text amb marques"
+	"lst-desc": "Afegeix les funcions <code>#lst</code> i <code>#lstx</code> i l'etiqueta <code>&lt;section&gt;</code>, permet transcloure seccions de text amb marques",
+	"lst-invalid-section-category": "Pàgines que transclouen seccions inexistents",
+	"lst-invalid-section-category-desc": "La pàgina utilitza una funció analitzadora #lst o #lsth que fa referència a una secció que no existeix en una pàgina donada."
 }

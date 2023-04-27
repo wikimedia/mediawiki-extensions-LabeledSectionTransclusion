@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sanbec"
+			"Sanbec",
+			"Aleator"
 		]
 	},
-	"lst-desc": "Añade las funciones <code>#lst</code> y <code>#lstx</code> y la etiqueta <code>&lt;section&gt;</code>, que permite transcluir secciones de texto marcadas"
+	"lst-desc": "Añade las funciones <code>#lst</code> y <code>#lstx</code> y la etiqueta <code>&lt;section&gt;</code>, que permite transcluir secciones de texto marcadas",
+	"lst-invalid-section-category": "Páginas que transcluyen secciones inexistentes",
+	"lst-invalid-section-category-desc": "La página usa una función de análisis #lst o #lsth que hace referencia a una sección que no existe en una página dada."
 }
