@@ -39,6 +39,12 @@ a <Abschnitt Anfang=a/>sec a<Abschnitt Ende=a/>
 <Abschnitt Anfang=a/>...<Abschnitt Ende=a/>
 !! endarticle
 
+!! article
+Spacey sections
+!! text 
+<section begin = spacey />sec spacey<section end = spacey />
+!! endarticle
+
 #test to see what happens when we don't use LST.
 !! test
 LST: Normal rendering
@@ -560,5 +566,14 @@ LST: Transclusion from subpage in a non-standard namespace
 {{#lst:User:DifferentNamespace/subpage|a}}
 !! html
 <p>sec a
+</p>
+!! end
+
+!! test
+LST: Allow whitespace in section tag
+!! wikitext
+{{#lst:Spacey sections|spacey}}
+!! html 
+<p>sec spacey
 </p>
 !! end

@@ -95,7 +95,7 @@ class LabeledSectionTransclusion {
 			$attrs[] = $localName;
 		}
 		$attrName = '(?i:' . implode( '|', $attrs ) . ')';
-		return "$ws\s+$attrName=([\"']?)$sec\\1$ws";
+		return "$ws\s+$attrName\s*=\s*([\"']?)$sec\\1$ws";
 	}
 
 	/**
