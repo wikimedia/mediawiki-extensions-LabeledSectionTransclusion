@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alshamiri1",
 			"Meno25"
 		]
 	},
-	"lst-desc": "يضيف الدالتين <code>#lst</code> و <code>#lstx</code> والوسم <code>&lt;section&gt;</code>، يفعل تضمين الأقسام المعلمة من النص"
+	"lst-desc": "يضيف الدالتين <code>#lst</code> و <code>#lstx</code> والوسم <code>&lt;section&gt;</code>، يفعل تضمين الأقسام المعلمة من النص",
+	"lst-invalid-section-category": "الصفحات التي تتضمن أقسامًا غير موجودة",
+	"lst-invalid-section-category-desc": "تستخدم الصفحة دالة #lst أو #lsth parser تشير إلى قسم غير موجود في الصفحة المحددة."
 }
