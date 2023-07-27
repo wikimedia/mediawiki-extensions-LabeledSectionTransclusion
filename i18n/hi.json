@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kaustubh"
+			"Kaustubh",
+			"SatyamMishra"
 		]
 	},
-	"lst-desc": "<code>#lst</code> और <code>#lstx</code> कार्य तथा <code>&lt;section&gt;</code> टॅग बढायें, पाठमेंसे चिन्हांकीत विभाग एकत्रित करें।"
+	"lst-desc": "<code>#lst</code> और <code>#lstx</code> कार्य तथा <code>&lt;section&gt;</code> टॅग बढायें, पाठमेंसे चिन्हांकीत विभाग एकत्रित करें।",
+	"lst-invalid-section-category": "अस्तित्वहीन अनुभागों को ट्रांसक्लूड करते पृष्ठ"
 }
