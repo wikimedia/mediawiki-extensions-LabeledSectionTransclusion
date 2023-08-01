@@ -4,5 +4,7 @@
 			"Pikne"
 		]
 	},
-	"lst-desc": "Lisab funktsioonid <code>#lst</code> ja <code>#lstx</code> ning sildi <code>&lt;section&gt;</code>; lubab ära märgitud tekstiosi mallina kasutada."
+	"lst-desc": "Lisab funktsioonid <code>#lst</code> ja <code>#lstx</code> ning sildi <code>&lt;section&gt;</code>; lubab ära märgitud tekstiosi mallina kasutada.",
+	"lst-invalid-section-category": "Leheküljed, kus mallina kasutatakse olematut alaosa",
+	"lst-invalid-section-category-desc": "Lehekülg kasutab parserifunktsiooni #lst või #lsth, mis viitab alaosale, mida sellel lehekülje ei ole."
 }
