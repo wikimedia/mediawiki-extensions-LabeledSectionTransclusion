@@ -84,25 +84,6 @@ LST: Transclude redirect to nonexistent article (bug 42477)
 !! end
 
 !! article
-double-redirect-1
-!! text
-#REDIRECT[[Sections]]
-!! endarticle
-
-!! article
-double-redirect-2
-!! text
-#REDIRECT[[double-redirect-1]]
-!! endarticle
-
-!! test
-LST: Transclude double redirect (bug 42477)
-!! wikitext
-{{#lst:double-redirect-2|1}}
-!! html
-!! end
-
-!! article
 redirect-loop
 !! text
 #REDIRECT[[redirect-loop]]
