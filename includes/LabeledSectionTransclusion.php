@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\LabeledSectionTransclusion;
 
+use MediaWiki\Title\Title;
 use Parser;
 use PPFrame;
 use PPNode;
-use Title;
 
 class LabeledSectionTransclusion {
 
