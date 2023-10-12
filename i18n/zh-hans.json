@@ -2,8 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Shinjiman",
-			"Xiaomingyan"
+			"Xiaomingyan",
+			"LittlePaw365"
 		]
 	},
-	"lst-desc": "添加“<code>#lst</code>”和“<code>#lstx</code>”功能以及“<code>&lt;section&gt;</code>”标签，可以用来将已经标示的段落包含起来"
+	"lst-desc": "添加<code>#lst</code>、<code>#lstx</code>函数和<code>&lt;section&gt;</code>标签，使标记的文本部分能够嵌入引用",
+	"lst-invalid-section-category": "嵌入不存在部分的页面",
+	"lst-invalid-section-category-desc": "页面使用的#lst或#lsth解析器函数引用了给定页面上不存在的部分。"
 }
