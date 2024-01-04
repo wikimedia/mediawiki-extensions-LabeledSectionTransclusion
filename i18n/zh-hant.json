@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shinjiman"
+			"Shinjiman",
+			"Kly"
 		]
 	},
-	"lst-desc": "加入 <code>#lst</code> 和 <code>#lstx</code> 功能以及 <code>&lt;section&gt;</code> 標籤，可以用來將已經標示的段落包含起來"
+	"lst-desc": "加入 <code>#lst</code> 和 <code>#lstx</code> 功能以及 <code>&lt;section&gt;</code> 標籤，可以用來將已經標示的段落包含起來",
+	"lst-invalid-section-category": "嵌入不存在部分的頁面",
+	"lst-invalid-section-category-desc": "該頁面使用 #lst 或 #lsth 解析函式引用了指定頁面上不存在的部分。"
 }
