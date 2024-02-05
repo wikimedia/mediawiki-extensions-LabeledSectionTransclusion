@@ -4,5 +4,7 @@
 			"Joetaras"
 		]
 	},
-	"lst-desc": "Aggiunge le funzione <code>#lst</code> e <code>#lstx</code> e 'u tag <code>&lt;section&gt;</code>, ca abilitesce le sezione marchete de teste pe essere escluse"
+	"lst-desc": "Aggiunge le funzione <code>#lst</code> e <code>#lstx</code> e 'u tag <code>&lt;section&gt;</code>, ca abilitesce le sezione marchete de teste pe essere escluse",
+	"lst-invalid-section-category": "Pàggene ca escludene le seziune ca non g'esistone",
+	"lst-invalid-section-category-desc": "'A pàgene ause 'na funzione analizzatrice #lst o #lsth ca apponde 'na sezione ca non g'esiste sus a sta pàgene."
 }
