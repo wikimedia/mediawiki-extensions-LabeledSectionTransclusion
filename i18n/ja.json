@@ -3,10 +3,11 @@
 		"authors": [
 			"Ant176",
 			"JtFuruhata",
+			"Marine-Blue",
 			"Shirayuki"
 		]
 	},
 	"lst-desc": "文章を章単位で埋め込み参照できるようにする <code>#lst</code>、<code>#lstx</code> 関数および <code>&lt;section&gt;</code> タグを追加する",
-	"lst-invalid-section-category": "存在しない節を含むページ",
+	"lst-invalid-section-category": "存在しない節を参照読み込みしているページ",
 	"lst-invalid-section-category-desc": "このページでは、指定されたページに存在しない節を参照する #lst または #lsth パーサー関数が使用されています。"
 }
