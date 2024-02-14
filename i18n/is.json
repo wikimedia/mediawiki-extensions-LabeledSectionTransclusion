@@ -4,5 +4,6 @@
 			"Stefán Örvar Sigmundsson"
 		]
 	},
-	"lst-invalid-section-category": "Síður sem innifela hluta sem ekki eru til"
+	"lst-invalid-section-category": "Síður sem innifela hluta sem ekki eru til",
+	"lst-invalid-section-category-desc": "Síðan notar #lst eða #lsth þáttaraaðgerð sem vísar í hluta sem er ekki til á viðkomandi síðu."
 }
