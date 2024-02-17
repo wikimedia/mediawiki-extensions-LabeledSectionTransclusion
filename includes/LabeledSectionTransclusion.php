@@ -139,7 +139,7 @@ class LabeledSectionTransclusion {
 	private static function getTemplateText( $parser, $page, &$title, &$text ) {
 		$title = Title::newFromText( $page );
 
-		if ( $title === null ) {
+		if ( $title === null || $title->isExternal() ) {
 			$text = '';
 			return true;
 		} else {
@@ -170,7 +170,7 @@ class LabeledSectionTransclusion {
 		}
 
 		$title = Title::newFromText( trim( $frame->expand( array_shift( $args ) ) ) );
-		if ( !$title ) {
+		if ( !$title || $title->isExternal() ) {
 			$parser->addTrackingCategory( "lst-invalid-section-category" );
 			return '';
 		}
