@@ -143,7 +143,7 @@ class LabeledSectionTransclusion {
 			$text = '';
 			return true;
 		} else {
-			list( $text, $title ) = $parser->fetchTemplateAndTitle( $title );
+			[ $text, $title ] = $parser->fetchTemplateAndTitle( $title );
 		}
 
 		// if article doesn't exist, return a red link.
@@ -181,7 +181,7 @@ class LabeledSectionTransclusion {
 				. '</span>';
 		}
 
-		list( $root, $finalTitle ) = $parser->getTemplateDom( $title );
+		[ $root, $finalTitle ] = $parser->getTemplateDom( $title );
 
 		// if article doesn't exist, return a red link.
 		if ( $root === false ) {
