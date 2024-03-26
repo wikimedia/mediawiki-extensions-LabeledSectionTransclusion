@@ -457,6 +457,7 @@ class LabeledSectionTransclusion {
 
 		}
 
+		$end_off = null;
 		if ( $to != '' ) {
 			// if $to is supplied, try and match it. If we don't match, just
 			// ignore it.
@@ -466,7 +467,7 @@ class LabeledSectionTransclusion {
 			}
 		}
 
-		if ( !isset( $end_off ) ) {
+		if ( $end_off === null ) {
 			$pat = '^(={1,' . $head_len . '})(?!=).*?\1\s*$';
 			if ( preg_match( "/$pat/im", $text, $m, PREG_OFFSET_CAPTURE, $begin_off ) ) {
 				$end_off = $m[0][1] - 1;
@@ -475,7 +476,7 @@ class LabeledSectionTransclusion {
 
 		$nhead = self::countHeadings( $text, $begin_off );
 
-		if ( isset( $end_off ) ) {
+		if ( $end_off !== null ) {
 			$result = substr( $text, $begin_off, $end_off - $begin_off );
 		} else {
 			$result = substr( $text, $begin_off );
