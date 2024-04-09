@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Lejonel"
+			"Lejonel",
+			"Sabelöga"
 		]
 	},
-	"lst-desc": "Lägger till funktionerna <code>#lst</code> och <code>#lstx</code> för att inkludera avsnitt av en text, samt taggen <code>&lt;section&gt;</code> för att markera de avsnitt som kan inkluderas"
+	"lst-desc": "Lägger till funktionerna <code>#lst</code> och <code>#lstx</code> för att inkludera avsnitt av en text, samt taggen <code>&lt;section&gt;</code> för att markera de avsnitt som kan inkluderas",
+	"lst-invalid-section-category": "Sidor som transkluderar avsnitt som inte finns",
+	"lst-invalid-section-category-desc": "Sidan använder en #lst eller #lsth parser-funktion som hänvisar till ett avsnitt som inte finns på den angivna sidan."
 }
