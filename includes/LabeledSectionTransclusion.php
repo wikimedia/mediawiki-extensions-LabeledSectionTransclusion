@@ -19,9 +19,9 @@ class LabeledSectionTransclusion {
 	 * @param Parser $parser
 	 * @param string $part1
 	 * @return bool
-	 * @suppress PhanUndeclaredProperty
 	 */
 	private static function open( $parser, $part1 ) {
+		// This property on Parser has been deprecated: T360573
 		if ( !isset( $parser->mTemplatePath ) ) {
 			$parser->mTemplatePath = [];
 		}
