@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": []
 	},
+	"lst-extensionname": "Labeled&shy;Section&shy;Transclusion",
 	"lst-desc": "Adds <code>#lst</code> and <code>#lstx</code> functions and <code>&lt;section&gt;</code> tag, enables marked sections of text to be transcluded",
 	"lst-invalid-section-category": "Pages transcluding nonexistent sections",
 	"lst-invalid-section-category-desc": "The page uses a #lst or #lsth parser function that references a section that doesn't exist on the given page."

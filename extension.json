@@ -1,5 +1,6 @@
 {
 	"name": "LabeledSectionTransclusion",
+	"namemsg": "lst-extensionname",
 	"author": "Steve Sanbeg",
 	"url": "https://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion",
 	"descriptionmsg": "lst-desc",
