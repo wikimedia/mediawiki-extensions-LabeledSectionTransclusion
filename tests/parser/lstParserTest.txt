@@ -271,20 +271,24 @@ blah
 
 !! test
 LST: Transcluded section headings create edit link to template
+!! config
+wgParserEnableLegacyHeadingDOM=false
 !! wikitext
 {{#lst:headings|head}}
 !! html
-<h2><span class="mw-headline" id="section">section</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Headings&amp;action=edit&amp;section=T-1" title="Edit section: section">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="mw-heading mw-heading2"><h2 id="section">section</h2><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Headings&amp;action=edit&amp;section=T-1" title="Edit section: section">edit</a><span class="mw-editsection-bracket">]</span></span></div>
 <p>blah
 </p>
 !! end
 
 !! test
 LST: Transcluded section headings create edit link to right section (mw 1.9r18218)
+!! config
+wgParserEnableLegacyHeadingDOM=false
 !! wikitext
 {{#lst:headings|head2}}
 !! html
-<h2><span class="mw-headline" id="section2">section2</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Headings&amp;action=edit&amp;section=T-2" title="Edit section: section2">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="mw-heading mw-heading2"><h2 id="section2">section2</h2><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Headings&amp;action=edit&amp;section=T-2" title="Edit section: section2">edit</a><span class="mw-editsection-bracket">]</span></span></div>
 <p>blah
 </p>
 !! end
@@ -304,13 +308,15 @@ hi
 
 !! test
 LST: more sensitive test for heading count boundaries.
+!! config
+wgParserEnableLegacyHeadingDOM=false
 !! wikitext
 {{#lst:lst_head_bounds|s}}
 !! html
-<h1><span class="mw-headline" id="3">3</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=T-3" title="Edit section: 3">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<div class="mw-heading mw-heading1"><h1 id="3">3</h1><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=T-3" title="Edit section: 3">edit</a><span class="mw-editsection-bracket">]</span></span></div>
 <p>hi
 </p>
-<h1><span class="mw-headline" id="4">4</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=T-4" title="Edit section: 4">edit</a><span class="mw-editsection-bracket">]</span></span></h1>
+<div class="mw-heading mw-heading1"><h1 id="4">4</h1><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Lst_head_bounds&amp;action=edit&amp;section=T-4" title="Edit section: 4">edit</a><span class="mw-editsection-bracket">]</span></span></div>
 !! end
 
 
