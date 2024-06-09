@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\LabeledSectionTransclusion;
 
+use MediaWiki\Parser\Parser;
 use MediaWiki\Title\Title;
-use Parser;
 use PPFrame;
 use PPNode;
 
