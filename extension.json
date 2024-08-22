@@ -6,7 +6,7 @@
 	"descriptionmsg": "lst-desc",
 	"license-name": "GPL-2.0-or-later",
 	"requires": {
-		"MediaWiki": ">= 1.42"
+		"MediaWiki": ">= 1.43"
 	},
 	"type": "parserhook",
 	"MessagesDirs": {
