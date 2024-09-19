@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Crt",
-			"Silvonen"
+			"Silvonen",
+			"Samoasambia"
 		]
 	},
 	"lst-desc": "Lisää funktiot <code>#lst</code>, <code>#lstx</code> ja tagin <code>&lt;section&gt;</code> sekä mahdollistaa merkattujen tekstinosien sisällytyksen.",
-	"lst-invalid-section-category": "Sivut, jotka sisällyttävät olemattomia osioita"
+	"lst-invalid-section-category": "Sivut, jotka sisällyttävät olemattomia osioita",
+	"lst-invalid-section-category-desc": "Sivu käyttää #lst- tai #lsth-jäsenninfunktiota, joka viittaa osioon, jota ei ole olemassa annetulla sivulla."
 }
