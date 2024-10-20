@@ -3,9 +3,9 @@
 namespace MediaWiki\Extension\LabeledSectionTransclusion;
 
 use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\PPFrame;
+use MediaWiki\Parser\PPNode;
 use MediaWiki\Title\Title;
-use PPFrame;
-use PPNode;
 
 class LabeledSectionTransclusion {
 
