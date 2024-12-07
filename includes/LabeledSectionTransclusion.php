@@ -88,7 +88,8 @@ class LabeledSectionTransclusion {
 	 */
 	private static function getAttrPattern( $sec, $type, $lang ) {
 		$sec = preg_quote( $sec, '/' );
-		$ws = "(?:\s+[^>]*)?"; // was like $ws="\s*"
+		// Similiar like $ws="\s*", but special for attributes
+		$ws = "(?:\s+[^>]*)?";
 		$attrs = [ $type ];
 		$localName = Hooks::getLocalName( $type, $lang );
 		if ( $localName !== null ) {
