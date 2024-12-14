@@ -22,9 +22,7 @@ class LabeledSectionTransclusion {
 	 */
 	private static function open( $parser, $part1 ) {
 		// This property on Parser has been deprecated: T360573
-		if ( !isset( $parser->mTemplatePath ) ) {
-			$parser->mTemplatePath = [];
-		}
+		$parser->mTemplatePath ??= [];
 
 		// Infinite loop test
 		if ( isset( $parser->mTemplatePath[$part1] ) ) {
