@@ -4,5 +4,5 @@
 			"Toliño"
 		]
 	},
-	"lst-desc": "Engade as funcións <code>#lst</code> e <code>#lstx</code> funcións, e a etiqueta <code>&lt;section&gt;</code>, permite que as seccións maradas dun texto sexan transcluídas"
+	"lst-desc": "Engade as funcións <code>#lst</code> e <code>#lstx</code>, así como a etiqueta <code>&lt;section&gt;</code>, ademais de permitir a transclusión das seccións marcadas dun texto"
 }
