@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Huji"
+			"Huji",
+			"Jeeputer"
 		]
 	},
-	"lst-desc": "عملگرهای <code>#lst</code> و <code>#lstx</code> و برچسب <code>&lt;section&gt;</code> را می‌افزاید، تا بتوان قسمت‌هایی از متن را در صفحه‌های دیگر گنجاند"
+	"lst-desc": "عملگرهای <code>#lst</code> و <code>#lstx</code> و برچسب <code>&lt;section&gt;</code> را می‌افزاید، تا بتوان قسمت‌هایی از متن را در صفحه‌های دیگر گنجاند",
+	"lst-invalid-section-category": "صفحه‌هایی که بخش‌های ناموجود را تراگنجانش می‌کنند"
 }
