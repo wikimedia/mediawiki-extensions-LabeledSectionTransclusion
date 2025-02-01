@@ -187,6 +187,7 @@ class LabeledSectionTransclusion {
 			return "[[" . $title->getPrefixedText() . "]]";
 		}
 
+		$finalTitle = Title::newFromLinkTarget( $finalTitle );
 		$newFrame = $frame->newChild( false, $finalTitle );
 		if ( !count( $args ) ) {
 			return $newFrame->expand( $root );
