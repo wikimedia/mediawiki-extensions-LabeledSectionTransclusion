@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aviator"
+			"Aviator",
+			"Hakimi97"
 		]
 	},
-	"lst-desc": "Menambah fungsi <code>#lst</code> dan <code>#lstx</code> serta tag <code>&lt;section&gt;</code>, justeru membolehkan penyertaan bahagian-bahagian teks yang telah ditanda"
+	"lst-desc": "Menambah fungsi <code>#lst</code> dan <code>#lstx</code> serta tag <code>&lt;section&gt;</code>, justeru membolehkan penyertaan bahagian-bahagian teks yang telah ditanda",
+	"lst-invalid-section-category": "Laman yang mentransklusi bahagian tidak wujud",
+	"lst-invalid-section-category-desc": "Laman ini menggunakan fungsi penghurai #lst atau #lsth yang merujuk bahagian yang tidak wujud pada laman diberi."
 }
