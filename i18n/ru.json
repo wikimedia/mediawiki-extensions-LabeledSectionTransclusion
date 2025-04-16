@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"MidnightLG",
 			"Stjn",
 			"Александр Сигачёв"
 		]
 	},
 	"lst-desc": "Добавляет функции <code>#lst</code> и <code>#lstx</code> и тег <code>&lt;section&gt;</code>, позволяет включать отмеченные участки текста на другие страницы",
-	"lst-invalid-section-category": "Страницы, включающие несуществующие разделы"
+	"lst-invalid-section-category": "Страницы, включающие несуществующие разделы",
+	"lst-invalid-section-category-desc": "Страница использует функцию парсера #lst или #lsth, которая ссылается на несуществующий раздел целевой страницы."
 }
