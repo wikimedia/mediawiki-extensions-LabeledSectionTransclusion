@@ -77,8 +77,6 @@ transclude a invalid heading
 
 !! test
 transclude offset section -w- subs.
-!! config
-wgParserEnableLegacyHeadingDOM=false
 !! wikitext
 {{#lsth:LsthSections|2}}
 !! html
@@ -120,8 +118,6 @@ broken noinclude tags.
 
 !! test
 blank lines at end
-!! config
-wgParserEnableLegacyHeadingDOM=false
 !! wikitext
 {{#lsth:LsthSections|1}}
 

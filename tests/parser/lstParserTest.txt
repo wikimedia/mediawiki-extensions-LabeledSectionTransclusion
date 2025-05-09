@@ -271,8 +271,6 @@ blah
 
 !! test
 LST: Transcluded section headings create edit link to template
-!! config
-wgParserEnableLegacyHeadingDOM=false
 !! wikitext
 {{#lst:headings|head}}
 !! html
@@ -283,8 +281,6 @@ wgParserEnableLegacyHeadingDOM=false
 
 !! test
 LST: Transcluded section headings create edit link to right section (mw 1.9r18218)
-!! config
-wgParserEnableLegacyHeadingDOM=false
 !! wikitext
 {{#lst:headings|head2}}
 !! html
@@ -308,8 +304,6 @@ hi
 
 !! test
 LST: more sensitive test for heading count boundaries.
-!! config
-wgParserEnableLegacyHeadingDOM=false
 !! wikitext
 {{#lst:lst_head_bounds|s}}
 !! html
