@@ -15,26 +15,6 @@ class LabeledSectionTransclusion {
 	 */
 
 	/**
-	 * Register what we're working on in the parser, so we don't fall into a trap.
-	 * @param Parser $parser
-	 * @param string $part1
-	 * @return bool
-	 */
-	private static function open( $parser, $part1 ) {
-		// This property on Parser has been deprecated: T360573
-		$parser->mTemplatePath ??= [];
-
-		// Infinite loop test
-		if ( isset( $parser->mTemplatePath[$part1] ) ) {
-			wfDebug( __METHOD__ . ": template loop broken at '$part1'\n" );
-			return false;
-		} else {
-			$parser->mTemplatePath[$part1] = 1;
-			return true;
-		}
-	}
-
-	/**
 	 * Handle recursive substitution here, so we can break cycles, and set up
 	 * return values so that edit sections will resolve correctly.
 	 * @param Parser $parser
@@ -50,14 +30,9 @@ class LabeledSectionTransclusion {
 		// text, may as well do the right thing.
 		$text = str_replace( '</section>', '', $text );
 
-		if ( self::open( $parser, $part1 ) ) {
-			// Try to get edit sections correct by munging around the parser's guts.
-			return [ $text, 'title' => $title, 'replaceHeadings' => true,
+		// Try to get edit sections correct by munging around the parser's guts.
+		return [ $text, 'title' => $title, 'replaceHeadings' => true,
 				'headingOffset' => $skiphead, 'noparse' => false, 'noargs' => false ];
-		} else {
-			return "[[" . $title->getPrefixedText() . "]]" .
-				"<!-- WARNING: LST loop detected -->";
-		}
 	}
 
 	/*
