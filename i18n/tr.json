@@ -3,8 +3,10 @@
 		"authors": [
 			"BaRaN6161 TURK",
 			"Joseph",
-			"SaldırganSincap"
+			"SaldırganSincap",
+			"Pedian4169"
 		]
 	},
-	"lst-desc": "<code>#lst</code> ve <code>#lstx</code> işlevlerini ve <code>&lt;section&gt;</code> etiketini ekler, metnin işaretli bölümlerinin yansıtmasına sağlar"
+	"lst-desc": "<code>#lst</code> ve <code>#lstx</code> işlevlerini ve <code>&lt;section&gt;</code> etiketini ekler, metnin işaretli bölümlerinin yansıtmasına sağlar",
+	"lst-invalid-section-category": "Var olmayan bölümleri yansıtan sayfalar"
 }
