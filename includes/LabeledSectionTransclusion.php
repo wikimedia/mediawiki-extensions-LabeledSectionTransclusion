@@ -17,15 +17,13 @@ class LabeledSectionTransclusion {
 	/**
 	 * Handle recursive substitution here, so we can break cycles, and set up
 	 * return values so that edit sections will resolve correctly.
-	 * @param Parser $parser
 	 * @param Title $title of target page
 	 * @param string $text
-	 * @param string $part1 Key for cycle detection
 	 * @param int $skiphead Number of source string headers to skip for numbering
 	 * @return mixed string or magic array of bits
 	 * @todo handle mixed-case </section>
 	 */
-	private static function parse( $parser, $title, $text, $part1, $skiphead = 0 ) {
+	private static function parse( $title, $text, $skiphead = 0 ) {
 		// if someone tries something like<section begin=blah>lst only</section>
 		// text, may as well do the right thing.
 		$text = str_replace( '</section>', '', $text );
@@ -462,6 +460,6 @@ class LabeledSectionTransclusion {
 		$result = $frame->expand( $dom );
 		$result = trim( $result );
 
-		return self::parse( $parser, $title, $result, "#lsth:{$page}|{$sec}", $nhead );
+		return self::parse( $title, $result, $nhead );
 	}
 }
