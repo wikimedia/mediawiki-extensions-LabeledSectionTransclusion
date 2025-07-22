@@ -4,7 +4,7 @@
 			"Умар"
 		]
 	},
-	"lst-desc": "ТӀетуху функцеш <code>#lst</code> а, <code>#lstx</code> а тег <code>&lt;section&gt;</code>, билгалйина йозан меттигаш кхечу агӀонашкахь лато аьтту хуьлуьйту.",
+	"lst-desc": "ТӀетуху функцеш <code>#lst</code> а, <code>#lstx</code> а тег <code>&lt;section&gt;</code>, билгалйина текстан меттигаш кхечу агӀонашкахь лато аьтту хуьлуьйту.",
 	"lst-invalid-section-category": "Доцу дакъош йукъадогӀу агӀонаш",
 	"lst-invalid-section-category-desc": "АгӀонехь лелайо #lst йа #lsth парсеран функци, иза тӀетевжаш йу Ӏалашонан агӀонан доцу дакъа."
 }
