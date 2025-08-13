@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Yueman"
 		]
 	},
-	"lst-desc": "加 <code>#lst</code> 同埋 <code>#lstx</code> 功能同埋 <code>&lt;section&gt;</code> 標籤，可以用來將已經標示咗嘅小節包含出來"
+	"lst-desc": "加 <code>#lst</code> 同埋 <code>#lstx</code> 功能同埋 <code>&lt;section&gt;</code> 標籤，可以用來將已經標示咗嘅小節包含出來",
+	"lst-invalid-section-category": "嵌入咗唔存在章節嘅頁",
+	"lst-invalid-section-category-desc": "呢版用咗 #lst 或 #lsth 解析函數引用指定嘅頁入面唔存在嘅章節。"
 }
