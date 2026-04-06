@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"NgocAnMaster",
 			"Vinhtantran"
 		]
 	},
-	"lst-desc": "Thêm các hàm <code>#lst</code> và <code>#lstx</code> cùng thẻ <code>&lt;section&gt;</code> để cho phép nhúng những đoạn văn bản được đánh dấu."
+	"lst-extensionname": "Nhúng&shy;Đề&shy;mục&shy;được&shy;Đánh&shy;dấu",
+	"lst-desc": "Thêm các hàm <code>#lst</code> và <code>#lstx</code> cùng thẻ <code>&lt;section&gt;</code> để cho phép nhúng những đoạn văn bản được đánh dấu.",
+	"lst-invalid-section-category": "Trang nhúng đề mục không tồn tại",
+	"lst-invalid-section-category-desc": "Trang sử dụng hàm phân tích cú pháp #lst hoặc #lsth để tham chiếu đến một đề mục không tồn tại trên trang được cung cấp."
 }
