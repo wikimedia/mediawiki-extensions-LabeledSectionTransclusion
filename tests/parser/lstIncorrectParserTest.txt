@@ -81,6 +81,8 @@ LST: Transclude redirect to nonexistent article (bug 42477)
 !! wikitext
 {{#lst:redirected-does-not-exist|anything}}
 !! html
+<p><a href="/wiki/Redirected-does-not-exist" class="mw-redirect" title="Redirected-does-not-exist">Redirected-does-not-exist</a>
+</p>
 !! end
 
 !! article
