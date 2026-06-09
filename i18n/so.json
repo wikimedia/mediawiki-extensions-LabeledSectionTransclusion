@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"lst-desc": "Waxay ku dartaa shaqooyinka <code>#lst</code> iyo <code>#lstx</code> iyo summadda <code>&lt;section&gt;</code>, waxayna suuragelisaa in qaybaha qoraalka ee la calaamadeeyey lagu daro bogag kale",
+	"lst-invalid-section-category": "Bogagga ku daraya qaybaha aan jirin",
+	"lst-invalid-section-category-desc": "Boggu wuxuu isticmaalayaa shaqada falanqeeye #lst ama #lsth oo tixraacaysa qayb aan ka jirin bogga la siiyay."
+}
