@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"lst-extensionname": "نښکه‌شوی&shy؛برخه&shy؛رانغاړنې",
+	"lst-desc": "<code>#lst</code> او <code>#lstx</code> کړنچارې او <code>&lt;section&gt;</code> نښلن ورگډوي؛ ترڅو په نورو مخونو کې د ليک نښه‌شوې برخې د رانغاړلو وړ وگرځوي",
+	"lst-invalid-section-category": "هغه مخونه چې نشت برخې لري",
+	"lst-invalid-section-category-desc": "دا مخ د #lst يا #lsth ټوټه‌کوونکې کړنچاره کاروي چې هغه برخې ته اشاره کوي چې په ورکړل شوي مخ کې شتون نه‌لري."
+}
