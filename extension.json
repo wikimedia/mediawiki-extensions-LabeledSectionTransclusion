@@ -31,5 +31,14 @@
 			"class": "MediaWiki\\Extension\\LabeledSectionTransclusion\\Hooks"
 		}
 	},
+	"attributes": {
+		"CodeMirror": {
+			"ParserFunctionNsIds": {
+				"lst": 0,
+				"lstx": 0,
+				"lsth": 0
+			}
+		}
+	},
 	"manifest_version": 2
 }
