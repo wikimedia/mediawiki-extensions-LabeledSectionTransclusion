@@ -1,4 +1,14 @@
 {
+	"name": "mediawiki/labeled-section-transclusion",
+	"type": "mediawiki-extension",
+	"description": "Enables marked sections of text to be transcluded",
+	"keywords": [
+		"wiki",
+		"MediaWiki",
+		"extension"
+	],
+	"homepage": "https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Labeled_Section_Transclusion",
+	"license": "GPL-2.0-or-later",
 	"require-dev": {
 		"mediawiki/mediawiki-codesniffer": "52.0.0",
 		"mediawiki/mediawiki-phan-config": "0.20.0",
