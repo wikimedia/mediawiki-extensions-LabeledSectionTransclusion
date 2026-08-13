@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Ahonc",
-			"Andriy.v"
+			"Andriy.v",
+			"Movses"
 		]
 	},
 	"lst-desc": "Додає функції <code>#lst</code> та <code>#lstx</code> і тег <code>&lt;section&gt;</code>, дозволяє включати позначені ділянки тексту на інші сторінки",
-	"lst-invalid-section-category": "Сторінки, які включають неіснуючі розділи"
+	"lst-invalid-section-category": "Сторінки, які включають неіснуючі розділи",
+	"lst-invalid-section-category-desc": "Сторінка використовує функцію парсера #lst або #lsth, яка посилається на розділ, якого немає на заданій сторінці."
 }
