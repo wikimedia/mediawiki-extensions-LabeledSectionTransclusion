@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Helix84"
+			"Helix84",
+			"Wizzard"
 		]
 	},
-	"lst-desc": "Pridáva funkcie <code>#lst</code> and <code>#lstx</code> a značku <code>&lt;section&gt;</code>, umožňuje transklúziu označených častí textu"
+	"lst-desc": "Pridáva funkcie <code>#lst</code> and <code>#lstx</code> a značku <code>&lt;section&gt;</code>, umožňuje transklúziu označených častí textu",
+	"lst-invalid-section-category": "Stránky vkladajúce neexistujúce sekcie",
+	"lst-invalid-section-category-desc": "Stránka používa funkciu syntaktického analyzátora #lst alebo #lsth, ktorá odkazuje na sekciu, ktorá na danej stránke neexistuje."
 }
