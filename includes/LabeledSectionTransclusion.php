@@ -210,6 +210,12 @@ class LabeledSectionTransclusion {
 			$end = trim( $frame->expand( array_shift( $args ) ) );
 		}
 
+		// T309322: Regex pattern compilation starts to fail after about 64K (escaped)
+		if ( strlen( $begin ) > 2048 || strlen( $end ) > 2048 ) {
+			$parser->addTrackingCategory( "lst-invalid-section-category" );
+			return '';
+		}
+
 		$lang = $parser->getContentLanguage()->getCode();
 		$beginAttr = self::getAttrPattern( $begin, 'begin', $lang );
 		$beginRegex = "/^$beginAttr$/s";
